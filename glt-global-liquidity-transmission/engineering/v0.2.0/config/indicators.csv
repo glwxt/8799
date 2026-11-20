@@ -1,0 +1,20 @@
+indicator_id,layer,points,frequency,max_age_days,direction,source_name,fred_id,unit
+reserves,L1,8,weekly,10,context,Federal Reserve H4.1,WRESBAL,Millions of USD
+tga,L1,8,daily,5,context,US Treasury DTS,,Millions of USD
+on_rrp,L1,5,daily,5,context,NY Fed,RRPONTSYD,Billions of USD
+fed_assets,L1,5,weekly,10,context,Federal Reserve H4.1,WALCL,Millions of USD
+global_usd,L1,4,weekly,14,context,Multiple official sources,,Composite
+dxy,L2,8,daily,5,negative,ICE USD Index,,Index
+us_10y_real,L2,8,daily,5,negative,FRED / US Treasury,DFII10,Percent
+us_10y_nominal,L2,4,daily,5,context,FRED / US Treasury,DGS10,Percent
+usd_funding,L2,5,daily,7,context,Multiple sources,,Spread
+vix,L3,5,daily,5,negative,Cboe,VIX_CBOE,Index
+hy_spread,L3,5,daily,7,negative,ICE / FRED,BAMLH0A0HYM2,Percent
+us_breadth,L3,4,daily,5,positive,US exchange,,Percent
+safe_haven,L3,3,daily,7,context,Multiple sources,,Composite
+global_vol,L3,3,daily,7,negative,Multiple markets,,Composite
+btc_flow,L4,7,daily,5,positive,ETF issuers / exchanges,,USD
+gold_flow,L4,6,daily,5,positive,ETF issuers / WGC,,USD
+us_equity_flow,L4,6,daily,7,positive,ETF issuers / ICI,,USD
+asia_equity_flow,L4,4,daily,7,context,Regional exchanges,,Local currency
+bond_flow,L4,2,weekly,10,positive,ETF issuers / ICI,,USD
