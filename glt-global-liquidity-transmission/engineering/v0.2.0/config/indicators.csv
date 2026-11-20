@@ -8,7 +8,7 @@ dxy,L2,8,daily,5,negative,ICE USD Index,,Index
 us_10y_real,L2,8,daily,5,negative,FRED / US Treasury,DFII10,Percent
 us_10y_nominal,L2,4,daily,5,context,FRED / US Treasury,DGS10,Percent
 usd_funding,L2,5,daily,7,context,Multiple sources,,Spread
-vix,L3,5,daily,5,negative,Cboe,VIX_CBOE,Index
+vix,L3,5,daily,5,negative,Cboe,VIXCLS,Index
 hy_spread,L3,5,daily,7,negative,ICE / FRED,BAMLH0A0HYM2,Percent
 us_breadth,L3,4,daily,5,positive,US exchange,,Percent
 safe_haven,L3,3,daily,7,context,Multiple sources,,Composite

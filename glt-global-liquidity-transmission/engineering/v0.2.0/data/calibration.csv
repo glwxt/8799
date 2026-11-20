@@ -1,1 +1,8 @@
 indicator_id,lookback_start,lookback_end,p05,p95,version,transform
+reserves,2025-11-19,2026-11-11,2894189.0,3122239.0,provisional-2026-11-21,raw
+on_rrp,2025-11-13,2026-11-17,0.157,11.047,provisional-2026-11-21,raw
+fed_assets,2025-11-19,2026-11-11,6553994.0,6754520.0,provisional-2026-11-21,raw
+us_10y_real,2025-11-14,2026-11-17,1.79,2.87,provisional-2026-11-21,raw
+us_10y_nominal,2025-11-14,2026-11-17,4.06,5.17,provisional-2026-11-21,raw
+hy_spread,2025-12-03,2026-11-18,2.66,3.33,provisional-2026-11-21,raw
+vix,2025-11-27,2026-11-18,14.52,25.48,provisional-2026-11-21,raw

@@ -1,1 +1,9 @@
 indicator_id,observation_date,published_at,value,unit,source_url,retrieved_at,revision,transform
+reserves,2026-11-18,2026-11-19T16:30:00-05:00,2979656,Millions of USD,https://www.federalreserve.gov/releases/h41/,2026-11-20T08:30:00+08:00,initial,raw
+tga,2026-11-18,2026-11-19T16:30:00-05:00,916613,Millions of USD,https://www.federalreserve.gov/releases/h41/,2026-11-20T08:30:00+08:00,initial,raw
+on_rrp,2026-11-18,2026-11-21T00:27:00+08:00,0.331,Billions of USD,https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD,2026-11-21T00:27:00+08:00,initial,raw
+fed_assets,2026-11-18,2026-11-19T16:30:00-05:00,6741452,Millions of USD,https://www.federalreserve.gov/releases/h41/,2026-11-20T08:30:00+08:00,initial,raw
+us_10y_real,2026-11-18,2026-11-21T00:27:00+08:00,2.88,Percent,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10,2026-11-21T00:27:00+08:00,initial,raw
+us_10y_nominal,2026-11-18,2026-11-21T00:27:00+08:00,5.07,Percent,https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10,2026-11-21T00:27:00+08:00,initial,raw
+hy_spread,2026-11-19,2026-11-21T00:27:00+08:00,3.52,Percent,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,2026-11-21T00:27:00+08:00,initial,raw
+vix,2026-11-19,2026-11-21T00:27:00+08:00,28.44,Index,https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS,2026-11-21T00:27:00+08:00,initial,raw
