@@ -17,7 +17,7 @@ class ContextReviewTests(unittest.TestCase):
     def review(self,time='2026-11-19T14:00:00+00:00',source='https://example.org/dts',score='60',status='approved'):
         (self.root/'data/context_reviews.csv').write_text(
           'indicator_id,observation_date,observation_value,observation_published_at,reviewed_at,reviewer,score,evidence_url,methodology_version,rationale,status,source_url\n'
-          f'tga,2026-11-18,{time},reviewer-A,{score},https://example.org/proof,V1.0,Verified treasury liquidity context,{status},{source}\n',
+          f'tga,2026-11-18,900,2026-11-19T12:00:00+00:00,{time},reviewer-A,{score},https://example.org/proof,V1.1-proposal,Verified treasury liquidity context,{status},{source}\n',
           encoding='utf-8')
     def status(self,method_version='V1.1-proposal'):
         r=calculate(self.root,timestamp('2026-11-20T08:00:00+08:00'),method_version=method_version)
