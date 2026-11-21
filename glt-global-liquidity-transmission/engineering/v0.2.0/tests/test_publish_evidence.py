@@ -34,7 +34,7 @@ class TestEvidence(unittest.TestCase):
         with tempfile.TemporaryDirectory() as name:
             directory=Path(name)
             for sid,entry in d["series"].items():
-                content=("DATE,"+sid+"\\n"+DAY+",12.3\\n").encode()
+                content=("DATE,"+sid+"\n"+DAY+",12.3\n").encode()
                 (directory/(sid+".csv")).write_bytes(content)
                 entry["sha256"]=hashlib.sha256(content).hexdigest()
             pe.verify_raw_bundle(d,directory)
