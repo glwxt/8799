@@ -16,18 +16,26 @@ class ContextReviewTests(unittest.TestCase):
     def tearDown(self):self.temp.cleanup()
     def review(self,time='2026-11-19T14:00:00+00:00',source='https://example.org/dts',score='60',status='approved'):
         (self.root/'data/context_reviews.csv').write_text(
-          'indicator_id,observation_date,reviewed_at,reviewer,score,evidence_url,methodology_version,rationale,status,source_url\n'
+          'indicator_id,observation_date,observation_value,observation_published_at,reviewed_at,reviewer,score,evidence_url,methodology_version,rationale,status,source_url\n'
           f'tga,2026-11-18,{time},reviewer-A,{score},https://example.org/proof,V1.0,Verified treasury liquidity context,{status},{source}\n',
           encoding='utf-8')
-    def status(self):
-        r=calculate(self.root,timestamp('2026-11-20T08:00:00+08:00'))
+    def status(self,method_version='V1.1-proposal'):
+        r=calculate(self.root,timestamp('2026-11-20T08:00:00+08:00'),method_version=method_version)
         return next(i for i in r['indicators'] if i['indicator_id']=='tga'),r
+    def test_v10_rejects_numeric_context_scores(self):
+        self.review()
+        item,r=self.status('V1.0')
+        self.assertEqual(item['status'],'requires_context_review')
+        self.assertEqual(r['covered_points'],0)
+        self.assertIsNone(r['composite_score'])
     def test_approved_context_scores(self):
         self.review()
         x,r=self.status()
         self.assertEqual(x['status'],'valid')
         self.assertEqual(x['score'],60)
         self.assertEqual(r['covered_points'],8)
+        self.assertFalse(r['publishable'])
+        self.assertTrue(r['not_for_official_publication'])
         self.assertIsNone(r['layers']['L1']['score'])
     def test_future_review_not_accepted(self):
         self.review(time='2026-11-21T14:00:00+00:00')
