@@ -34,3 +34,14 @@ python src/glt.py --asof 2026-11-21T08:00:00+08:00
 6. End-to-end test from scheduled execution to actual report delivery and GitHub archive, plus failure alerting.
 
 Methodology remains GLT V1.0. No historical forecast is modified.
+
+## Engineering v0.2.5: stable GitHub evidence feed
+
+A new `src/publish_evidence.py` validates the staged bundle's original CSV SHA-256 checksums, series IDs, source URLs, units and latest values. The workflow commits a metadata-only snapshot to:
+
+- `glt-global-liquidity-transmission/data/feeds/fred_latest.json`
+- `glt-global-liquidity-transmission/data/feeds/fred_latest.md`
+
+The snapshot is always tagged `eligible_for_official_glt_score=false` and `source_release_timestamps_verified=false`. Failures may publish `collection_status=DEGRADED` and fail the workflow explicitly. Successful GitHub Actions execution and branch-push permission must be checked in Actions; code merge does not prove runtime success.
+
+**Important:** This new stable path reduces manual retrieval friction but does not automatically pipe GitHub data into ChatGPT automations. Reports must read the feed during execution, compare `data_retrieved_at_taipei` against the report as-of, and independently validate official source releases. The file may be stale if scheduled execution or push failed. No revisions to GLT V1.0 or old predictions.
