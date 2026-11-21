@@ -25,7 +25,7 @@ class TestStaging(unittest.TestCase):
         self.assertEqual(v["rows_numeric"],1)
         self.assertEqual(v["last_observation_date"],"2026-11-18")
     def test_alternate_fred_date_column(self):
-        raw=b"observation_date,DFII10\\n2026-11-18,1.23\\n"
+        raw=b"observation_date,DFII10\n2026-11-18,1.23\n"
         result=batch.parse_csv(raw,"DFII10")
         self.assertEqual(result["last_observation_date"],"2026-11-18")
         self.assertAlmostEqual(result["last_value_current_vintage"],1.23)
