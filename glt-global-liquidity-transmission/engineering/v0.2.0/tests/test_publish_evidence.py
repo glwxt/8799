@@ -1,4 +1,5 @@
 import datetime as dt
+import hashlib
 import json
 import sys
 import tempfile
@@ -28,6 +29,18 @@ def manifest(errors=()):
                 success_count=len(items),failure_count=len(fails))
 
 class TestEvidence(unittest.TestCase):
+    def test_raw_hash_and_observation_verified(self):
+        d=manifest()
+        with tempfile.TemporaryDirectory() as name:
+            directory=Path(name)
+            for sid,entry in d["series"].items():
+                content=("DATE,"+sid+"\\n"+DAY+",12.3\\n").encode()
+                (directory/(sid+".csv")).write_bytes(content)
+                entry["sha256"]=hashlib.sha256(content).hexdigest()
+            pe.verify_raw_bundle(d,directory)
+            (directory/"DFII10.csv").write_bytes(b"tampered data")
+            with self.assertRaises(ValueError):
+                pe.verify_raw_bundle(d,directory)
     def test_all_six(self):
         result=pe.build(manifest())
         self.assertEqual(result["success_count"],6)
