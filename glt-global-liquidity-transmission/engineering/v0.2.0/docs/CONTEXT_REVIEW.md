@@ -63,3 +63,11 @@ context indicator.
 - Any change to this procedure needs Vivi's approval and a dated entry
   in the run log; the engine's `requires_context_review` behaviour is
   unchanged by this document.
+
+## Engineering v0.2.2 clarification (2026-11-21)
+
+The older notes above correctly define the **official V1.0 behavior**: the default engine remains qualitative-only for nine `context` indicators. The inability to publish a numeric L1 score is a consequence of the existing methodology, not a reason to fabricate a numeric replacement.
+
+A separate, disabled-by-default `V1.1-proposal` research mode has been implemented to test a future, formally versioned methodology change. This is **NOT** GLT V1.1 approval or release. It is **NOT** used by the ChatGPT daily/weekly publishing tasks and cannot issue an official composite score. It requires an explicitly approved review matching the selected observation's date, exact raw value, published-at timestamp and source URL, plus reviewer, rationale, evidence URL and a `V1.1-proposal` version tag. No review from the future is valid in a historical as-of run. Invalid or missing reviews remain unscorable. A stricter production roll-out still requires separate attestation, signatures and retrospective methodology impact analysis.
+
+Test opt-in: `python src/glt.py --method-version V1.1-proposal --asof 2026-11-21T08:00:00+08:00`. Official run: omit `--method-version` (defaults to `V1.0`). The official score remains blocked unless an approved formal methodology change is published.
