@@ -1,11 +1,11 @@
 name: GLT FRED evidence staging
 on:
   schedule:
-    - cron: '10 23 * * *' # 07:10 Asia/Taipei (next local day); UTC cron; may be delayed
+    - cron: '10 23 * * *' # 07:10 Asia/Taipei (next local day), UTC
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: glt-fred-staging
@@ -14,21 +14,49 @@ concurrency:
 jobs:
   stage:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     defaults:
       run:
         working-directory: glt-global-liquidity-transmission/engineering/v0.2.0
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - name: Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Run GLT offline tests
         run: python -m unittest discover -s tests -v
-      - name: Stage FRED evidence
-        run: python src/batch_stage.py --min-success 4
-      - name: Publish raw evidence artifact
+      - name: Stage FRED raw evidence without treating downloads as GLT scoring coverage
+        run: python src/batch_stage.py --min-success 0
+      - name: Build auditable current-vintage feed even when source coverage is degraded
+        id: publish
+        shell: bash
+        run: |
+          set +e
+          MANIFEST="$(find staging/runs -type f -name manifest.json | sort | tail -n 1)"
+          test -n "$MANIFEST" || exit 3
+          python src/publish_evidence.py --manifest "$MANIFEST" --destination ../../data/feeds --min-success 4
+          CODE=$?
+          printf '%s\n' "$CODE" > /tmp/glt-publish-exit
+          exit 0
+      - name: Commit latest non-scoring evidence summary
+        shell: bash
+        working-directory: .
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add glt-global-liquidity-transmission/data/feeds/fred_latest.json glt-global-liquidity-transmission/data/feeds/fred_latest.md
+          if git diff --cached --quiet; then
+            echo "No changed evidence summary"
+          else
+            git commit -m "data(GLT): refresh FRED evidence only [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload raw evidence for audit
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -36,3 +64,8 @@ jobs:
           path: glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
           if-no-files-found: warn
           retention-days: 30
+      - name: Fail workflow explicitly on incomplete source collection
+        shell: bash
+        run: |
+          test -f /tmp/glt-publish-exit || { echo "Missing publication result"; exit 1; }
+          test "$(cat /tmp/glt-publish-exit)" -eq 0 || { echo "FRED evidence DEGRADED; see committed fred_latest.json and workflow artifacts"; exit 1; }
