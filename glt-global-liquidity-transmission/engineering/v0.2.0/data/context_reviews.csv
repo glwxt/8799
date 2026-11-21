@@ -1,1 +1,1 @@
-indicator_id,observation_date,reviewed_at,reviewer,score,evidence_url,methodology_version,rationale,status,source_url
+indicator_id,observation_date,observation_value,observation_published_at,reviewed_at,reviewer,score,evidence_url,methodology_version,rationale,status,source_url
