@@ -32,13 +32,16 @@ PROVENANCE_WARNING = (
 def parse_csv(raw, series):
     content = raw.decode("utf-8-sig")
     rd = csv.DictReader(io.StringIO(content))
-    if rd.fieldnames is None or "DATE" not in rd.fieldnames or series not in rd.fieldnames:
+    if rd.fieldnames is None or series not in rd.fieldnames:
         raise ValueError("Unexpected CSV columns")
+    date_key = "DATE" if "DATE" in rd.fieldnames else "observation_date" if "observation_date" in rd.fieldnames else None
+    if date_key is None:
+        raise ValueError("Missing observation date column")
     count = 0
     last_date = None
     last_value = None
     for row in rd:
-        d = row["DATE"]
+        d = row[date_key]
         v = row[series]
         dt.date.fromisoformat(d)
         if v not in ("", "."):
