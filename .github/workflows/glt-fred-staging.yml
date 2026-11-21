@@ -1,0 +1,38 @@
+name: GLT FRED evidence staging
+on:
+  schedule:
+    - cron: '20 0 * * *' # 08:20 Asia/Taipei, cron is UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: glt-fred-staging
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: glt-global-liquidity-transmission/engineering/v0.2.0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run GLT offline tests
+        run: python -m unittest discover -s tests -v
+      - name: Stage FRED evidence
+        run: python src/batch_stage.py --min-success 4
+      - name: Publish raw evidence artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glt-fred-staging-${{ github.run_id }}
+          path: glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
+          if-no-files-found: warn
+          retention-days: 30
