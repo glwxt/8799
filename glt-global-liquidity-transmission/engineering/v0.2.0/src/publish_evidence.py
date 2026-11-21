@@ -7,12 +7,13 @@ silently labeled as today's successful download.
 """
 import argparse
 import datetime as dt
+import hashlib
 import json
 import math
 import re
 from pathlib import Path
 from urllib.parse import urlparse
-from batch_stage import SERIES
+from batch_stage import SERIES, parse_csv
 
 def parse_time(value):
     t = dt.datetime.fromisoformat(value.replace("Z","+00:00"))
@@ -69,6 +70,21 @@ def validate_manifest(manifest):
             "historical_vintage_verified":False
         }
     return t,records
+
+def verify_raw_bundle(manifest, folder):
+    """Reject altered or missing raw CSV before the metadata enters GitHub."""
+    folder=Path(folder)
+    for sid,entry in manifest["series"].items():
+        path=folder/(sid+".csv")
+        raw=path.read_bytes()
+        digest=hashlib.sha256(raw).hexdigest()
+        if digest!=entry["sha256"]:
+            raise ValueError("Raw CSV hash mismatch: "+sid)
+        parsed=parse_csv(raw,sid)
+        if parsed["last_observation_date"]!=entry["last_observation_date"]:
+            raise ValueError("Raw CSV observation date mismatch: "+sid)
+        if parsed["last_value_current_vintage"]!=float(entry["last_value_current_vintage"]):
+            raise ValueError("Raw CSV value mismatch: "+sid)
 
 def build(manifest, threshold=4):
     t,records=validate_manifest(manifest)
@@ -128,6 +144,7 @@ def main():
         ap.error("Invalid minimum")
     m=json.loads(args.manifest.read_text(encoding="utf-8"))
     result=build(m,args.min_success)
+    verify_raw_bundle(m,args.manifest.parent)
     args.destination.mkdir(parents=True,exist_ok=True)
     (args.destination/"fred_latest.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (args.destination/"fred_latest.md").write_text(markdown(result),encoding="utf-8")
