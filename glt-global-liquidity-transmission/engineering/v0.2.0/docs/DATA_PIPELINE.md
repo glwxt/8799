@@ -2,11 +2,11 @@
 
 ## What is running
 GitHub Actions scheduled collector: `.github/workflows/glt-fred-staging.yml`.
-- Scheduled every day at **00:20 UTC / 08:20 Asia/Taipei** and available on manual dispatch.
+- Scheduled every day at **23:10 UTC (previous calendar day) / 07:10 Asia/Taipei** and available on manual dispatch.
 - Pulls 6 FRED graph CSV series: WRESBAL, WALCL, RRPONTSYD, DFII10, DGS10, BAMLH0A0HYM2.
 - Runs project unit tests first and uploads a `glt-fred-staging-...` workflow artifact with timestamped CSV and `manifest.json`.
 - Uses read-only GitHub token; does not commit market data, alter official GLT method, or claim a numeric score.
-- An artifact is not the same as a published daily report. ChatGPT scheduled daily/weekly reports are separate automations.
+- This collection is scheduled ahead of the 08:00 local ChatGPT daily briefing, but actual availability may be delayed and the briefing has no automatic artifact ingestion. An artifact is not the same as a published daily report. ChatGPT scheduled daily/weekly reports are separate automations.
 - GitHub cron scheduling may be delayed or skipped; check actual Actions execution logs. Setting a workflow is not proof of a successful live download.
 
 ## Quality controls
