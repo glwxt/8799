@@ -2,6 +2,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from urllib.parse import urlparse, parse_qs
 from pathlib import Path
 
 MODULE_PATH=Path(__file__).resolve().parents[1]/"src"/"batch_stage.py"
@@ -16,7 +17,7 @@ class FakeResponse:
     def read(self,n):return self.raw
 
 def fake_open(req,timeout=30):
-    sid=req.full_url.split("id=")[-1]
+    sid=parse_qs(urlparse(req.full_url).query)["id"][0]
     return FakeResponse(("DATE,"+sid+"\n2026-11-17,1.2\n2026-11-18,1.3\n").encode())
 
 class TestStaging(unittest.TestCase):
