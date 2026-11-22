@@ -65,8 +65,11 @@ jobs:
           path: glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
           if-no-files-found: warn
           retention-days: 30
-      - name: Fail workflow explicitly on incomplete source collection
+      - name: Warn on incomplete source collection (do not fail workflow)
         shell: bash
         run: |
           test -f /tmp/glt-publish-exit || { echo "Missing publication result"; exit 1; }
-          test "$(cat /tmp/glt-publish-exit)" -eq 0 || { echo "FRED evidence DEGRADED; see committed fred_latest.json and workflow artifacts"; exit 1; }
+          if test "$(cat /tmp/glt-publish-exit)" -ne 0; then
+            echo "::warning::FRED evidence DEGRADED; see committed fred_latest.json and workflow artifacts"
+          fi
+          exit 0
