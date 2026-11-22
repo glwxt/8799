@@ -10,7 +10,6 @@ import datetime as dt
 import hashlib
 import io
 import json
-import os
 from pathlib import Path
 import time
 import urllib.parse
@@ -25,6 +24,9 @@ SERIES = {
     "DGS10": {"indicator":"us_10y_nominal","unit":"Percent","frequency":"daily"},
     "BAMLH0A0HYM2": {"indicator":"hy_spread","unit":"Percent","frequency":"daily"},
     "VIXCLS": {"indicator":"vix","unit":"Percent","frequency":"daily"},
+    "SWPT": {"indicator":"global_usd","unit":"Millions of USD","frequency":"weekly"},
+    "SOFR": {"indicator":"usd_funding","unit":"Percent","frequency":"daily"},
+    "IORB": {"indicator":"usd_funding","unit":"Percent","frequency":"daily"},
 }
 PROVENANCE_WARNING = (
     "FRED graph CSV represents data available at retrieval time, including revisions. "
@@ -56,8 +58,10 @@ def parse_csv(raw, series):
         raise ValueError("Series has no valid observations")
     return {"rows_numeric":count,"last_observation_date":last_date,"last_value_current_vintage":last_value}
 def download_one(series,opener=urllib.request.urlopen):
-    start_date = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=430)).isoformat()
-    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id":series,"cosd":start_date})
+    end_date = dt.datetime.now(dt.timezone.utc).date()
+    start_date = end_date - dt.timedelta(days=21)
+    query = {"id": series, "cosd": start_date.isoformat(), "coed": end_date.isoformat()}
+    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode(query)
     req = urllib.request.Request(url,headers={"User-Agent":"GLT-Provenance-Staging/0.2.1"})
     with opener(req,timeout=30) as response:
         data = response.read(12_000_000)

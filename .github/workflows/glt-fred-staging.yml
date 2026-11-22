@@ -38,7 +38,7 @@ jobs:
           set +e
           MANIFEST="$(find staging/runs -type f -name manifest.json | sort | tail -n 1)"
           test -n "$MANIFEST" || exit 3
-          python src/publish_evidence.py --manifest "$MANIFEST" --destination ../../data/feeds --min-success 4
+          python src/publish_evidence.py --manifest "$MANIFEST" --destination ../../data/feeds --min-success 10
           CODE=$?
           printf '%s\n' "$CODE" > /tmp/glt-publish-exit
           exit 0
