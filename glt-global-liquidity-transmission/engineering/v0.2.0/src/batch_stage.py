@@ -55,7 +55,8 @@ def parse_csv(raw, series):
         raise ValueError("Series has no valid observations")
     return {"rows_numeric":count,"last_observation_date":last_date,"last_value_current_vintage":last_value}
 def download_one(series,opener=urllib.request.urlopen):
-    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id":series})
+    start_date = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=430)).isoformat()
+    url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id":series,"cosd":start_date})
     req = urllib.request.Request(url,headers={"User-Agent":"GLT-Provenance-Staging/0.2.1"})
     with opener(req,timeout=30) as response:
         data = response.read(12_000_000)
