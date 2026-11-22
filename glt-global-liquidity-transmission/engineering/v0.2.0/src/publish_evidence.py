@@ -32,7 +32,7 @@ def validate_manifest(manifest):
     if not isinstance(success,dict) or not isinstance(failures,dict):
         raise ValueError("Bad manifest types")
     if (set(success) | set(failures)) != set(SERIES) or set(success) & set(failures):
-        raise ValueError("All six series must be accounted for exactly once")
+        raise ValueError("All seven series must be accounted for exactly once")
     if manifest.get("success_count") != len(success) or manifest.get("failure_count") != len(failures):
         raise ValueError("Count mismatch")
     records={}

@@ -24,6 +24,7 @@ SERIES = {
     "DFII10": {"indicator":"us_10y_real","unit":"Percent","frequency":"daily"},
     "DGS10": {"indicator":"us_10y_nominal","unit":"Percent","frequency":"daily"},
     "BAMLH0A0HYM2": {"indicator":"hy_spread","unit":"Percent","frequency":"daily"},
+    "VIXCLS": {"indicator":"vix","unit":"Percent","frequency":"daily"},
 }
 PROVENANCE_WARNING = (
     "FRED graph CSV represents data available at retrieval time, including revisions. "
