@@ -41,15 +41,22 @@ class TestEvidence(unittest.TestCase):
             (directory/"DFII10.csv").write_bytes(b"tampered data")
             with self.assertRaises(ValueError):
                 pe.verify_raw_bundle(d,directory)
-    def test_all_six(self):
+    def test_all_series(self):
         result=pe.build(manifest())
-        self.assertEqual(result["success_count"],6)
+        self.assertEqual(result["success_count"], len(SERIES))
+        self.assertEqual(result["expected_series"], len(SERIES))
+        self.assertEqual(set(result["series"]), set(SERIES))
         self.assertEqual(result["collection_status"],"OK")
         self.assertIsNone(result["official_glt_score"])
         self.assertFalse(result["source_release_timestamps_verified"])
         self.assertIn("当前版本",pe.markdown(result))
     def test_degraded_not_hidden(self):
-        result=pe.build(manifest(errors=("DFII10","DGS10","WALCL")))
+        threshold = 4
+        errors = ["DFII10", *(sid for sid in SERIES if sid != "DFII10")]
+        failed = errors[:len(SERIES) - threshold + 1]
+        result = pe.build(manifest(errors=failed), threshold=threshold)
+        self.assertEqual(result["success_count"], threshold - 1)
+        self.assertEqual(set(result["errors"]), set(failed))
         self.assertEqual(result["collection_status"],"DEGRADED")
         self.assertIn("DFII10",result["errors"])
         self.assertNotIn("DFII10",result["series"])
