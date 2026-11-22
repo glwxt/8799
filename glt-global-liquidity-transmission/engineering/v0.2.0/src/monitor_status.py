@@ -22,7 +22,7 @@ ISSUES = {
 }
 
 
-def render(feed, report):
+def render(feed, report, official=None):
     lines = [
         "# GLT 运行状态", "",
         f"评分检查截点：{report['asof']}",
@@ -54,10 +54,22 @@ def render(feed, report):
             f"| [{name}]({row['source_url']}) | {row['observation_date']} | "
             f"{row['value_current_vintage']} | {row['unit']} |"
         )
+    if official is not None:
+        lines.extend(["", "## 财政部与台湾证交所", "",
+                      f"采集时间：{official['started_at']}（台湾时间）", "",
+                      "| 指标 | 观测日 | 数值 | 单位 | 口径 |",
+                      "| --- | --- | ---: | --- | --- |"])
+        for name, row in sorted(official["observations"].items()):
+            lines.append(
+                f"| [{name}]({row['source_url']}) | {row['observation_date']} | "
+                f"{row['value']} | {row['unit']} | {row['scope']} |"
+            )
+        if official["errors"]:
+            lines.extend(["", "补充采集失败：" + "、".join(sorted(official["errors"])) + "。"])
     if feed["errors"]:
         lines.extend(["", "采集失败：" + "、".join(sorted(feed["errors"])) + "。"])
     lines.extend([
-        "", "采集值为 FRED 当前版本。正式评分根据已验收的独立输入计算。",
+        "", "FRED 采集值为当前版本。正式评分根据已验收的独立输入计算。",
         "", "[项目步骤与验收状态](../../docs/GLT-delivery-status.md)",
     ])
     return "\n".join(lines) + "\n"
@@ -67,11 +79,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--feed", type=Path, required=True)
+    parser.add_argument("--official", type=Path)
     parser.add_argument("--asof", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     feed = json.loads(args.feed.read_text(encoding="utf-8"))
-    args.output.write_text(render(feed, assess(args.root, args.asof)), encoding="utf-8")
+    official = json.loads(args.official.read_text(encoding="utf-8")) if args.official else None
+    args.output.write_text(render(feed, assess(args.root, args.asof), official), encoding="utf-8")
 
 
 if __name__ == "__main__":

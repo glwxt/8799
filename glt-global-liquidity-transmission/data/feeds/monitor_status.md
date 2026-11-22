@@ -1,6 +1,6 @@
 # GLT 运行状态
 
-评分检查截点：2026-11-22T20:23:11+08:00
+评分检查截点：2026-11-22T20:28:40+08:00
 采集证据时间：2026-11-22T20:14:47.678653+08:00（台湾时间）
 FRED：10/10 条成功，状态 OK
 评分输入覆盖：48%；可计分覆盖：18%
@@ -30,6 +30,15 @@ FRED：10/10 条成功，状态 OK
 | [WALCL](https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=2026-11-01&coed=2026-11-22) | 2026-11-18 | 6741452.0 | Millions of USD |
 | [WRESBAL](https://fred.stlouisfed.org/graph/fredgraph.csv?id=WRESBAL&cosd=2026-11-01&coed=2026-11-22) | 2026-11-18 | 2979656.0 | Millions of USD |
 
-采集值为 FRED 当前版本。正式评分根据已验收的独立输入计算。
+## 财政部与台湾证交所
+
+采集时间：2026-11-22T20:28:19.885703+08:00（台湾时间）
+
+| 指标 | 观测日 | 数值 | 单位 | 口径 |
+| --- | --- | ---: | --- | --- |
+| [TGA](https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance?filter=record_date%3Agte%3A2026-11-15%2Crecord_date%3Alte%3A2026-11-22&sort=-record_date&page%5Bsize%5D=100) | 2026-11-19 | 891223 | USD millions | Treasury DTS Table I closing balance |
+| [TWSE_FOREIGN_NET](https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261120&type=day&response=json) | 2026-11-20 | -9510543572 | TWD | 外資及陸資(不含外資自營商) |
+
+FRED 采集值为当前版本。正式评分根据已验收的独立输入计算。
 
 [项目步骤与验收状态](../../docs/GLT-delivery-status.md)

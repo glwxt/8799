@@ -42,10 +42,14 @@ jobs:
           CODE=$?
           printf '%s\n' "$CODE" > /tmp/glt-publish-exit
           exit 0
+      - name: Collect Treasury and TWSE evidence
+        run: |
+          python src/official_sources.py --output ../../data/feeds/official_latest.json \
+            --raw-dir staging/official
       - name: Render operations report
         run: |
           python src/monitor_status.py --feed ../../data/feeds/fred_latest.json \
-            --asof "$(date -u -Iseconds)" --output ../../data/feeds/monitor_status.md
+            --official ../../data/feeds/official_latest.json --asof "$(date -u -Iseconds)" --output ../../data/feeds/monitor_status.md
       - name: Commit latest non-scoring evidence summary
         shell: bash
         working-directory: .
@@ -53,7 +57,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add glt-global-liquidity-transmission/data/feeds/fred_latest.json glt-global-liquidity-transmission/data/feeds/fred_latest.md glt-global-liquidity-transmission/data/feeds/monitor_status.md
+          git add glt-global-liquidity-transmission/data/feeds/fred_latest.json glt-global-liquidity-transmission/data/feeds/fred_latest.md glt-global-liquidity-transmission/data/feeds/monitor_status.md glt-global-liquidity-transmission/data/feeds/official_latest.json
           if git diff --cached --quiet; then
             echo "No changed evidence summary"
           else
@@ -66,7 +70,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: glt-fred-staging-${{ github.run_id }}
-          path: glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
+          path: |
+            glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
+            glt-global-liquidity-transmission/engineering/v0.2.0/staging/official/
           if-no-files-found: warn
           retention-days: 30
       - name: Warn on incomplete source collection (do not fail workflow)
