@@ -36,7 +36,8 @@ class TestStaging(unittest.TestCase):
     def test_collect_is_not_scoring(self):
         with tempfile.TemporaryDirectory() as t:
             out=batch.collect(t,opener=fake_open,retries=0)
-            self.assertEqual(out["success_count"],6)
+            self.assertEqual(out["success_count"], len(batch.SERIES))
+            self.assertEqual(set(out["series"]), set(batch.SERIES))
             self.assertFalse(out["eligible_for_official_glt_score"])
             self.assertEqual(out["glt_scoring_coverage"],"NOT_CALCULATED")
             self.assertTrue((Path(t)/"manifest.json").is_file())
