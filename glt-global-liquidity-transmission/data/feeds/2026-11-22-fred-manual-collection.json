@@ -1,0 +1,38 @@
+{
+  "collected_by": "manual run",
+  "verified_at_taipei": "2026-11-22T20:08:15+08:00",
+  "expected_series": 7,
+  "success_count": 7,
+  "source_release_timestamps_verified": false,
+  "eligible_for_official_glt_score": false,
+  "series": {
+    "WRESBAL": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WRESBAL&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,WRESBAL\n2026-11-18,2979656\n"
+    },
+    "WALCL": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,WALCL\n2026-11-18,6741452\n"
+    },
+    "RRPONTSYD": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,RRPONTSYD\n2026-11-13,0.325\n2026-11-16,0.182\n2026-11-17,0.351\n2026-11-18,0.331\n2026-11-19,0.405\n2026-11-20,0.401\n"
+    },
+    "DFII10": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,DFII10\n2026-11-13,2.91\n2026-11-16,2.92\n2026-11-17,2.89\n2026-11-18,2.88\n2026-11-19,2.88\n"
+    },
+    "DGS10": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,DGS10\n2026-11-13,5.15\n2026-11-16,5.12\n2026-11-17,5.10\n2026-11-18,5.07\n2026-11-19,5.04\n"
+    },
+    "BAMLH0A0HYM2": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,BAMLH0A0HYM2\n2026-11-13,3.23\n2026-11-16,3.34\n2026-11-17,3.43\n2026-11-18,3.47\n2026-11-19,3.52\n"
+    },
+    "VIXCLS": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=2026-11-13&coed=2026-11-22",
+      "raw_csv": "observation_date,VIXCLS\n2026-11-13,19.30\n2026-11-16,22.91\n2026-11-17,25.46\n2026-11-18,24.56\n2026-11-19,28.44\n"
+    }
+  }
+}
