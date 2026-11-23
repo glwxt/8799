@@ -22,7 +22,7 @@ ISSUES = {
 }
 
 
-def render(feed, report, official=None):
+def render(feed, report, official=None, flows=None):
     lines = [
         "# GLT 运行状态", "",
         f"评分检查截点：{report['asof']}",
@@ -66,6 +66,32 @@ def render(feed, report, official=None):
             )
         if official["errors"]:
             lines.extend(["", "补充采集失败：" + "、".join(sorted(official["errors"])) + "。"])
+    if flows is not None:
+        lines.extend([
+            "", "## 实际资金流采集证据", "",
+            f"采集开始：{flows['started_at']}（UTC）",
+            "", "| 指标与来源 | 统计日或周末 | 频率 | 净流 | 单位 | 状态 |",
+            "| --- | --- | --- | ---: | --- | --- |",
+        ])
+        flow_names = {"btc_flow": "BTC ETF", "gold_flow": "黄金 ETF", "asia_equity_flow": "亚洲股票",
+                      "us_equity_flow": "美股 ETF", "bond_flow": "债券 ETF"}
+        for row in flows["observations"]:
+            value = row["value"]
+            status = {"complete": "已报齐", "missing_funds": "基金缺报", "reported": "已报告",
+                      "reported_estimate": "来源估计", "estimated": "来源估计", "missing": "缺报"}.get(
+                          row["status"], row["status"])
+            if "reported_funds" in row:
+                status += f" {row['reported_funds']}/{row['expected_funds']}"
+            lines.append(
+                f"| [{flow_names.get(row['indicator'], row['indicator'])}]({row['source_url']})"
+                f" | {row['observation_date']} | {row['frequency']} | "
+                f"{value if value is not None else '缺报'} | {row['unit']} | {status} |"
+            )
+        if flows["errors"]:
+            lines.extend(["", "资金流采集异常：" + "、".join(
+                f"{name}（{error}）" for name, error in sorted(flows["errors"].items())
+            ) + "。"])
+        lines.extend(["", "[采集原始记录与披露时点](l4_scheduled_latest.json)"])
     if feed["errors"]:
         lines.extend(["", "采集失败：" + "、".join(sorted(feed["errors"])) + "。"])
     lines.extend([
@@ -80,12 +106,14 @@ def main():
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--feed", type=Path, required=True)
     parser.add_argument("--official", type=Path)
+    parser.add_argument("--flows", type=Path)
     parser.add_argument("--asof", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     feed = json.loads(args.feed.read_text(encoding="utf-8"))
     official = json.loads(args.official.read_text(encoding="utf-8")) if args.official else None
-    args.output.write_text(render(feed, assess(args.root, args.asof), official), encoding="utf-8")
+    flows = json.loads(args.flows.read_text(encoding="utf-8")) if args.flows else None
+    args.output.write_text(render(feed, assess(args.root, args.asof), official, flows), encoding="utf-8")
 
 
 if __name__ == "__main__":
