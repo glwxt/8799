@@ -1,0 +1,111 @@
+{
+  "schema": "glt-l4-research-evidence-v1",
+  "checked_taipei_date": "2026-11-24",
+  "eligible_for_official_score": false,
+  "observations": [
+    {
+      "indicator": "btc_flow",
+      "period_start": "2026-11-19",
+      "period_end": "2026-11-19",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": -582.3,
+      "scope": "US spot Bitcoin ETFs, Farside fund table",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "status": "complete_source_row",
+      "release_date": null,
+      "reported_funds": 12,
+      "expected_funds": 12
+    },
+    {
+      "indicator": "btc_flow",
+      "period_start": "2026-11-20",
+      "period_end": "2026-11-20",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": -669.2,
+      "scope": "US spot Bitcoin ETFs, Farside fund table",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "status": "complete_source_row",
+      "release_date": null,
+      "reported_funds": 12,
+      "expected_funds": 12
+    },
+    {
+      "indicator": "btc_flow",
+      "period_start": "2026-11-23",
+      "period_end": "2026-11-23",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": null,
+      "scope": "US spot Bitcoin ETFs, Farside fund table",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "status": "all_fund_cells_missing",
+      "release_date": null,
+      "reported_funds": 0,
+      "expected_funds": 12
+    },
+    {
+      "indicator": "gold_flow",
+      "period_start": "2026-10-01",
+      "period_end": "2026-10-31",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "value": 2700,
+      "scope": "Global physically-backed gold ETFs; commentary rounded",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows",
+      "status": "reported_rounded",
+      "release_date": "2026-11-05"
+    },
+    {
+      "indicator": "us_equity_flow",
+      "period_start": "2026-11-05",
+      "period_end": "2026-11-11",
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "value": 37058,
+      "scope": "ICI domestic equity ETF estimated net issuance",
+      "source_url": "https://www.ici.org/research/stats/etf_flows",
+      "status": "estimated",
+      "release_date": "2026-11-17"
+    },
+    {
+      "indicator": "asia_equity_flow",
+      "period_start": "2026-11-23",
+      "period_end": "2026-11-23",
+      "frequency": "daily",
+      "unit": "TWD",
+      "value": -28947879995,
+      "scope": "TWSE listed equities foreign and mainland investors excluding foreign dealer proprietary",
+      "source_url": "https://api.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261123&type=day&response=json",
+      "status": "official_market_sample",
+      "release_date": null,
+      "source_sha256": "2d91f428e66b53bac1404d2c9b41ce2f9c46b77d658ae2e5fe8c2e6d1605"
+    },
+    {
+      "indicator": "asia_equity_flow",
+      "period_start": "2026-11-09",
+      "period_end": "2026-11-13",
+      "frequency": "weekly",
+      "unit": "JPY",
+      "value": -310147409000,
+      "scope": "JPX Tokyo and Nagoya markets aggregate, foreign investors",
+      "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002wtoi-att/stock_1_w_20261109_20261113.xlsx",
+      "status": "official_market_sample",
+      "release_date": null,
+      "source_sha256": "1d785a739808bb611cf5d1f30d57b906f25a87beba51d139ad7d79fab3c24069"
+    },
+    {
+      "indicator": "bond_flow",
+      "period_start": "2026-11-05",
+      "period_end": "2026-11-11",
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "value": 11754,
+      "scope": "ICI bond ETF estimated net issuance, taxable and municipal",
+      "source_url": "https://www.ici.org/research/stats/etf_flows",
+      "status": "estimated",
+      "release_date": "2026-11-17"
+    }
+  ]
+}
