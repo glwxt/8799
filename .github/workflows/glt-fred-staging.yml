@@ -28,6 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Serialized runs start from the latest evidence commit on main.
+          ref: main
           persist-credentials: true
       - name: Python
         uses: actions/setup-python@v5
