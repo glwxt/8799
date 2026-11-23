@@ -96,6 +96,7 @@ def bitcoin(tables, today):
             "indicator": "btc_flow", "observation_date": day.isoformat(),
             "frequency": "daily", "unit": "USD millions",
             "value": float(total) if complete else None, "reported_funds": len(reports),
+            "reported_subtotal": float(sum(reports)) if reports and not complete else None,
             "expected_funds": len(funds), "status": "complete" if complete else "missing_funds",
             "scope": "US spot bitcoin ETFs covered by Farside",
         }
