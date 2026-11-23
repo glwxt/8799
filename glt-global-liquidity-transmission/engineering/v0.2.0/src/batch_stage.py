@@ -12,10 +12,14 @@ import hashlib
 import http.client
 import io
 import json
+import os
 from pathlib import Path
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
+
+FRED_API_URL = "https://api.stlouisfed.org/fred/series/observations"
 
 SERIES = {
     "WRESBAL": {"indicator":"reserves","unit":"Millions of USD","frequency":"weekly"},
@@ -89,7 +93,51 @@ def download_with_retry(series, opener, retries):
             time.sleep(min(2 ** attempt, 8))
 
 
-def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False):
+def api_csv(raw, series):
+    observations = json.loads(raw)["observations"]
+    data = io.StringIO()
+    writer = csv.writer(data)
+    writer.writerow(("observation_date", series))
+    for observation in observations:
+        writer.writerow((observation["date"], observation["value"]))
+    return data.getvalue().encode("utf-8")
+
+
+def collect_api(directory, manifest, series_ids, opener, api_key):
+    end = dt.datetime.now(dt.timezone.utc).date()
+    for sid in series_ids:
+        params = {
+            "series_id": sid, "file_type": "json",
+            "observation_start": (end - dt.timedelta(days=21)).isoformat(),
+            "observation_end": end.isoformat(),
+        }
+        public_url = FRED_API_URL + "?" + urllib.parse.urlencode(params)
+        request = urllib.request.Request(
+            public_url + "&" + urllib.parse.urlencode({"api_key": api_key}),
+            headers={"Accept": "application/json"},
+        )
+        try:
+            with opener(request, timeout=10) as response:
+                raw = response.read(1_000_001)
+            if len(raw) > 1_000_000:
+                raise ValueError("Response too large")
+            data = api_csv(raw, sid)
+            parsed = parse_csv(data, sid)
+        except urllib.error.HTTPError as exc:
+            manifest["errors"][sid] = f"FRED API HTTP {exc.code}"
+            if exc.code in (401, 403, 429):
+                break
+            continue
+        except FETCH_ERRORS + (KeyError, TypeError) as exc:
+            manifest["errors"][sid] = "FRED API " + type(exc).__name__
+            continue
+        retrieved_at = dt.datetime.now(dt.timezone.utc).isoformat()
+        save_series(directory, manifest, sid, public_url, data, parsed, retrieved_at)
+        (directory / (sid + ".json")).write_bytes(raw)
+        manifest["series"][sid]["sha256_raw_json"] = hashlib.sha256(raw).hexdigest()
+
+
+def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False, api_key=None):
     directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
     manifest = {
        "retrieved_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -101,8 +149,10 @@ def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False):
     }
     # One request avoids competing connections to the same FRED endpoint.
     # Individual requests still recover missing or malformed batch columns.
-    downloads_needed = list(SERIES)
-    if len(SERIES) > 1 and batch:
+    if api_key:
+        collect_api(directory, manifest, SERIES, opener, api_key)
+    downloads_needed = [sid for sid in SERIES if sid not in manifest["series"]]
+    if len(downloads_needed) > 1 and batch:
         try:
             url, raw = download_graph(downloads_needed, opener)
             retrieved_at = dt.datetime.now(dt.timezone.utc).isoformat()
@@ -112,6 +162,7 @@ def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False):
                 except FETCH_ERRORS:
                     continue
                 save_series(directory, manifest, sid, url, raw, parsed, retrieved_at)
+                manifest["errors"].pop(sid, None)
                 downloads_needed.remove(sid)
         except FETCH_ERRORS as exc:
             print(f"FRED batch request failed ({type(exc).__name__}): {exc}; trying each series")
@@ -125,9 +176,12 @@ def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False):
             try:
                 url, raw, parsed, retrieved_at = future.result()
             except FETCH_ERRORS as exc:
-                manifest["errors"][sid] = f"{type(exc).__name__}: {exc}"
+                prior = manifest["errors"].get(sid)
+                graph_error = f"{type(exc).__name__}: {exc}"
+                manifest["errors"][sid] = f"{prior}; graph CSV {graph_error}" if prior else graph_error
                 continue
             save_series(directory, manifest, sid, url, raw, parsed, retrieved_at)
+            manifest["errors"].pop(sid, None)
     manifest["success_count"]=len(manifest["series"])
     manifest["failure_count"]=len(manifest["errors"])
     manifest["source_availability_ratio"]=round(len(manifest["series"])/len(SERIES),4)
@@ -152,7 +206,7 @@ def main():
     args=parser.parse_args()
     run=dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out=args.root/"staging"/"runs"/run
-    result=collect(out, batch=True)
+    result=collect(out, batch=True, api_key=os.environ.get("FRED_API_KEY"))
     print(json.dumps({"directory":str(out),"success":result["success_count"],"failed":result["failure_count"],"glt_score":"NOT_CALCULATED"},ensure_ascii=False))
     if result["success_count"] < args.min_success:
         raise SystemExit("Too few staging sources; see manifest.json")

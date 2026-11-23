@@ -13,7 +13,7 @@ import math
 import re
 from pathlib import Path
 from urllib.parse import urlparse
-from batch_stage import SERIES, parse_csv
+from batch_stage import FRED_API_URL, SERIES, api_csv, parse_csv
 
 def parse_time(value):
     t = dt.datetime.fromisoformat(value.replace("Z","+00:00"))
@@ -39,7 +39,8 @@ def validate_manifest(manifest):
     for key, item in success.items():
         url=item.get("source_url","")
         parts=urlparse(url)
-        if parts.scheme!="https" or parts.netloc!="fred.stlouisfed.org":
+        api_source = url.split("?", 1)[0] == FRED_API_URL
+        if parts.scheme != "https" or (parts.netloc != "fred.stlouisfed.org" and not api_source):
             raise ValueError("Untrusted FRED source")
         digest=item.get("sha256","")
         if not re.fullmatch("[a-f0-9]{64}",digest):
@@ -69,6 +70,12 @@ def validate_manifest(manifest):
             "release_timestamp_verified":False,
             "historical_vintage_verified":False
         }
+        if api_source:
+            raw_digest = item.get("sha256_raw_json", "")
+            if not re.fullmatch("[a-f0-9]{64}", raw_digest):
+                raise ValueError("Bad API response checksum")
+            records[key]["sha256_raw_json"] = raw_digest
+            records[key]["sha256_normalized_csv"] = records[key].pop("sha256_raw_csv")
     return t,records
 
 def verify_raw_bundle(manifest, folder):
@@ -80,6 +87,10 @@ def verify_raw_bundle(manifest, folder):
         digest=hashlib.sha256(raw).hexdigest()
         if digest!=entry["sha256"]:
             raise ValueError("Raw CSV hash mismatch: "+sid)
+        if "sha256_raw_json" in entry:
+            original = (folder / (sid + ".json")).read_bytes()
+            if hashlib.sha256(original).hexdigest() != entry["sha256_raw_json"] or api_csv(original, sid) != raw:
+                raise ValueError("API response checksum or CSV mismatch: " + sid)
         parsed=parse_csv(raw,sid)
         if parsed["last_observation_date"]!=entry["last_observation_date"]:
             raise ValueError("Raw CSV observation date mismatch: "+sid)
@@ -97,7 +108,9 @@ def build(manifest, threshold=4):
         "data_retrieved_at_utc":t.isoformat(),
         "data_retrieved_at_taipei":local.isoformat(),
         "local_calendar_date":local.date().isoformat(),
-        "source":"FRED graph current-vintage CSV",
+        "source":"FRED official API and graph CSV (current vintage)" if any(
+            "sha256_raw_json" in item for item in records.values()
+        ) else "FRED graph current-vintage CSV",
         "expected_series":len(SERIES),
         "success_count":len(records),
         "failure_count":len(error_summary),
