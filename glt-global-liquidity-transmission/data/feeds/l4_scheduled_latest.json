@@ -1,6 +1,6 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-23T22:49:27.008863+00:00",
+  "started_at": "2026-11-23T22:53:34.071774+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
@@ -14,8 +14,8 @@
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "0f777d4180cd4d6c62bfc4a2ac055188af74366a1b86859bf922e03b4100d731",
-      "retrieved_at": "2026-11-23T22:49:28.285918+00:00"
+      "sha256": "4397ef203a648bf8f33ce2fc8084256ee9339bee4d490651c32a5398dfa8be31",
+      "retrieved_at": "2026-11-23T22:53:35.414567+00:00"
     },
     {
       "indicator": "btc_flow",
@@ -28,8 +28,8 @@
       "status": "missing_funds",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "0f777d4180cd4d6c62bfc4a2ac055188af74366a1b86859bf922e03b4100d731",
-      "retrieved_at": "2026-11-23T22:49:28.286476+00:00"
+      "sha256": "4397ef203a648bf8f33ce2fc8084256ee9339bee4d490651c32a5398dfa8be31",
+      "retrieved_at": "2026-11-23T22:53:35.415118+00:00"
     }
   ],
   "errors": {
