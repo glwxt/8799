@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '10 23 * * *' # 07:10 Asia/Taipei (next local day), UTC
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/glt-fred-staging.yml'
+      - 'glt-global-liquidity-transmission/engineering/v0.2.0/src/batch_stage.py'
 
 permissions:
   contents: write

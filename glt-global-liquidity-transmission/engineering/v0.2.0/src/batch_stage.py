@@ -59,17 +59,21 @@ def parse_csv(raw, series):
         raise ValueError("Series has no valid observations")
     return {"rows_numeric":count,"last_observation_date":last_date,"last_value_current_vintage":last_value}
 def download_one(series,opener=urllib.request.urlopen):
+    url, data = download_graph([series], opener)
+    return url, data, parse_csv(data, series)
+
+
+def download_graph(series_ids, opener):
     end_date = dt.datetime.now(dt.timezone.utc).date()
     start_date = end_date - dt.timedelta(days=21)
-    query = {"id": series, "cosd": start_date.isoformat(), "coed": end_date.isoformat()}
+    query = {"id": ",".join(series_ids), "cosd": start_date.isoformat(), "coed": end_date.isoformat()}
     url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode(query)
     req = urllib.request.Request(url,headers={"User-Agent":"GLT-Provenance-Staging/0.2.1"})
     with opener(req,timeout=30) as response:
         data = response.read(12_000_000)
     if len(data) >= 12_000_000:
         raise ValueError("Response too large")
-    parsed = parse_csv(data,series)
-    return url,data,parsed
+    return url, data
 FETCH_ERRORS = (OSError, ValueError, http.client.HTTPException)
 
 
@@ -85,7 +89,7 @@ def download_with_retry(series, opener, retries):
             time.sleep(min(2 ** attempt, 8))
 
 
-def collect(directory,opener=urllib.request.urlopen,retries=2):
+def collect(directory,opener=urllib.request.urlopen,retries=2, *, batch=False):
     directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
     manifest = {
        "retrieved_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -95,10 +99,27 @@ def collect(directory,opener=urllib.request.urlopen,retries=2):
        "series":{}, "errors":{},
        "eligible_for_official_glt_score":False
     }
+    # One request avoids competing connections to the same FRED endpoint.
+    # Individual requests still recover missing or malformed batch columns.
+    downloads_needed = list(SERIES)
+    if len(SERIES) > 1 and batch:
+        try:
+            url, raw = download_graph(downloads_needed, opener)
+            retrieved_at = dt.datetime.now(dt.timezone.utc).isoformat()
+            for sid in list(downloads_needed):
+                try:
+                    parsed = parse_csv(raw, sid)
+                except FETCH_ERRORS:
+                    continue
+                save_series(directory, manifest, sid, url, raw, parsed, retrieved_at)
+                downloads_needed.remove(sid)
+        except FETCH_ERRORS as exc:
+            print(f"FRED batch request failed ({type(exc).__name__}): {exc}; trying each series")
+
     with ThreadPoolExecutor(max_workers=3) as executor:
         downloads = {
             sid: executor.submit(download_with_retry, sid, opener, retries)
-            for sid in SERIES
+            for sid in downloads_needed
         }
         for sid, future in downloads.items():
             try:
@@ -106,19 +127,23 @@ def collect(directory,opener=urllib.request.urlopen,retries=2):
             except FETCH_ERRORS as exc:
                 manifest["errors"][sid] = f"{type(exc).__name__}: {exc}"
                 continue
-            (directory / (sid + ".csv")).write_bytes(raw)
-            manifest["series"][sid] = dict(
-                SERIES[sid], **parsed, source_url=url,
-                sha256=hashlib.sha256(raw).hexdigest(),
-                retrieved_at_utc=retrieved_at,
-                data_vintage="current_at_retrieval", release_timestamp_verified=False,
-            )
+            save_series(directory, manifest, sid, url, raw, parsed, retrieved_at)
     manifest["success_count"]=len(manifest["series"])
     manifest["failure_count"]=len(manifest["errors"])
     manifest["source_availability_ratio"]=round(len(manifest["series"])/len(SERIES),4)
     manifest["glt_scoring_coverage"]="NOT_CALCULATED"
     (directory/"manifest.json").write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     return manifest
+
+def save_series(directory, manifest, sid, url, raw, parsed, retrieved_at):
+    (directory / (sid + ".csv")).write_bytes(raw)
+    manifest["series"][sid] = dict(
+        SERIES[sid], **parsed, source_url=url,
+        sha256=hashlib.sha256(raw).hexdigest(),
+        retrieved_at_utc=retrieved_at,
+        data_vintage="current_at_retrieval", release_timestamp_verified=False,
+    )
+
 
 def main():
     parser=argparse.ArgumentParser()
@@ -127,7 +152,7 @@ def main():
     args=parser.parse_args()
     run=dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out=args.root/"staging"/"runs"/run
-    result=collect(out)
+    result=collect(out, batch=True)
     print(json.dumps({"directory":str(out),"success":result["success_count"],"failed":result["failure_count"],"glt_score":"NOT_CALCULATED"},ensure_ascii=False))
     if result["success_count"] < args.min_success:
         raise SystemExit("Too few staging sources; see manifest.json")
