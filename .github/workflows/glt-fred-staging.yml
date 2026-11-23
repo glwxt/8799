@@ -67,7 +67,8 @@ jobs:
       - name: Render operations report
         run: |
           python src/monitor_status.py --feed ../../data/feeds/fred_latest.json \
-            --official ../../data/feeds/official_latest.json --asof "$(date -u -Iseconds)" --output ../../data/feeds/monitor_status.md
+            --official ../../data/feeds/official_latest.json --flows ../../data/feeds/l4_scheduled_latest.json \
+            --asof "$(date -u -Iseconds)" --output ../../data/feeds/monitor_status.md
       - name: Commit latest non-scoring evidence summary
         shell: bash
         working-directory: .
