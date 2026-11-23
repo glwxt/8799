@@ -1,6 +1,6 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-23T23:11:46.934366+00:00",
+  "started_at": "2026-11-23T23:12:03.809735+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
@@ -14,8 +14,8 @@
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "9522c00ba5fcf40d4e46e3aa22c7d51266362fc7398da60fdad3ea792b24dae4",
-      "retrieved_at": "2026-11-23T23:11:47.919783+00:00"
+      "sha256": "c888f8996a7310cb7426fe61d11a9ffff0ed1a409f1b1ab0fa929d4433bf3d99",
+      "retrieved_at": "2026-11-23T23:12:05.186514+00:00"
     },
     {
       "indicator": "btc_flow",
@@ -28,8 +28,24 @@
       "status": "missing_funds",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "9522c00ba5fcf40d4e46e3aa22c7d51266362fc7398da60fdad3ea792b24dae4",
-      "retrieved_at": "2026-11-23T23:11:47.920267+00:00"
+      "sha256": "c888f8996a7310cb7426fe61d11a9ffff0ed1a409f1b1ab0fa929d4433bf3d99",
+      "retrieved_at": "2026-11-23T23:12:05.187119+00:00"
+    },
+    {
+      "indicator": "asia_equity_flow",
+      "observation_date": "2026-11-13",
+      "period_start": "2026-11-09",
+      "frequency": "weekly",
+      "unit": "JPY",
+      "value": -310147409000,
+      "status": "reported",
+      "scope": "JPX Tokyo and Nagoya markets aggregate, foreign investors",
+      "market": "Japan",
+      "published_at": null,
+      "index_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/",
+      "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002wtoi-att/stock_1_w_20261109_20261113.xlsx",
+      "sha256": "1d785a739808bb611cf5d1f30d57b906f25a87beba51d139ad7d79fab3c24069",
+      "retrieved_at": "2026-11-23T23:12:06.509701+00:00"
     }
   ],
   "errors": {
