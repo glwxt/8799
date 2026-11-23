@@ -108,6 +108,10 @@ def issuance(tables, today):
     if (abs(values["Equity"] - values["Domestic"] - values["World"]) > 2
             or abs(values["Bond"] - values["Taxable"] - values["Municipal"]) > 2):
         raise ValueError("ICI totals do not reconcile within rounding tolerance")
+    return issuance_rows(day, values)
+
+
+def issuance_rows(day, values):
     return [
         {"indicator": key, "observation_date": day.isoformat(),
          "period_start": (day - timedelta(days=6)).isoformat(), "frequency": "weekly",
@@ -118,6 +122,49 @@ def issuance(tables, today):
             ("bond_flow", "Bond", "ICI bond ETF estimated net issuance (taxable and municipal)"),
         )
     ]
+
+
+def workbook_issuance(raw, today):
+    import xlrd
+
+    try:
+        sheet = xlrd.open_workbook(file_contents=raw).sheet_by_name("Weekly ETF Public Report")
+    except xlrd.XLRDError as error:
+        raise ValueError("Unexpected ICI workbook") from error
+    labels = {(4, 3): "Equity", (5, 5): "Domestic", (5, 7): "World",
+              (4, 11): "Bond", (5, 13): "Taxable", (5, 15): "Municipal"}
+    if any(sheet.cell_value(*cell) != name for cell, name in labels.items()):
+        raise ValueError("Unexpected ICI workbook columns")
+    weekly = False
+    dates = {}
+    for row in range(6, sheet.nrows):
+        label = str(sheet.cell_value(row, 0)).strip()
+        if label.lower() == "estimated weekly net issuance":
+            weekly = True
+        if not weekly:
+            continue
+        try:
+            day = datetime.strptime(label, "%m/%d/%Y").date()
+        except ValueError:
+            continue
+        if day <= today:
+            dates[day] = row
+    day = max(dates)
+    values = {name: amount(str(sheet.cell_value(dates[day], col)))
+              for (_, col), name in labels.items()}
+    if (abs(values["Equity"] - values["Domestic"] - values["World"]) > 2
+            or abs(values["Bond"] - values["Taxable"] - values["Municipal"]) > 2):
+        raise ValueError("ICI workbook totals do not reconcile")
+    return issuance_rows(day, values)
+
+
+def download(url):
+    req = Request(url, headers={"User-Agent": "GLT research evidence collector"})
+    with urlopen(req, timeout=18) as response:
+        raw = response.read(4_000_001)
+    if len(raw) > 4_000_000:
+        raise ValueError("Evidence response too large")
+    return raw
 
 
 def main():
@@ -131,19 +178,23 @@ def main():
     observations, errors = [], {}
     for name, url, parse in (("farside", BTC, bitcoin), ("ici", ICI, issuance)):
         try:
-            req = Request(url, headers={"User-Agent": "GLT research evidence collector"})
-            with urlopen(req, timeout=18) as response:
-                raw = response.read(4_000_001)
-            if len(raw) > 4_000_000:
-                raise ValueError("Evidence page too large")
-            (args.raw_dir / f"{name}.html").write_bytes(raw)
-            parsed = parse(Tables(raw).tables, today)
+            try:
+                raw = download(url)
+                (args.raw_dir / f"{name}.html").write_bytes(raw)
+                parsed = parse(Tables(raw).tables, today)
+            except (OSError, ValueError, StopIteration):
+                if name != "ici":
+                    raise
+                url = f"https://www.ici.org/etf_flows_data_{today.year}.xls"
+                raw = download(url)
+                (args.raw_dir / "ici.xls").write_bytes(raw)
+                parsed = workbook_issuance(raw, today)
             observations.extend(
                 dict(row, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
                      retrieved_at=datetime.now(timezone.utc).isoformat())
                 for row in parsed
             )
-        except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError) as error:
+        except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError, ImportError) as error:
             errors[name] = f"{type(error).__name__}: {error}"
     result = {
         "schema": "glt-l4-scheduled-evidence-v1", "started_at": start.isoformat(),
