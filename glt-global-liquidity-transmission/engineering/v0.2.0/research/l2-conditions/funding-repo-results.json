@@ -1,0 +1,192 @@
+{
+  "eligible_for_official_score": false,
+  "cutoff": "2026-11-23",
+  "repo_source_hash": "f9beac895a6d914acdda4b4557b76042c903537219af45c4efcd1693f9f185c7",
+  "repo_operations": 838,
+  "exercises": [
+    {
+      "date": "2026-05-27",
+      "accepted_usd": 100000000,
+      "operation_id": "RP 052726 99"
+    },
+    {
+      "date": "2026-02-18",
+      "accepted_usd": 56000000,
+      "operation_id": "RP 021826 28"
+    },
+    {
+      "date": "2025-11-05",
+      "accepted_usd": 99000000,
+      "operation_id": "RP 110525 25"
+    },
+    {
+      "date": "2025-10-08",
+      "accepted_usd": 97000000,
+      "operation_id": "RP 100825 99"
+    },
+    {
+      "date": "2025-03-05",
+      "accepted_usd": 84000000,
+      "operation_id": "RP 030525 4"
+    },
+    {
+      "date": "2025-02-26",
+      "accepted_usd": 94000000,
+      "operation_id": "RP 022625 99"
+    },
+    {
+      "date": "2025-01-24",
+      "accepted_usd": 82000000,
+      "operation_id": "RP 012425 26"
+    }
+  ],
+  "regular_operation_dates": 472,
+  "largest_award_dates": [
+    {
+      "date": "2025-12-31",
+      "accepted_usd": 74600000000,
+      "month_end": true
+    },
+    {
+      "date": "2025-10-31",
+      "accepted_usd": 50350000000,
+      "month_end": true
+    },
+    {
+      "date": "2026-02-17",
+      "accepted_usd": 30500000000,
+      "month_end": false
+    },
+    {
+      "date": "2025-12-01",
+      "accepted_usd": 26000000000,
+      "month_end": false
+    },
+    {
+      "date": "2025-12-29",
+      "accepted_usd": 25950000000,
+      "month_end": false
+    }
+  ],
+  "latest_reg_repo": {
+    "date": "2026-11-23",
+    "accepted_usd": 0
+  },
+  "primary_1bn": {
+    "n": 470,
+    "events": 35,
+    "event_rate_pct": 7.45,
+    "fixed": {
+      "alerts": 264,
+      "hits": 33,
+      "precision_pct": 12.5,
+      "recall_pct": 94.29
+    },
+    "rolling": {
+      "alerts": 25,
+      "hits": 14,
+      "precision_pct": 56,
+      "recall_pct": 40
+    },
+    "persistence": {
+      "alerts": 35,
+      "hits": 16,
+      "precision_pct": 45.71,
+      "recall_pct": 45.71
+    }
+  },
+  "ex_month_end_1bn": {
+    "n": 448,
+    "events": 29,
+    "event_rate_pct": 6.47,
+    "fixed": {
+      "alerts": 250,
+      "hits": 28,
+      "precision_pct": 11.2,
+      "recall_pct": 96.55
+    },
+    "rolling": {
+      "alerts": 23,
+      "hits": 12,
+      "precision_pct": 52.17,
+      "recall_pct": 41.38
+    },
+    "persistence": {
+      "alerts": 32,
+      "hits": 13,
+      "precision_pct": 40.62,
+      "recall_pct": 44.83
+    }
+  },
+  "sensitivity_5bn": {
+    "n": 470,
+    "events": 25,
+    "event_rate_pct": 5.32,
+    "fixed": {
+      "alerts": 264,
+      "hits": 24,
+      "precision_pct": 9.09,
+      "recall_pct": 96
+    },
+    "rolling": {
+      "alerts": 25,
+      "hits": 11,
+      "precision_pct": 44,
+      "recall_pct": 44
+    },
+    "persistence": {
+      "alerts": 25,
+      "hits": 8,
+      "precision_pct": 32,
+      "recall_pct": 32
+    }
+  },
+  "by_signal_year_1bn": {
+    "2025": {
+      "n": 249,
+      "events": 31,
+      "event_rate_pct": 12.45,
+      "fixed": {
+        "alerts": 69,
+        "hits": 29,
+        "precision_pct": 42.03,
+        "recall_pct": 93.55
+      },
+      "rolling": {
+        "alerts": 25,
+        "hits": 14,
+        "precision_pct": 56,
+        "recall_pct": 45.16
+      },
+      "persistence": {
+        "alerts": 30,
+        "hits": 16,
+        "precision_pct": 53.33,
+        "recall_pct": 51.61
+      }
+    },
+    "2026": {
+      "n": 221,
+      "events": 4,
+      "event_rate_pct": 1.81,
+      "fixed": {
+        "alerts": 195,
+        "hits": 4,
+        "precision_pct": 2.05,
+        "recall_pct": 100
+      },
+      "rolling": {
+        "alerts": 0,
+        "hits": 0,
+        "precision_pct": null,
+        "recall_pct": 0
+      },
+      "persistence": {
+        "alerts": 5,
+        "hits": 0,
+        "precision_pct": 0,
+        "recall_pct": 0
+      }
+    }
+  }
+}
