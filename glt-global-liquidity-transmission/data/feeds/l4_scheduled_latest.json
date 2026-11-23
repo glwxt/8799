@@ -1,0 +1,38 @@
+{
+  "schema": "glt-l4-scheduled-evidence-v1",
+  "started_at": "2026-11-23T22:47:34.911645+00:00",
+  "eligible_for_official_score": false,
+  "observations": [
+    {
+      "indicator": "btc_flow",
+      "observation_date": "2026-11-20",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": -669.2,
+      "reported_funds": 12,
+      "expected_funds": 12,
+      "status": "complete",
+      "scope": "US spot bitcoin ETFs covered by Farside",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "sha256": "870a8ac8a1f6556b82bd443513b45bea79e35341d46fcedf327c76994897eec7",
+      "retrieved_at": "2026-11-23T22:47:36.085660+00:00"
+    },
+    {
+      "indicator": "btc_flow",
+      "observation_date": "2026-11-23",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": null,
+      "reported_funds": 0,
+      "expected_funds": 12,
+      "status": "missing_funds",
+      "scope": "US spot bitcoin ETFs covered by Farside",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "sha256": "870a8ac8a1f6556b82bd443513b45bea79e35341d46fcedf327c76994897eec7",
+      "retrieved_at": "2026-11-23T22:47:36.086057+00:00"
+    }
+  ],
+  "errors": {
+    "ici": "HTTPError: HTTP Error 403: Forbidden"
+  }
+}
