@@ -4,10 +4,10 @@ import sys
 import numpy as np
 
 
-def main(path):
+def main(path, selected_candidates=None):
     with open(path, newline="", encoding="utf-8") as source:
         rows = list(csv.DictReader(source))
-    candidates = (
+    candidates = selected_candidates or (
         "tga_change",
         "other_reverse_repo_change",
         "total_assets_wednesday_change",
@@ -38,4 +38,4 @@ def main(path):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2:])
