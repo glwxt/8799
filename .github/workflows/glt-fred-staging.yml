@@ -56,9 +56,12 @@ jobs:
         run: |
           python src/official_sources.py --output ../../data/feeds/official_latest.json \
             --raw-dir staging/official
-      - name: Collect BTC, ICI and JPX research flow evidence
+      - name: Collect BTC, ICI, JPX and WGC research flow evidence
         run: |
           python -m pip install xlrd==2.0.2 openpyxl==3.1.5 || echo "::warning::Spreadsheet parsing dependencies unavailable"
+          if ! command -v tesseract >/dev/null || ! command -v pdftoppm >/dev/null || ! command -v pdftotext >/dev/null; then
+            sudo apt-get update -qq && sudo apt-get install -y poppler-utils tesseract-ocr || echo "::warning::WGC PDF tools unavailable"
+          fi
           python src/fund_flows.py --output ../../data/feeds/l4_scheduled_latest.json \
             --raw-dir staging/fund_flows
       - name: Render operations report
