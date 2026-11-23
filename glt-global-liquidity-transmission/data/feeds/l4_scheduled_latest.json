@@ -1,6 +1,6 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-23T23:16:59.963161+00:00",
+  "started_at": "2026-11-23T23:17:33.869486+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
@@ -14,8 +14,8 @@
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "761e971de09ed64e1c96d1fb49fc0f55d5ca642f392affe4db972d5776ef8506",
-      "retrieved_at": "2026-11-23T23:17:01.705475+00:00"
+      "sha256": "a1af64fb2a44d207ba212657c809c38a173863f28a158606516182ed30708b85",
+      "retrieved_at": "2026-11-23T23:17:35.092331+00:00"
     },
     {
       "indicator": "btc_flow",
@@ -28,8 +28,8 @@
       "status": "missing_funds",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "761e971de09ed64e1c96d1fb49fc0f55d5ca642f392affe4db972d5776ef8506",
-      "retrieved_at": "2026-11-23T23:17:01.706099+00:00"
+      "sha256": "a1af64fb2a44d207ba212657c809c38a173863f28a158606516182ed30708b85",
+      "retrieved_at": "2026-11-23T23:17:35.092895+00:00"
     },
     {
       "indicator": "asia_equity_flow",
@@ -45,7 +45,7 @@
       "index_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/",
       "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002wtoi-att/stock_1_w_20261109_20261113.xlsx",
       "sha256": "1d785a739808bb611cf5d1f30d57b906f25a87beba51d139ad7d79fab3c24069",
-      "retrieved_at": "2026-11-23T23:17:02.936656+00:00"
+      "retrieved_at": "2026-11-23T23:17:36.232207+00:00"
     },
     {
       "indicator": "gold_flow",
@@ -62,7 +62,7 @@
       "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-ai-reckoning",
       "source_url": "https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf",
       "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
-      "retrieved_at": "2026-11-23T23:17:05.939369+00:00"
+      "retrieved_at": "2026-11-23T23:17:39.571155+00:00"
     }
   ],
   "errors": {

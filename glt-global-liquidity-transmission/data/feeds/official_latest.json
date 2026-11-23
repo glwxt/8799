@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-24T07:16:48.378452+08:00",
+  "started_at": "2026-11-24T07:17:21.481446+08:00",
   "observations": {
     "TGA": {
       "observation_date": "2026-11-20",
@@ -8,7 +8,7 @@
       "scope": "Treasury DTS Table I closing balance",
       "source_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance?filter=record_date%3Agte%3A2026-11-17%2Crecord_date%3Alte%3A2026-11-24&sort=-record_date&page%5Bsize%5D=100",
       "sha256": "fe19e4cad3006d6c09a391fe5b5f62ffae4a7211a3282c4312dee9798893614b",
-      "retrieved_at": "2026-11-24T07:16:48.719577+08:00"
+      "retrieved_at": "2026-11-24T07:17:21.819851+08:00"
     },
     "TWSE_FOREIGN_NET": {
       "observation_date": "2026-11-23",
@@ -17,7 +17,7 @@
       "scope": "外資及陸資(不含外資自營商)",
       "source_url": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261123&type=day&response=json",
       "sha256": "2d91f428e66b53bac1404d2c9b41ce2f9bdc9c46b77d658ae2e5fe8c2e6d1605",
-      "retrieved_at": "2026-11-24T07:16:50.417673+08:00"
+      "retrieved_at": "2026-11-24T07:17:23.938543+08:00"
     }
   },
   "errors": {},
