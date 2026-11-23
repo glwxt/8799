@@ -1,0 +1,75 @@
+{
+  "asof_cutoff": "2026-11-23",
+  "eligible_for_official_score": false,
+  "window": 252,
+  "fixed_thresholds_bp": [
+    -5,
+    -7
+  ],
+  "event_vix_increase": 3,
+  "source_sha256": {
+    "sofr.json": "6c929daf42e16d3f5d7a71fdfa6674183f5d75ef4329bb98dd7f57ea7207391b",
+    "effr.json": "1cbdfdd7abbf7cb4e462622a85d082fe4228ee0037002d32755c0b3fb80814c9",
+    "iorb.csv": "0411c52161babf25987cda2bb5afc5895207b75d91590dafc3740849513591ab",
+    "VIXCLS.csv": "c371ba2d8657dac61622c5bbd05678d88d3490a24ec2fe3e30616d7922f80fba"
+  },
+  "full": {
+    "sample_count": 465,
+    "vix_events": 116,
+    "unconditional_event_pct": 24.95,
+    "first_effective_date": "2025-01-02",
+    "last_effective_date": "2026-11-12",
+    "fixed": {
+      "flags": 259,
+      "event_hits": 70,
+      "precision_pct": 27.03,
+      "recall_pct": 60.34
+    },
+    "trailing": {
+      "flags": 25,
+      "event_hits": 4,
+      "precision_pct": 16,
+      "recall_pct": 3.45
+    }
+  },
+  "by_effective_year": {
+    "2025": {
+      "sample_count": 249,
+      "vix_events": 58,
+      "unconditional_event_pct": 23.29,
+      "first_effective_date": "2025-01-02",
+      "last_effective_date": "2025-12-31",
+      "fixed": {
+        "flags": 69,
+        "event_hits": 13,
+        "precision_pct": 18.84,
+        "recall_pct": 22.41
+      },
+      "trailing": {
+        "flags": 25,
+        "event_hits": 4,
+        "precision_pct": 16,
+        "recall_pct": 6.9
+      }
+    },
+    "2026": {
+      "sample_count": 216,
+      "vix_events": 58,
+      "unconditional_event_pct": 26.85,
+      "first_effective_date": "2026-01-02",
+      "last_effective_date": "2026-11-12",
+      "fixed": {
+        "flags": 190,
+        "event_hits": 57,
+        "precision_pct": 30,
+        "recall_pct": 98.28
+      },
+      "trailing": {
+        "flags": 0,
+        "event_hits": 0,
+        "precision_pct": null,
+        "recall_pct": 0
+      }
+    }
+  }
+}
