@@ -1,0 +1,408 @@
+{
+  "schema": "glt-gold-etf-publication-evidence-v1",
+  "checked_taipei_date": "2026-11-24",
+  "eligible_for_official_score": false,
+  "weekly": [
+    {
+      "period_end": "2026-11-06",
+      "published_at": "2026-11-09T11:00:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-surprise-surprise",
+      "source_pdf": "https://www.gold.org/download/file/21370/WMM_9_Nov_2026_Surprise_surprise.pdf",
+      "page": 20,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": -1209.9,
+      "wgc_complete_funds_pct": 41,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "GLDM",
+          "net_flow": 146.5
+        },
+        {
+          "ticker": "IAUM",
+          "net_flow": 5.3
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": -15.9
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": -18.6
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": -19.2
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": -24.4
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": -142.6
+        }
+      ],
+      "key_us_sample_net_flow": -68.9,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-11-13",
+      "published_at": "2026-11-16T12:05:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-waller-dollar",
+      "source_pdf": "https://www.gold.org/download/file/21386/WMM_16_Nov_2026_Waller_the_Dollar.pdf",
+      "page": 18,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": 673.3,
+      "wgc_complete_funds_pct": 41,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "GLDM",
+          "net_flow": 269.6
+        },
+        {
+          "ticker": "IAUM",
+          "net_flow": 16.5
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": 0
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": 0
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": 12.9
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": 430.1
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": 0
+        }
+      ],
+      "key_us_sample_net_flow": 729.1,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-11-20",
+      "published_at": "2026-11-23T11:00:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-ai-reckoning",
+      "source_pdf": "https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf",
+      "page": 19,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": -2149,
+      "wgc_complete_funds_pct": 40,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "GLDM",
+          "net_flow": -59.4
+        },
+        {
+          "ticker": "IAUM",
+          "net_flow": -18.5
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": 0
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": 0
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": -17.9
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": -1158.7
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": -84.5
+        }
+      ],
+      "key_us_sample_net_flow": -1339,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    }
+  ],
+  "monthly": [
+    {
+      "period_end": "2025-01-31",
+      "published_at": "2025-02-10T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 3000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/02",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-02-28",
+      "published_at": "2025-03-06T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 9400,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/03",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-03-31",
+      "published_at": "2025-04-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 8600,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/04",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-04-30",
+      "published_at": "2025-05-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 11000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/05",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-05-31",
+      "published_at": "2025-06-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": -1800,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/06",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-06-30",
+      "published_at": "2025-07-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": null,
+      "value_status": "global_month_total_not_verified",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/07",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-07-31",
+      "published_at": "2025-08-07T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 3200,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/08",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-08-31",
+      "published_at": "2025-09-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 5500,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/09",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-09-30",
+      "published_at": "2025-10-07T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 17000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/10",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-10-31",
+      "published_at": "2025-11-06T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 8200,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/11",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-11-30",
+      "published_at": "2025-12-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 5200,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2025/12",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2025-12-31",
+      "published_at": "2026-01-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 10000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/01",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-01-31",
+      "published_at": "2026-02-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 19000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/02",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-02-28",
+      "published_at": "2026-03-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 5300,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/03",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-03-31",
+      "published_at": "2026-04-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": -12000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/04",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-04-30",
+      "published_at": "2026-05-07T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 6600,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/05",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-05-31",
+      "published_at": "2026-06-04T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": -2000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/06",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-06-30",
+      "published_at": "2026-07-08T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": -8900,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/07",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-07-31",
+      "published_at": "2026-08-06T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 3000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/08",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-08-31",
+      "published_at": "2026-09-09T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 18000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/09",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-09-30",
+      "published_at": "2026-10-07T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 10000,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/10",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-10-31",
+      "published_at": "2026-11-05T12:00:00Z",
+      "frequency": "monthly",
+      "unit": "USD millions",
+      "net_flow": 2700,
+      "value_status": "rounded_reported_total",
+      "scope": "WGC global physically-backed gold ETFs",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/11",
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    }
+  ]
+}
