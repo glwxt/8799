@@ -6,15 +6,16 @@ Uses stdlib only. Each run has its own timestamped directory.
 """
 import argparse
 import csv
+from concurrent.futures import ThreadPoolExecutor
 import datetime as dt
 import hashlib
+import http.client
 import io
 import json
 from pathlib import Path
 import time
 import urllib.parse
 import urllib.request
-from urllib.error import HTTPError, URLError
 
 SERIES = {
     "WRESBAL": {"indicator":"reserves","unit":"Millions of USD","frequency":"weekly"},
@@ -69,6 +70,21 @@ def download_one(series,opener=urllib.request.urlopen):
         raise ValueError("Response too large")
     parsed = parse_csv(data,series)
     return url,data,parsed
+FETCH_ERRORS = (OSError, ValueError, http.client.HTTPException)
+
+
+def download_with_retry(series, opener, retries):
+    for attempt in range(retries + 1):
+        try:
+            url, raw, parsed = download_one(series, opener)
+            retrieved_at = dt.datetime.now(dt.timezone.utc).isoformat()
+            return url, raw, parsed, retrieved_at
+        except FETCH_ERRORS:
+            if attempt == retries:
+                raise
+            time.sleep(min(2 ** attempt, 8))
+
+
 def collect(directory,opener=urllib.request.urlopen,retries=2):
     directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
     manifest = {
@@ -79,19 +95,24 @@ def collect(directory,opener=urllib.request.urlopen,retries=2):
        "series":{}, "errors":{},
        "eligible_for_official_glt_score":False
     }
-    for sid,info in SERIES.items():
-        err=None
-        for attempt in range(retries+1):
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        downloads = {
+            sid: executor.submit(download_with_retry, sid, opener, retries)
+            for sid in SERIES
+        }
+        for sid, future in downloads.items():
             try:
-                url,raw,parsed=download_one(sid,opener)
-                (directory / (sid+".csv")).write_bytes(raw)
-                manifest["series"][sid]=dict(info,**parsed,source_url=url,sha256=hashlib.sha256(raw).hexdigest(),retrieved_at_utc=dt.datetime.now(dt.timezone.utc).isoformat(),data_vintage="current_at_retrieval",release_timestamp_verified=False)
-                err=None
-                break
-            except (HTTPError,URLError,TimeoutError,ValueError,OSError,UnicodeError) as exc:
-                err=f"{type(exc).__name__}: {exc}"
-                if attempt < retries:time.sleep(min(attempt+1,3))
-        if err:manifest["errors"][sid]=err
+                url, raw, parsed, retrieved_at = future.result()
+            except FETCH_ERRORS as exc:
+                manifest["errors"][sid] = f"{type(exc).__name__}: {exc}"
+                continue
+            (directory / (sid + ".csv")).write_bytes(raw)
+            manifest["series"][sid] = dict(
+                SERIES[sid], **parsed, source_url=url,
+                sha256=hashlib.sha256(raw).hexdigest(),
+                retrieved_at_utc=retrieved_at,
+                data_vintage="current_at_retrieval", release_timestamp_verified=False,
+            )
     manifest["success_count"]=len(manifest["series"])
     manifest["failure_count"]=len(manifest["errors"])
     manifest["source_availability_ratio"]=round(len(manifest["series"])/len(SERIES),4)
