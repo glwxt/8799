@@ -1,8 +1,8 @@
 {
   "schema": "glt-fred-evidence-summary-v1",
-  "generated_at_utc": "2026-11-23T21:40:13.785594+00:00",
-  "data_retrieved_at_utc": "2026-11-23T21:33:29.847740+00:00",
-  "data_retrieved_at_taipei": "2026-11-24T05:33:29.847740+08:00",
+  "generated_at_utc": "2026-11-23T22:06:18.539949+00:00",
+  "data_retrieved_at_utc": "2026-11-23T21:59:35.159691+00:00",
+  "data_retrieved_at_taipei": "2026-11-24T05:59:35.159691+08:00",
   "local_calendar_date": "2026-11-24",
   "source": "FRED graph current-vintage CSV",
   "expected_series": 10,
