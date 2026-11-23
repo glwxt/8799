@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/glt-fred-staging.yml'
       - 'glt-global-liquidity-transmission/engineering/v0.2.0/src/batch_stage.py'
+      - 'glt-global-liquidity-transmission/engineering/v0.2.0/src/fund_flows.py'
 
 permissions:
   contents: write
@@ -53,6 +54,10 @@ jobs:
         run: |
           python src/official_sources.py --output ../../data/feeds/official_latest.json \
             --raw-dir staging/official
+      - name: Collect BTC and ICI research flow evidence
+        run: |
+          python src/fund_flows.py --output ../../data/feeds/l4_scheduled_latest.json \
+            --raw-dir staging/fund_flows
       - name: Render operations report
         run: |
           python src/monitor_status.py --feed ../../data/feeds/fred_latest.json \
@@ -64,7 +69,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add glt-global-liquidity-transmission/data/feeds/fred_latest.json glt-global-liquidity-transmission/data/feeds/fred_latest.md glt-global-liquidity-transmission/data/feeds/monitor_status.md glt-global-liquidity-transmission/data/feeds/official_latest.json
+          git add glt-global-liquidity-transmission/data/feeds/fred_latest.json glt-global-liquidity-transmission/data/feeds/fred_latest.md glt-global-liquidity-transmission/data/feeds/monitor_status.md glt-global-liquidity-transmission/data/feeds/official_latest.json glt-global-liquidity-transmission/data/feeds/l4_scheduled_latest.json
           if git diff --cached --quiet; then
             echo "No changed evidence summary"
           else
@@ -80,6 +85,7 @@ jobs:
           path: |
             glt-global-liquidity-transmission/engineering/v0.2.0/staging/runs/
             glt-global-liquidity-transmission/engineering/v0.2.0/staging/official/
+            glt-global-liquidity-transmission/engineering/v0.2.0/staging/fund_flows/
           if-no-files-found: warn
           retention-days: 30
       - name: Warn on incomplete source collection (do not fail workflow)
