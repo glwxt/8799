@@ -1,0 +1,29 @@
+{
+  "schema": "glt-ici-research-evidence-v1",
+  "checked_taipei_date": "2026-11-24",
+  "source_url": "https://www.ici.org/research/stats/etf_flows",
+  "released_on": "2026-11-17",
+  "published_at": null,
+  "week_ended": "2026-11-11",
+  "frequency": "weekly",
+  "unit": "USD millions",
+  "eligible_for_official_score": false,
+  "observations": [
+    {
+      "indicator": "us_equity_flow",
+      "scope": "ICI U.S. domestic equity ETF estimated net issuance",
+      "value": 37058
+    },
+    {
+      "indicator": "bond_flow",
+      "scope": "ICI bond ETF estimated net issuance",
+      "value": 11754
+    }
+  ],
+  "validation": {
+    "equity_reported": 45219,
+    "world_equity": 8161,
+    "taxable_bond": 10091,
+    "municipal_bond": 1663
+  }
+}
