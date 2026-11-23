@@ -82,6 +82,8 @@ def render(feed, report, official=None, flows=None):
                           row["status"], row["status"])
             if "reported_funds" in row:
                 status += f" {row['reported_funds']}/{row['expected_funds']}"
+            if row.get("reported_subtotal") is not None:
+                status += f"，已报小计 {row['reported_subtotal']} {row['unit']}"
             lines.append(
                 f"| [{flow_names.get(row['indicator'], row['indicator'])}]({row['source_url']})"
                 f" | {row['observation_date']} | {row['frequency']} | "
