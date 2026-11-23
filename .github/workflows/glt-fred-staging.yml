@@ -56,6 +56,7 @@ jobs:
             --raw-dir staging/official
       - name: Collect BTC and ICI research flow evidence
         run: |
+          python -m pip install xlrd==2.0.2 || echo "::warning::ICI workbook parsing dependency unavailable"
           python src/fund_flows.py --output ../../data/feeds/l4_scheduled_latest.json \
             --raw-dir staging/fund_flows
       - name: Render operations report
