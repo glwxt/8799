@@ -1,9 +1,10 @@
-"""Stage BTC, ICI and JPX net-flow evidence for GLT research reports."""
+"""Stage BTC, ICI, JPX and WGC net-flow evidence for GLT research reports."""
 
 import argparse
 import hashlib
 import json
 import re
+import subprocess
 from io import BytesIO
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -16,6 +17,7 @@ from urllib.request import Request, urlopen
 BTC = "https://farside.co.uk/bitcoin-etf-flow-all-data/"
 ICI = "https://www.ici.org/research/stats/etf_flows"
 JPX = "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/"
+WGC_INDEX = "https://www.gold.org/goldhub/gold-focus/author/weekly-markets-monitor"
 
 
 class Tables(HTMLParser):
@@ -245,6 +247,89 @@ def collect_jpx(started_at, raw_dir):
         raise ValueError("Invalid JPX workbook") from error
 
 
+def gold_pdf_observation(pdf, started_at, published_at):
+    extracted = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True,
+                               capture_output=True, text=True, timeout=25).stdout
+    pages = [i for i, page in enumerate(extracted.split("\f"), 1)
+             if re.search(r"^\s*Weekly ETF Flows\s*$", page, re.MULTILINE)]
+    if len(pages) != 1:
+        raise ValueError("WGC weekly ETF flow page could not be uniquely located")
+    page = str(pages[0])
+    prefix = pdf.with_suffix("")
+    subprocess.run(["pdftoppm", "-f", page, "-l", page, "-r", "245", "-png",
+                    "-singlefile", str(pdf), str(prefix)], check=True,
+                   capture_output=True, timeout=30)
+    try:
+        ocr = subprocess.run(["tesseract", str(prefix.with_suffix(".png")), "stdout",
+                              "--psm", "6"], check=True, capture_output=True,
+                             text=True, timeout=30).stdout
+    finally:
+        prefix.with_suffix(".png").unlink(missing_ok=True)
+    (pdf.parent / "wgc_weekly_ocr.txt").write_text(ocr, encoding="utf-8")
+    if not re.search(r"Fund\s+Flows", ocr, re.IGNORECASE):
+        raise ValueError("WGC weekly flow column not found")
+    number = r"([+-]?\d[\d,]*\.\d)"
+    pattern = rf"^Total\s+{number}\s+{number}\s+{number}(?=\s)"
+    total = re.search(pattern, ocr, re.MULTILINE)
+    inflow = re.search(rf"^Global inflows\s*/\s*Positive Demand\s+{number}", ocr, re.MULTILINE)
+    outflow = re.search(rf"^Global outflows\s*/\s*Negative Demand\s+{number}", ocr, re.MULTILINE)
+    period = re.search(r"Week ending\s+(\d{1,2} [A-Za-z]+,\s*\d{4})", ocr)
+    if not all((total, inflow, outflow, period)):
+        raise ValueError("WGC weekly total, gross flows or period not readable")
+    net = amount(total[2])
+    gross_in, gross_out = amount(inflow[1]), amount(outflow[1])
+    reconciled = gross_in + gross_out
+    if (gross_in < 0 or gross_out > 0 or abs(abs(reconciled) - abs(net)) > Decimal("0.2")
+            or (net < 0 and reconciled >= 0)):
+        raise ValueError("WGC reported total failed gross-flow reconciliation")
+    # OCR can drop a leading minus; the independently reported gross flows restore it.
+    net = abs(net).copy_sign(reconciled)
+    end = datetime.strptime(period[1], "%d %B, %Y").date()
+    if not end <= published_at.date() <= end + timedelta(days=9) or published_at > started_at:
+        raise ValueError("WGC dates failed observation and publication validation")
+    coverage = re.search(r"\b\d+\s*\((\d{1,3})%\).*?\b\d+\s*\((\d{1,3})%\)", ocr)
+    pct = int(coverage[1]) if coverage and int(coverage[1]) + int(coverage[2]) == 100 else None
+    return {
+        "indicator": "gold_flow", "observation_date": end.isoformat(),
+        "frequency": "weekly", "unit": "USD millions", "value": float(net),
+        "status": "reported_estimate", "scope": "WGC global physically backed gold ETF flow estimate",
+        "published_at": published_at.isoformat(), "source_page": int(page),
+        "reported_complete_funds_pct": pct, "extraction": "OCR checked against gross flows",
+    }
+
+
+def collect_wgc(started_at, raw_dir):
+    index = download(WGC_INDEX)
+    (raw_dir / "wgc_index.html").write_bytes(index)
+    release_pattern = re.compile(r"/goldhub/gold-focus/\d{4}/\d{2}/weekly-markets-monitor[-a-z0-9]+")
+    releases = list(dict.fromkeys(link for link in Tables(index).links if release_pattern.fullmatch(link)))
+    candidates = []
+    for link in releases[:3]:
+        url = urljoin(WGC_INDEX, link)
+        raw = download(url)
+        stamp = re.search(rb'"datePublished"\s*:\s*"([^"]+)"', raw)
+        if not stamp:
+            continue
+        published = datetime.fromisoformat(stamp[1].decode().replace("Z", "+00:00"))
+        if published.tzinfo is not None and published <= started_at:
+            candidates.append((published, url, raw))
+    if not candidates:
+        raise ValueError("No published WGC weekly release with timestamp")
+    published, release_url, html = max(candidates, key=lambda item: item[0])
+    (raw_dir / "wgc_release.html").write_bytes(html)
+    pdf_links = [link for link in Tables(html).links
+                 if re.fullmatch(r"/download/file/\d+/WMM[^/]+\.pdf", link, re.IGNORECASE)]
+    if len(set(pdf_links)) != 1:
+        raise ValueError("WGC weekly release PDF could not be uniquely located")
+    url = urljoin(WGC_INDEX, pdf_links[0])
+    raw = download(url)
+    pdf = raw_dir / "wgc_weekly.pdf"
+    pdf.write_bytes(raw)
+    row = gold_pdf_observation(pdf, started_at, published)
+    row["release_url"] = release_url
+    return url, raw, row
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -274,12 +359,14 @@ def main():
             )
         except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError, ImportError) as error:
             errors[name] = f"{type(error).__name__}: {error}"
-    try:
-        url, raw, observation = collect_jpx(start, args.raw_dir)
-        observations.append(dict(observation, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
-                                 retrieved_at=datetime.now(timezone.utc).isoformat()))
-    except (OSError, ValueError, KeyError, IndexError, StopIteration, ImportError) as error:
-        errors["jpx"] = f"{type(error).__name__}: {error}"
+    for name, collect in (("jpx", collect_jpx), ("wgc", collect_wgc)):
+        try:
+            url, raw, observation = collect(start, args.raw_dir)
+            observations.append(dict(observation, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
+                                     retrieved_at=datetime.now(timezone.utc).isoformat()))
+        except (OSError, ValueError, KeyError, IndexError, StopIteration, ImportError,
+                subprocess.SubprocessError) as error:
+            errors[name] = f"{type(error).__name__}: {error}"
     result = {
         "schema": "glt-l4-scheduled-evidence-v1", "started_at": start.isoformat(),
         "eligible_for_official_score": False, "observations": observations, "errors": errors,
