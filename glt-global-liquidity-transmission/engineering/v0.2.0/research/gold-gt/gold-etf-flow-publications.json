@@ -4,6 +4,52 @@
   "eligible_for_official_score": false,
   "weekly": [
     {
+      "period_end": "2026-10-30",
+      "published_at": "2026-11-02T11:25:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-leveraged-repricers",
+      "source_pdf": "https://www.gold.org/download/file/21327/WMM_2_Nov_2026_Leveraged_Repricers.pdf",
+      "page": 17,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": 215.2,
+      "wgc_complete_funds_pct": 41,
+      "wgc_complete_aum_pct": 74.7,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "IAUM",
+          "net_flow": 116.6
+        },
+        {
+          "ticker": "GLDM",
+          "net_flow": 86.5
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": 0
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": 0
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": -0.3
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": -19.2
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": -132.1
+        }
+      ],
+      "key_us_sample_net_flow": 51.5,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
       "period_end": "2026-11-06",
       "published_at": "2026-11-09T11:00:00Z",
       "publication_time_source": "publisher page JSON-LD datePublished",
