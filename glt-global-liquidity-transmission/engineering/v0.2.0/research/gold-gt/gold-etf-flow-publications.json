@@ -4,6 +4,102 @@
   "eligible_for_official_score": false,
   "weekly": [
     {
+      "period_end": "2026-09-18",
+      "published_at": "2026-09-21T11:45:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/09/weekly-markets-monitor-all-together-now",
+      "source_pdf": "https://www.gold.org/download/file/21158/WMM_21_September_2026_All_together_now.pdf",
+      "page": 19,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": 3745.7,
+      "wgc_complete_funds_pct": 37,
+      "wgc_complete_aum_pct": 69.7,
+      "wgc_complete_funds": 73,
+      "wgc_incomplete_funds": 122,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "GLDM",
+          "net_flow": 178.2
+        },
+        {
+          "ticker": "IAUM",
+          "net_flow": 200.9
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": 0
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": 0
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": 20.4
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": 1350.2
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": 407.6
+        }
+      ],
+      "key_us_sample_net_flow": 2157.3,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
+      "period_end": "2026-09-25",
+      "published_at": "2026-09-28T11:10:00Z",
+      "publication_time_source": "publisher page JSON-LD datePublished",
+      "release_url": "https://www.gold.org/goldhub/gold-focus/2026/09/weekly-markets-monitor-golden-week-china",
+      "source_pdf": "https://www.gold.org/download/file/21176/WMM_28_September_2026_Golden_Week_in_China.pdf",
+      "page": 19,
+      "frequency": "weekly",
+      "unit": "USD millions",
+      "reported_global_net_flow": 165.3,
+      "wgc_complete_funds_pct": 37,
+      "wgc_complete_aum_pct": 69.2,
+      "wgc_complete_funds": 72,
+      "wgc_incomplete_funds": 123,
+      "scope": "WGC global reported estimate and separate key US fund sample",
+      "funds": [
+        {
+          "ticker": "GLDM",
+          "net_flow": -271.9
+        },
+        {
+          "ticker": "IAUM",
+          "net_flow": 85.4
+        },
+        {
+          "ticker": "BAR",
+          "net_flow": 0
+        },
+        {
+          "ticker": "AAAU",
+          "net_flow": 0
+        },
+        {
+          "ticker": "SGOL",
+          "net_flow": 28.8
+        },
+        {
+          "ticker": "GLD",
+          "net_flow": -353.6
+        },
+        {
+          "ticker": "IAU",
+          "net_flow": -177.6
+        }
+      ],
+      "key_us_sample_net_flow": -688.9,
+      "revision_status": "publisher report as retrieved; later changes not verified"
+    },
+    {
       "period_end": "2026-10-02",
       "published_at": "2026-10-05T10:45:00Z",
       "publication_time_source": "publisher page JSON-LD datePublished",
