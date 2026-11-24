@@ -1,0 +1,69 @@
+{
+  "schema": "glt-ici-release-snapshot-v1",
+  "source_url": "https://www.ici.org/research/stats/etf_flows",
+  "checked_taipei_date": "2026-11-24",
+  "release_date": "2026-11-17",
+  "publication_time": null,
+  "frequency": "weekly",
+  "unit": "USD millions",
+  "scope": "ETF estimated net issuance",
+  "eligible_for_official_score": false,
+  "historical_columns": "Values as shown in the November 17 release. Earlier first-publication timestamps are unverified, so this snapshot cannot serve as first-vintage evidence for those earlier dates.",
+  "observations": [
+    {
+      "week_ended": "2026-11-11",
+      "equity": 45219,
+      "us_equity_flow": 37058,
+      "world_equity": 8161,
+      "bond_flow": 11754,
+      "taxable_bond": 10091,
+      "municipal_bond": 1663,
+      "equity_residual": 0,
+      "bond_residual": 0
+    },
+    {
+      "week_ended": "2026-11-04",
+      "equity": 35541,
+      "us_equity_flow": 30868,
+      "world_equity": 4673,
+      "bond_flow": 13889,
+      "taxable_bond": 12228,
+      "municipal_bond": 1660,
+      "equity_residual": 0,
+      "bond_residual": 1
+    },
+    {
+      "week_ended": "2026-10-28",
+      "equity": 34221,
+      "us_equity_flow": 26586,
+      "world_equity": 7635,
+      "bond_flow": 14236,
+      "taxable_bond": 9375,
+      "municipal_bond": 4862,
+      "equity_residual": 0,
+      "bond_residual": -1
+    },
+    {
+      "week_ended": "2026-10-21",
+      "equity": 42264,
+      "us_equity_flow": 34579,
+      "world_equity": 7685,
+      "bond_flow": 10043,
+      "taxable_bond": 6294,
+      "municipal_bond": 3749,
+      "equity_residual": 0,
+      "bond_residual": 0
+    },
+    {
+      "week_ended": "2026-10-14",
+      "equity": 34730,
+      "us_equity_flow": 29668,
+      "world_equity": 5062,
+      "bond_flow": 19032,
+      "taxable_bond": 11004,
+      "municipal_bond": 8029,
+      "equity_residual": 0,
+      "bond_residual": -1
+    }
+  ]
+}
