@@ -1,0 +1,29 @@
+{
+  "schema": "glt-l4-btc-disclosure-trail-v1",
+  "checked_taipei_date": "2026-11-24",
+  "eligible_for_official_score": false,
+  "observation_date": "2026-11-23",
+  "unit": "USD millions",
+  "first_full_snapshot_seen_at": "2026-11-24T06:56:15.054595+00:00",
+  "publisher_exact_publication_time": null,
+  "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+  "snapshots": [
+    {
+      "observation_checked_at": "2026-11-23T23:19:22.831229+00:00",
+      "reported_funds": 2,
+      "expected_funds": 12,
+      "reported_subtotal": -61.1,
+      "value": null,
+      "sha256": "a08395da45a28ea3e9dc2c3b25aa28cb90f80d87290c1e2516aa9e852b999ad8"
+    },
+    {
+      "observation_checked_at": "2026-11-24T06:56:15.054595+00:00",
+      "reported_funds": 12,
+      "expected_funds": 12,
+      "reported_subtotal": null,
+      "value": -569.7,
+      "sha256": "f0c1a4c254b1fd6d97d9f023a45690149e98f7a752a4e5dd9397d8718c871db6"
+    }
+  ],
+  "interpretation": "Observed availability is not publisher release time. Preserve the morning briefing cutoff and do not retroactively promote the full row."
+}
