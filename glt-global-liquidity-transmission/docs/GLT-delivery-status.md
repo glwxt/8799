@@ -8,13 +8,13 @@
 | --- | --- | --- | --- |
 | 1. 方法与权重 | 完成 | GLT V1.0 四层 19 项、发布门槛和 GLI 独立规则 | 新规则按版本审批 |
 | 2. 指标清单及来源 | 进行中 | [19 项指标与来源登记表](GLT-indicator-source-register.md)已建立；已采证据和未锁定口径逐项标注；补录两天 Nasdaq 广度源样本 | 对照每项正式单位、期限、频率、披露时点；补跨境融资价格和资金流映射 |
-| 3. 首轮真实取数 | 进行中 | FRED 10/10、TGA、TWSE 已远端入库；L4 五类均已取得研究快照，日本 JPX 官方表已对账 | BTC 11/23 缺报、黄金周频、美股和债券更新及亚洲其余市场；落实正式口径与持续采集 |
+| 3. 首轮真实取数 | 进行中 | FRED 10/10、TGA、TWSE 已远端入库；L4 五类均已取得研究快照，日本 JPX 官方表已对账；BTC 11/23 已补齐 12/12，保留原始缺报快照 | 黄金周频、美股和债券更新及亚洲其余市场；落实正式口径与持续采集 |
 | 4. 定时采集与质量日志 | 进行中 | FRED、TGA、TWSE、BTC、JPX 和 WGC 黄金周报已通过远端采集；WGC 对账总净流与流入流出分项，BTC 部分已报小计单列 | 核验连续例行运行、JPX 首发时间、WGC 覆盖率 OCR；ICI 网页和工作簿远端均遇 403；[独立核验已归档](../data/feeds/ici_verified_2026-11-11.json)，日报已配置备用核验，待验证新一期自动归档 |
 | 5. 评分输入与历史校准 | 进行中 | 准备金研究校准；TGA 独立复验；MBS 与 ON RRP 三段研究；[L2 检查](../engineering/v0.2.0/research/l2-conditions/README.md)已完成名义利率同日拆分与美元融资跨期阈值验证；[名义利率增量复验](../engineering/v0.2.0/research/l2-conditions/nominal-validation.md)未通过 | 扩充准备金历史并对照原始发布；L2 名义利率拆分用于解释，待验证其他独立信号；[美元融资滚动阈值](../engineering/v0.2.0/research/l2-conditions/funding-rolling-validation.md)已用[纽约联储实际回购用量](../engineering/v0.2.0/research/l2-conditions/funding-repo-validation.md)复验，2026 样本漏报，仍待跨期稳定信号和跨境价格；完成 V1.1 去重、样本外和版本审批 |
 | 6. 四层评分与发布门槛 | 进行中 | 计算和停发门槛已有运行证据；[正式验收审计](GLT-scoring-acceptance.md)确认 V1.0 引擎理论可计分上限 54% | 四层各自达到门槛、全系统覆盖至少 80%，并完成关键输入验收 |
 | 7. 三资产传导评分 | 进行中 | GOLD-GT 首轮回测及 WGC 3 期逐基金周流量、22 期月度发布日期已归档 | 扩展带披露时间的周频历史，核验覆盖变化与版本；补 DXY，复验黄金后推进 BTC、股票及正式审批 |
 | 8. 可用运行报告 | 完成 | GitHub 运行看板包含采集值、时点、评分覆盖及缺口 | 维护最新状态 |
-| 9. 资金流、背离与 GLI 对照 | 进行中 | 方法与研究报告样本，台湾外资已有实采 | 补齐 ICI 远端链路与区域覆盖；日报、周报和健康检查已设置读取资金流采集档及识别缺报，待核验后续送达及每日 GLT／GLI 背离 |
+| 9. 资金流、背离与 GLI 对照 | 进行中 | 方法与研究报告样本，台湾外资已有实采 | 补齐 ICI 远端链路与区域覆盖；日报、周报和健康检查已设置读取资金流采集档及识别缺报，11/24 日报与健康检查已实跑并读取资金流；仍待核验后续周报、Muse 送达及每日 GLT／GLI 背离 |
 | 10. 研究版日报和周报 | 完成 | 已有实际日报与周报，定时任务已启用 | 按例行运维持续核验。正式评分见第 6 步 |
 | 11. 预测台账与复盘 | 进行中 | [首批到期复盘](../engineering/v0.2.0/research/forecast-review-2026-11-24.md)已归档，核对 5 条，另 1 条窗口冲突排除 | 等待 7 天样本到期，补同窗原始证据，形成周度命中、误差和基准比较 |
 | 12. Muse 交付与运维验收 | 进行中 | 已有历史空间同步记录 | 核验最新送达、漏同步恢复和重复同步去重 |
@@ -26,4 +26,4 @@
 3. **资金流、背离、四层发布和三资产**。先完成资金流覆盖和 GLI 对照，再验证四层，三资产各自独立验收。
 4. **预测复盘与交付**。使用原始预测记录核对到期结果，验收 Muse 日报、周报和告警的交付。
 
-[美股广度样本](../engineering/v0.2.0/research/us-breadth-source-check-2026-11-24.md) · [黄金 ETF 净流披露档案](../engineering/v0.2.0/research/gold-gt/gold-etf-flow-publications.json) · [GOLD-GT 首轮研究](../engineering/v0.2.0/research/gold-gt/README.md) · [L4 自动采集状态](../data/feeds/l4_scheduled_latest.json) · [L4 五类资金流实采快照](../data/feeds/l4_flow_evidence_2026-11-24.json) · [本轮融资来源核验](../engineering/v0.2.0/research/l1-h41/USD-funding-source-check-2026-11-24.md) · [GLT V1.0 方法](GLT-methodology.md)
+[11/24 运行与补报核验](GLT-ops-verification-2026-11-24.md) · [美股广度样本](../engineering/v0.2.0/research/us-breadth-source-check-2026-11-24.md) · [黄金 ETF 净流披露档案](../engineering/v0.2.0/research/gold-gt/gold-etf-flow-publications.json) · [GOLD-GT 首轮研究](../engineering/v0.2.0/research/gold-gt/README.md) · [L4 自动采集状态](../data/feeds/l4_scheduled_latest.json) · [L4 五类资金流实采快照](../data/feeds/l4_flow_evidence_2026-11-24.json) · [本轮融资来源核验](../engineering/v0.2.0/research/l1-h41/USD-funding-source-check-2026-11-24.md) · [GLT V1.0 方法](GLT-methodology.md)
