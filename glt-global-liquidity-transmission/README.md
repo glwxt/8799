@@ -75,7 +75,7 @@
 
 - `docs/GLT-methodology.md` — 方法 V1.0（四层指标、权重、资产模型、数据规则、报告频率、复盘机制）
 - `tasks/` — 每日简报、每周完整报告、空间同步的执行说明
-- `data/` — 报告档案文件，`YYYY-MM-DD-glt-daily-briefing.md` / `YYYY-MM-DD-glt-weekly-report.md`，已有 2026-11-19 与 2026-11-20 每日简报
+- `data/` — 报告档案文件，`YYYY-MM-DD-glt-daily-briefing.md` / `YYYY-MM-DD-glt-weekly-report.md`，已有 2026-11-19 至 2026-11-25 每日简报与 2026-11-23 首期周报
 - `engineering/v0.2.0/` — 与方法 V1.0 对齐的离线工程原型（见上节），正式方法仍为 V1.0
 
 没有（诚实说明，免得以后误会）：
