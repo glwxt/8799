@@ -1,6 +1,6 @@
 # GLT 项目步骤与验收状态
 
-更新于 2026-11-25（台湾时间）。12 步中，3 步完成，9 步进行中。完成以可复核的交付物为准。
+更新于 2026-11-26（台湾时间）。12 步中，3 步完成，9 步进行中。完成以可复核的交付物为准。
 
 11/24 21:54（台湾时间）以仓库 V1.0 评分引擎复跑，有效输入覆盖 23%，可计分覆盖 10%，与同日 14:56 的运行看板一致。L1 为 13/30 有效、0/30 可计分；L2 为 0/25、0/25；L3 为 10/20、10/20；L4 为 0/25、0/25。早前验收记录引用的 48%／18% 属于另一截点。当前正式综合分未通过发布门槛。FRED 10/10 属于采集验收。 [运行状态](../data/feeds/monitor_status.md)
 
@@ -31,3 +31,5 @@
 [11/24 运行与补报核验](GLT-ops-verification-2026-11-24.md) · [美股广度样本](../engineering/v0.2.0/research/us-breadth-source-check-2026-11-24.md) · [黄金 ETF 净流披露档案](../engineering/v0.2.0/research/gold-gt/gold-etf-flow-publications.json) · [GOLD-GT 首轮研究](../engineering/v0.2.0/research/gold-gt/README.md) · [L4 自动采集状态](../data/feeds/l4_scheduled_latest.json) · [L4 五类资金流实采快照](../data/feeds/l4_flow_evidence_2026-11-24.json) · [本轮融资来源核验](../engineering/v0.2.0/research/l1-h41/USD-funding-source-check-2026-11-24.md) · [GLT V1.0 方法](GLT-methodology.md)
 
 [11/25 ICI 修订、黄金覆盖率敏感性、GLI 与空间核验](GLT-ops-verification-2026-11-25.md)
+
+[11/26 ICI 口径对账、TWSE 原表及预测到期核验](GLT-ops-verification-2026-11-26.md)

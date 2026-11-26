@@ -1,0 +1,14 @@
+{
+  "schema": "glt-twse-foreign-flow-research-v1",
+  "checked_taipei_date": "2026-11-26",
+  "published_at": null,
+  "eligible_for_official_score": false,
+  "source_url": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261125&response=html",
+  "observation_date": "2026-11-25",
+  "unit": "TWD",
+  "scope": "外資及陸資(不含外資自營商)",
+  "buy": 457832326822,
+  "sell": 581487124975,
+  "net": -123654798153,
+  "source_reported_foreign_dealers_net": 0
+}
