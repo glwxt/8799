@@ -1,6 +1,6 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-25T05:24:29.460658+00:00",
+  "started_at": "2026-11-26T04:58:31.904529+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
@@ -15,8 +15,23 @@
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "967f1bae597bcc8bb95beb704b2871ed133cdc90adc8719466e7c22732ac593a",
-      "retrieved_at": "2026-11-25T05:24:30.253769+00:00"
+      "sha256": "9763812d3ccfde410003042c9cb1d325b2a6b5387c2fcad1e876126de2726eeb",
+      "retrieved_at": "2026-11-26T04:58:33.669156+00:00"
+    },
+    {
+      "indicator": "btc_flow",
+      "observation_date": "2026-11-25",
+      "frequency": "daily",
+      "unit": "USD millions",
+      "value": null,
+      "reported_funds": 11,
+      "reported_subtotal": -123.3,
+      "expected_funds": 12,
+      "status": "missing_funds",
+      "scope": "US spot bitcoin ETFs covered by Farside",
+      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+      "sha256": "9763812d3ccfde410003042c9cb1d325b2a6b5387c2fcad1e876126de2726eeb",
+      "retrieved_at": "2026-11-26T04:58:33.669647+00:00"
     },
     {
       "indicator": "asia_equity_flow",
@@ -32,7 +47,7 @@
       "index_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/",
       "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002wtoi-att/stock_1_w_20261109_20261113.xlsx",
       "sha256": "1d785a739808bb611cf5d1f30d57b906f25a87beba51d139ad7d79fab3c24069",
-      "retrieved_at": "2026-11-25T05:24:31.483276+00:00"
+      "retrieved_at": "2026-11-26T04:58:34.773985+00:00"
     },
     {
       "indicator": "gold_flow",
@@ -49,7 +64,7 @@
       "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-ai-reckoning",
       "source_url": "https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf",
       "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
-      "retrieved_at": "2026-11-25T05:24:34.562048+00:00"
+      "retrieved_at": "2026-11-26T04:58:37.443739+00:00"
     }
   ],
   "errors": {
