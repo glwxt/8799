@@ -43,3 +43,5 @@
 [KRX 外资五日三路对账](../data/feeds/krx_kospi_foreign_research_2026-11-27.json) · [GOLD-GT 美元代理同样本复验](../engineering/v0.2.0/research/gold-gt/ecb-basket-validation-2026-11-28.md)：步骤 2、3、5、7、9 推进，仍未通过正式验收。
 
 [沪深港股通五日对账及 ICI 打印链接核验](GLT-HK-ICI-source-verification-2026-11-28.md)：南向两通道已取得原始日频证据，首次公开时刻未验证；不冒充香港全市场外资。ICI 打印链接未取得有效 PDF，不计为远端恢复。
+
+[美股 ETF 日频研究试验](../data/feeds/ishares_us_equity_creation_research_2026-11-25.json)：发行人历史表确认 11/19–25 五个交易日可估算 IVV 与 ITOT 净创设；11/25 的份额与 NAV 分别用持仓文件及产品页复核。下一轮用期次正确的 11/27 或后续发行人文件检查更新，并扩展独立发行商。首次披露时刻、连续远端采集、企业行动处理及市场覆盖仍待验收，不改变正式评分。
