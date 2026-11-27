@@ -380,7 +380,10 @@
         }
       ],
       "key_us_sample_net_flow": -68.9,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "wgc_complete_aum_pct": 74.6,
+      "wgc_complete_funds": 82,
+      "wgc_incomplete_funds": 119
     },
     {
       "period_end": "2026-11-13",
@@ -392,7 +395,7 @@
       "frequency": "weekly",
       "unit": "USD millions",
       "reported_global_net_flow": 673.3,
-      "wgc_complete_funds_pct": 41,
+      "wgc_complete_funds_pct": 59,
       "scope": "WGC global reported estimate and separate key US fund sample",
       "funds": [
         {
@@ -425,7 +428,10 @@
         }
       ],
       "key_us_sample_net_flow": 729.1,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "wgc_complete_aum_pct": 88.1,
+      "wgc_complete_funds": 118,
+      "wgc_incomplete_funds": 83
     },
     {
       "period_end": "2026-11-20",
