@@ -1,0 +1,138 @@
+{
+  "schema": "glt-hk-stock-connect-southbound-research-v1",
+  "indicator": "asia_equity_flow",
+  "frequency": "daily",
+  "unit": "HKD 100 million",
+  "scope": "Shanghai and Shenzhen Stock Connect southbound trading only; not all Hong Kong foreign or mainland equity flows",
+  "verified_at_utc": "2026-11-27T18:15:03+00:00",
+  "eligible_for_official_score": false,
+  "source_pages": [
+    "https://www.sse.com.cn/services/hkexsc/ggtscsj/ggtcjgk/",
+    "https://www.szse.cn/szhk/szhktradeinfo/hkdaily/index.html"
+  ],
+  "publication_precision": "Exact first public times not verified. SSE and SZSE disclose amounts after market close.",
+  "rounding_note": "Channel net = displayed buy minus displayed sell. Official gross is retained separately. Differences up to 0.01 in displayed units reflect published rounding.",
+  "observations": [
+    {
+      "observation_date": "2026-11-23",
+      "shanghai_link": {
+        "buy": "277.09",
+        "sell": "301.57",
+        "derived_net": "-24.48",
+        "reported_gross": "578.66",
+        "gross_rounding_difference": "0.00",
+        "response_sha256": "bdf8bb8561437a1a079e8df4a603ac51b9b8b212e9ea4febcbdd126be117793e",
+        "query_url": "https://query.sse.com.cn/ggt/getQuatationInfo.do?tradeDate=20261123&jsonCallBack=cb"
+      },
+      "shenzhen_link": {
+        "buy": "152.61",
+        "sell": "224.41",
+        "derived_net": "-71.80",
+        "reported_gross": "377.02",
+        "gross_rounding_difference": "0.00",
+        "response_sha256": "84572668f5dc7ed5d4c5fd4482bf8c11e1521276efdd999e6e1e696c1d611f02",
+        "query_url": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=SGT_GGTJYRB&TABKEY=tab1&txtDate=2026-11-23"
+      },
+      "published_at": null,
+      "combined_net": "-96.28",
+      "combined_reported_gross": "955.68"
+    },
+    {
+      "observation_date": "2026-11-24",
+      "shanghai_link": {
+        "buy": "285.41",
+        "sell": "250.36",
+        "derived_net": "35.05",
+        "reported_gross": "535.76",
+        "gross_rounding_difference": "-0.01",
+        "response_sha256": "9446641d3ea98a1ece957e8bea9758b5213d5689c276f698afbc807abb1829cd",
+        "query_url": "https://query.sse.com.cn/ggt/getQuatationInfo.do?tradeDate=20261124&jsonCallBack=cb"
+      },
+      "shenzhen_link": {
+        "buy": "164.75",
+        "sell": "137.76",
+        "derived_net": "26.99",
+        "reported_gross": "302.52",
+        "gross_rounding_difference": "0.01",
+        "response_sha256": "7879ec00a2a9529b079b15baafd40ddd8c0825a421a93be4d56e812d5e6eb3cc",
+        "query_url": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=SGT_GGTJYRB&TABKEY=tab1&txtDate=2026-11-24"
+      },
+      "published_at": null,
+      "combined_net": "62.04",
+      "combined_reported_gross": "838.28"
+    },
+    {
+      "observation_date": "2026-11-25",
+      "shanghai_link": {
+        "buy": "289.80",
+        "sell": "249.70",
+        "derived_net": "40.10",
+        "reported_gross": "539.50",
+        "gross_rounding_difference": "0.00",
+        "response_sha256": "3b878ee1edde5214e4334107e96df57f05fc596ed437e2a596fc48084fb5c0cb",
+        "query_url": "https://query.sse.com.cn/ggt/getQuatationInfo.do?tradeDate=20261125"
+      },
+      "shenzhen_link": {
+        "buy": "175.92",
+        "sell": "151.68",
+        "derived_net": "24.24",
+        "reported_gross": "327.61",
+        "gross_rounding_difference": "0.01",
+        "response_sha256": "e63e39c3ec596ef836712bbbe9a5de76f083eee28ba5d06186331ad0e4edaa7b",
+        "query_url": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=SGT_GGTJYRB&TABKEY=tab1&txtDate=2026-11-25"
+      },
+      "published_at": null,
+      "combined_net": "64.34",
+      "combined_reported_gross": "867.11"
+    },
+    {
+      "observation_date": "2026-11-26",
+      "shanghai_link": {
+        "buy": "192.12",
+        "sell": "298.10",
+        "derived_net": "-105.98",
+        "reported_gross": "490.22",
+        "gross_rounding_difference": "0.00",
+        "response_sha256": "d0992e99d7847c913c5c8da224777f3fa475da96b83ac2671eb9553fb515cc39",
+        "query_url": "https://query.sse.com.cn/ggt/getQuatationInfo.do?tradeDate=20261126&jsonCallBack=cb"
+      },
+      "shenzhen_link": {
+        "buy": "102.62",
+        "sell": "210.15",
+        "derived_net": "-107.53",
+        "reported_gross": "312.76",
+        "gross_rounding_difference": "-0.01",
+        "response_sha256": "5d7f7722552c3eef1e86e38aead78561c4fd459a506d0742ee89a284459c4b15",
+        "query_url": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=SGT_GGTJYRB&TABKEY=tab1&txtDate=2026-11-26"
+      },
+      "published_at": null,
+      "combined_net": "-213.51",
+      "combined_reported_gross": "802.98"
+    },
+    {
+      "observation_date": "2026-11-27",
+      "shanghai_link": {
+        "buy": "372.84",
+        "sell": "360.91",
+        "derived_net": "11.93",
+        "reported_gross": "733.76",
+        "gross_rounding_difference": "0.01",
+        "response_sha256": "6ae227f88af21ee0fbec5438cc436ea63be0dfbb976426fb80472d2ebea91f95",
+        "query_url": "https://query.sse.com.cn/ggt/getQuatationInfo.do?tradeDate=20261127&jsonCallBack=cb"
+      },
+      "shenzhen_link": {
+        "buy": "199.27",
+        "sell": "165.33",
+        "derived_net": "33.94",
+        "reported_gross": "364.59",
+        "gross_rounding_difference": "-0.01",
+        "response_sha256": "3adc2037235337659c2d7c098350d81f6a5d519ebf1c6e23781d9c2ca915cdbc",
+        "query_url": "https://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=SGT_GGTJYRB&TABKEY=tab1&txtDate=2026-11-27"
+      },
+      "published_at": null,
+      "combined_net": "45.87",
+      "combined_reported_gross": "1098.35"
+    }
+  ],
+  "period_combined_net": "-137.54"
+}
