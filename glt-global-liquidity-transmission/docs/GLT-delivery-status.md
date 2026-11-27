@@ -41,3 +41,5 @@
 [早报采集延迟及 07:37 补采验收](GLT-collection-timing-2026-11-28.md)：已部署，待 11/28–11/30 的早报截点验证。第 4 步保持进行中。
 
 [KRX 外资五日三路对账](../data/feeds/krx_kospi_foreign_research_2026-11-27.json) · [GOLD-GT 美元代理同样本复验](../engineering/v0.2.0/research/gold-gt/ecb-basket-validation-2026-11-28.md)：步骤 2、3、5、7、9 推进，仍未通过正式验收。
+
+[沪深港股通五日对账及 ICI 打印链接核验](GLT-HK-ICI-source-verification-2026-11-28.md)：南向两通道已取得原始日频证据，首次公开时刻未验证；不冒充香港全市场外资。ICI 打印链接未取得有效 PDF，不计为远端恢复。
