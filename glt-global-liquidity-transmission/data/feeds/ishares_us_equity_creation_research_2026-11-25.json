@@ -1,0 +1,149 @@
+{
+  "schema": "glt-us-equity-etf-creation-research-v1",
+  "verified_at_utc": "2026-11-27T21:10:33+00:00",
+  "indicator": "us_equity_flow",
+  "currency": "USD",
+  "estimator": "Current-session issuer NAV times change in outstanding shares from the immediately previous NYSE trading session. This is an estimate of net creation/redemption value, not a reported cash flow.",
+  "zero_rule": "A calculated zero means the issuer share counts did not change, not that the issuer reported zero cash flow. A missing date or leg yields null.",
+  "publication": "Current-vintage historical workbook. First publication times/storage are not verified. No release beyond the last embedded as-of date was verified.",
+  "corporate_action_note": "Resolve split, merger or share-count convention changes before calculation. This small recent pilot uses displayed issuer share counts without inferring direct cash transactions.",
+  "eligible_for_official_score": false,
+  "scope": "Two funds from one issuer only, partially overlapping US equity exposures; no whole market flow or substitution for ICI",
+  "next_observation_pending": "2026-11-27",
+  "funds": [
+    {
+      "symbol": "IVV",
+      "issuer": "iShares (BlackRock)",
+      "source_workbook": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appSubType=ISHARES&appType=PRODUCT_PAGE&component=fundDownload&locale=en_US&portfolioId=239726&targetSite=us-ishares&userType=individual",
+      "workbook_sha256": "5f5ed5ac7c22a07458864e196a244621bd6971a969f464c6bdef4ee14c3cefb7",
+      "history_row_count": 6676,
+      "history_rows_with_nav_and_shares": 6674,
+      "historical_range": [
+        "2000-05-15",
+        "2026-11-25"
+      ],
+      "product_url": "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf",
+      "holdings_csv_url": "https://www.ishares.com/us/products/239726/ishares-core-s-p-500-etf/latest-holdings.csv",
+      "latest_product_reported_nav_usd": "719.87",
+      "latest_product_and_csv_share_count": 1157650000,
+      "latest_product_reported_net_assets_usd": 833363148107,
+      "observations": [
+        {
+          "observation_date": "2026-11-18",
+          "nav_per_share_usd": "733.777523",
+          "shares_outstanding": 1159050000,
+          "share_change": null,
+          "estimated_net_creation_value_usd": null,
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-19",
+          "nav_per_share_usd": "719.062624",
+          "shares_outstanding": 1159000000,
+          "share_change": -50000,
+          "estimated_net_creation_value_usd": "-35953131.20",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-20",
+          "nav_per_share_usd": "692.505349",
+          "shares_outstanding": 1160150000,
+          "share_change": 1150000,
+          "estimated_net_creation_value_usd": "796381151.35",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-23",
+          "nav_per_share_usd": "725.258609",
+          "shares_outstanding": 1158750000,
+          "share_change": -1400000,
+          "estimated_net_creation_value_usd": "-1015362052.60",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-24",
+          "nav_per_share_usd": "721.692815",
+          "shares_outstanding": 1157550000,
+          "share_change": -1200000,
+          "estimated_net_creation_value_usd": "-866031378.00",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-25",
+          "nav_per_share_usd": "719.874874",
+          "shares_outstanding": 1157650000,
+          "share_change": 100000,
+          "estimated_net_creation_value_usd": "71987487.40",
+          "first_published_at": null
+        }
+      ]
+    },
+    {
+      "symbol": "ITOT",
+      "issuer": "iShares (BlackRock)",
+      "source_workbook": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appSubType=ISHARES&appType=PRODUCT_PAGE&component=fundDownload&locale=en_US&portfolioId=239724&targetSite=us-ishares&userType=individual",
+      "workbook_sha256": "56596167dd6f42f8884e2022f6a0a1c3f4f6f93420fda6dc2775790340ceab3e",
+      "history_row_count": 5775,
+      "history_rows_with_nav_and_shares": 5773,
+      "historical_range": [
+        "2004-01-20",
+        "2026-11-25"
+      ],
+      "product_url": "https://www.ishares.com/us/products/239724/ishares-core-s-p-total-us-stock-market-etf",
+      "holdings_csv_url": "https://www.ishares.com/us/products/239724/ishares-core-s-p-total-u-s-stock-market-etf/latest-holdings.csv",
+      "latest_product_reported_nav_usd": "156.62",
+      "latest_product_and_csv_share_count": 587000000,
+      "latest_product_reported_net_assets_usd": 91936480179,
+      "observations": [
+        {
+          "observation_date": "2026-11-18",
+          "nav_per_share_usd": "159.410191",
+          "shares_outstanding": 583150000,
+          "share_change": null,
+          "estimated_net_creation_value_usd": null,
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-19",
+          "nav_per_share_usd": "156.205794",
+          "shares_outstanding": 583300000,
+          "share_change": 150000,
+          "estimated_net_creation_value_usd": "23430869.10",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-20",
+          "nav_per_share_usd": "150.511619",
+          "shares_outstanding": 585050000,
+          "share_change": 1750000,
+          "estimated_net_creation_value_usd": "263395333.25",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-23",
+          "nav_per_share_usd": "157.508186",
+          "shares_outstanding": 586150000,
+          "share_change": 1100000,
+          "estimated_net_creation_value_usd": "173259004.60",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-24",
+          "nav_per_share_usd": "156.802849",
+          "shares_outstanding": 587000000,
+          "share_change": 850000,
+          "estimated_net_creation_value_usd": "133282421.65",
+          "first_published_at": null
+        },
+        {
+          "observation_date": "2026-11-25",
+          "nav_per_share_usd": "156.62092",
+          "shares_outstanding": 587000000,
+          "share_change": 0,
+          "estimated_net_creation_value_usd": "0.00",
+          "first_published_at": null
+        }
+      ]
+    }
+  ]
+}
