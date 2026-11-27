@@ -2,6 +2,7 @@ name: GLT FRED evidence staging
 on:
   schedule:
     - cron: '10 23 * * *' # 07:10 Asia/Taipei (next local day), UTC
+    - cron: '37 23 * * *' # 07:37 Asia/Taipei backup; not independent of GitHub scheduling
   workflow_dispatch:
   push:
     branches: [main]
@@ -31,17 +32,57 @@ jobs:
           # Serialized runs start from the latest evidence commit on main.
           ref: main
           persist-credentials: true
+      - name: Decide whether backup collection is needed
+        id: backup
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          collect = True
+          if os.environ["EVENT_NAME"] == "schedule" and os.environ["CRON"] == "37 23 * * *":
+              try:
+                  f = json.loads(Path("../../data/feeds/fred_latest.json").read_text(encoding="utf-8"))
+                  tz = ZoneInfo("Asia/Taipei")
+                  now = datetime.now(tz)
+                  captured = datetime.fromisoformat(f["data_retrieved_at_taipei"])
+                  if captured.utcoffset() is None:
+                      raise ValueError("Missing timestamp offset")
+                  captured = captured.astimezone(tz)
+                  collect = not (
+                      f["local_calendar_date"] == now.date().isoformat()
+                      and now.replace(hour=7, minute=10, second=0, microsecond=0) <= captured <= now
+                      and f["collection_status"] == "OK"
+                      and f["expected_series"] == f["success_count"] == 10
+                      and f["failure_count"] == 0
+                  )
+              except (OSError, ValueError, TypeError, KeyError):
+                  pass
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print(f"collect={str(collect).lower()}", file=output)
+          if not collect:
+              print("Backup skipped: today's complete FRED evidence is already on main.")
+          PY
       - name: Python
+        if: steps.backup.outputs.collect == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Run GLT offline tests
+        if: steps.backup.outputs.collect == 'true'
         run: python -m unittest discover -s tests -v
       - name: Stage FRED raw evidence without treating downloads as GLT scoring coverage
+        if: steps.backup.outputs.collect == 'true'
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python src/batch_stage.py --min-success 0
       - name: Build auditable current-vintage feed even when source coverage is degraded
+        if: steps.backup.outputs.collect == 'true'
         id: publish
         shell: bash
         run: |
@@ -53,10 +94,12 @@ jobs:
           printf '%s\n' "$CODE" > /tmp/glt-publish-exit
           exit 0
       - name: Collect Treasury and TWSE evidence
+        if: steps.backup.outputs.collect == 'true'
         run: |
           python src/official_sources.py --output ../../data/feeds/official_latest.json \
             --raw-dir staging/official
       - name: Collect BTC, ICI, JPX and WGC research flow evidence
+        if: steps.backup.outputs.collect == 'true'
         run: |
           python -m pip install xlrd==2.0.2 openpyxl==3.1.5 || echo "::warning::Spreadsheet parsing dependencies unavailable"
           if ! command -v tesseract >/dev/null || ! command -v pdftoppm >/dev/null || ! command -v pdftotext >/dev/null; then
@@ -65,11 +108,13 @@ jobs:
           python src/fund_flows.py --output ../../data/feeds/l4_scheduled_latest.json \
             --raw-dir staging/fund_flows
       - name: Render operations report
+        if: steps.backup.outputs.collect == 'true'
         run: |
           python src/monitor_status.py --feed ../../data/feeds/fred_latest.json \
             --official ../../data/feeds/official_latest.json --flows ../../data/feeds/l4_scheduled_latest.json \
             --asof "$(date -u -Iseconds)" --output ../../data/feeds/monitor_status.md
       - name: Commit latest non-scoring evidence summary
+        if: steps.backup.outputs.collect == 'true'
         shell: bash
         working-directory: .
         run: |
@@ -85,7 +130,7 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Upload raw evidence for audit
-        if: always()
+        if: always() && steps.backup.outputs.collect == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: glt-fred-staging-${{ github.run_id }}
@@ -96,6 +141,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Warn on incomplete source collection (do not fail workflow)
+        if: steps.backup.outputs.collect == 'true'
         shell: bash
         run: |
           test -f /tmp/glt-publish-exit || { echo "Missing publication result"; exit 1; }
