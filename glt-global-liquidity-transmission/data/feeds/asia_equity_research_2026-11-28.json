@@ -1,0 +1,36 @@
+{
+  "schema": "glt-asia-equity-research-evidence-v1",
+  "retrieved_at": "2026-11-27T17:16:03Z",
+  "eligible_for_official_score": false,
+  "observations": [
+    {
+      "market": "Japan",
+      "period_start": "2026-11-16",
+      "period_end": "2026-11-20",
+      "frequency": "weekly",
+      "unit": "JPY",
+      "scope": "JPX Tokyo and Nagoya markets, foreign investors",
+      "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002x65f-att/stock_1_w_20261116_20261120.xlsx",
+      "published_at": null,
+      "sales": 30814944424000,
+      "purchases": 29891885746000,
+      "value": -923058678000,
+      "sha256": "c2d3eaebeb79949877255e7c8ca5146a4083cb9e66bf6118b12f8b87ddb4c8c5"
+    },
+    {
+      "market": "Taiwan",
+      "period_start": "2026-11-27",
+      "period_end": "2026-11-27",
+      "frequency": "daily",
+      "unit": "TWD",
+      "scope": "TWSE 外資及陸資(不含外資自營商)",
+      "source_url": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261127&type=day&response=json",
+      "published_at": null,
+      "purchases": 287725324729,
+      "sales": 317353391369,
+      "value": -29628066640,
+      "sha256": "a6ece30891c44254dadc3ee2c3c3eeba86ee9c35359072935ec50c3e4014bb5d"
+    }
+  ],
+  "notes": "Buy minus sell reconciles to published net for both markets. Separate periods and currencies; no Asia-wide aggregate. Retrieval timestamp captures this verification, not first publisher release."
+}
