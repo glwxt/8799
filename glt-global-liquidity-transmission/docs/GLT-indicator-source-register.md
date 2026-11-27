@@ -20,7 +20,7 @@
 | global_vol | 3 | 日 / 综合 | 多市场波动率候选 | 锁定市场与指数、时区同步、归一化及缺市处理 |
 | btc_flow | 7 | 日 / 美元 | 美国现货 BTC ETF，Farside 汇总及发行人复核 | 已实采；明确逐基金完整口径、发布时间和缺报；源单位百万美元 |
 | gold_flow | 6 | 日 / 美元 | 发行人日度净流候选；WGC 周/月数据 | WGC 已核验出版时点；日频尚缺，周/月原样归档，频率变更须走方法版本 |
-| us_equity_flow | 6 | 日 / 美元 | 发行人候选；ICI 本土股票 ETF 净发行 | ICI 周频已实采，日频欠缺；源单位百万美元，记录估计及修订 |
+| us_equity_flow | 6 | 日 / 美元 | iShares IVV、ITOT 历史份额、NAV；ICI 本土股票 ETF 净发行 | ICI 周频已实采；日频仅有同一发行人两只基金的净创设估计，全市场日频仍缺；源单位百万美元，记录估计及修订 |
 | asia_equity_flow | 4 | 日 / 本币 | TWSE、JPX、KRX、沪深交易所南向；陆股官方资金流待定 | 台湾日频、日本周频、韩国 KOSPI 与香港南向日频已实采；定义市场范围、投资者口径及交易日对齐 |
 | bond_flow | 2 | 周 / 美元 | ICI 债券 ETF 净发行 | 已实采；锁定应税和市政债范围、源单位百万美元及周报时间 |
 
@@ -35,3 +35,5 @@
 [韩国 KRX 五个交易日研究证据](../data/feeds/krx_kospi_foreign_research_2026-11-27.json) · [ECB 篮子与 GOLD-GT 复验](../engineering/v0.2.0/research/gold-gt/ecb-basket-validation-2026-11-28.md)。两项均不自动进入评分。
 
 [沪深港股通五日对账及 ICI 打印链接核验](GLT-HK-ICI-source-verification-2026-11-28.md)：南向两通道已取得原始日频证据，首次公开时刻未验证；不冒充香港全市场外资。ICI 打印链接未取得有效 PDF，不计为远端恢复。
+
+[美股 ETF 日频研究试验](../data/feeds/ishares_us_equity_creation_research_2026-11-25.json)：发行人历史表确认 11/19–25 五个交易日可估算 IVV 与 ITOT 净创设；11/25 的份额与 NAV 分别用持仓文件及产品页复核。下一轮用期次正确的 11/27 或后续发行人文件检查更新，并扩展独立发行商。首次披露时刻、连续远端采集、企业行动处理及市场覆盖仍待验收，不改变正式评分。
