@@ -1,6 +1,6 @@
 {
   "schema": "glt-gold-etf-publication-evidence-v1",
-  "checked_taipei_date": "2026-11-24",
+  "checked_taipei_date": "2026-11-27",
   "eligible_for_official_score": false,
   "weekly": [
     {
@@ -470,7 +470,10 @@
         }
       ],
       "key_us_sample_net_flow": -1339,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "wgc_complete_aum_pct": 62.2,
+      "wgc_complete_funds": 80,
+      "wgc_incomplete_funds": 121
     }
   ],
   "monthly": [

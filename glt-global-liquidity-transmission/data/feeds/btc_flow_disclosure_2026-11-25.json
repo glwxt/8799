@@ -1,0 +1,42 @@
+{
+  "schema": "glt-btc-flow-disclosure-research-v1",
+  "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+  "unit": "USD millions",
+  "observation_date": "2026-11-25",
+  "eligible_for_official_score": false,
+  "partial_capture": {
+    "indicator": "btc_flow",
+    "observation_date": "2026-11-25",
+    "frequency": "daily",
+    "unit": "USD millions",
+    "value": null,
+    "reported_funds": 11,
+    "reported_subtotal": -123.3,
+    "expected_funds": 12,
+    "status": "missing_funds",
+    "scope": "US spot bitcoin ETFs covered by Farside",
+    "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+    "sha256": "9763812d3ccfde410003042c9cb1d325b2a6b5387c2fcad1e876126de2726eeb",
+    "retrieved_at": "2026-11-26T04:58:33.669647+00:00"
+  },
+  "complete_capture": {
+    "checked_taipei_at": "2026-11-27T11:21:42+08:00",
+    "published_at": null,
+    "reported_funds": 12,
+    "reported_total": -453.0,
+    "funds": {
+      "IBIT": -329.7,
+      "FBTC": -6.5,
+      "BITB": -18.2,
+      "ARKB": -14.9,
+      "BTCO": 0.0,
+      "EZBC": 0.0,
+      "BRRR": 0.0,
+      "HODL": -9.7,
+      "BTCW": 0.0,
+      "MSBT": 0.0,
+      "GBTC": -13.9,
+      "BTC": -60.1
+    }
+  }
+}

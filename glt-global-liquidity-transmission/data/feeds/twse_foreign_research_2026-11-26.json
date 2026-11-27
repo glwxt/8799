@@ -1,0 +1,25 @@
+{
+  "schema": "glt-twse-foreign-scope-crosscheck-v1",
+  "checked_taipei_date": "2026-11-27",
+  "published_at": null,
+  "eligible_for_official_score": false,
+  "observation_date": "2026-11-26",
+  "unit": "TWD",
+  "scope": "外資及陸資(不含外資自營商)",
+  "net": -49181133625,
+  "source_reported_foreign_dealers_net": 0,
+  "source_views": [
+    {
+      "source_url": "https://www.twse.com.tw/fund/BFI82U?response=html&type=day",
+      "buy": 301865511101,
+      "sell": 351046644726,
+      "scope_detail": "excludes block and foreign-currency trades"
+    },
+    {
+      "source_url": "https://www.twse.com.tw/fund/BFI82U?dayDate=&response=html",
+      "buy": 309465654263,
+      "sell": 358646787888,
+      "scope_detail": "includes block and converted foreign-currency trades"
+    }
+  ]
+}
