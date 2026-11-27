@@ -21,7 +21,7 @@
 | btc_flow | 7 | 日 / 美元 | 美国现货 BTC ETF，Farside 汇总及发行人复核 | 已实采；明确逐基金完整口径、发布时间和缺报；源单位百万美元 |
 | gold_flow | 6 | 日 / 美元 | 发行人日度净流候选；WGC 周/月数据 | WGC 已核验出版时点；日频尚缺，周/月原样归档，频率变更须走方法版本 |
 | us_equity_flow | 6 | 日 / 美元 | 发行人候选；ICI 本土股票 ETF 净发行 | ICI 周频已实采，日频欠缺；源单位百万美元，记录估计及修订 |
-| asia_equity_flow | 4 | 日 / 本币 | TWSE、JPX、KRX；港陆官方来源待定 | 台湾日频、日本周频、韩国 KOSPI 日频已实采；定义市场范围、投资者口径及交易日对齐 |
+| asia_equity_flow | 4 | 日 / 本币 | TWSE、JPX、KRX、沪深交易所南向；陆股官方资金流待定 | 台湾日频、日本周频、韩国 KOSPI 与香港南向日频已实采；定义市场范围、投资者口径及交易日对齐 |
 | bond_flow | 2 | 周 / 美元 | ICI 债券 ETF 净发行 | 已实采；锁定应税和市政债范围、源单位百万美元及周报时间 |
 
 第 2 步的验收材料须为每项登记可读的官方入口或固定序列标识、统计对象与范围、原始单位与转换、观察频率、披露规则（时区和可验证的时间精度）、修订政策、来源优先级及缺报处理。每个已锁定来源附至少一条可复核样本，并记录当前值是否符合目标频率。无可验证来源的项继续列为缺口；拟采用不同口径时附方法版本与审批记录。定时链路、历史校准与是否可发布在其他步骤验收。
@@ -33,3 +33,5 @@
 [工程指标配置](../engineering/v0.2.0/config/indicators.csv) · [运行证据](../data/feeds/monitor_status.md) · [资金流快照](../data/feeds/l4_flow_evidence_2026-11-24.json) · [黄金披露档案](../engineering/v0.2.0/research/gold-gt/gold-etf-flow-publications.json) · [美元融资来源核验](../engineering/v0.2.0/research/l1-h41/USD-funding-source-check-2026-11-24.md)
 
 [韩国 KRX 五个交易日研究证据](../data/feeds/krx_kospi_foreign_research_2026-11-27.json) · [ECB 篮子与 GOLD-GT 复验](../engineering/v0.2.0/research/gold-gt/ecb-basket-validation-2026-11-28.md)。两项均不自动进入评分。
+
+[沪深港股通五日对账及 ICI 打印链接核验](GLT-HK-ICI-source-verification-2026-11-28.md)：南向两通道已取得原始日频证据，首次公开时刻未验证；不冒充香港全市场外资。ICI 打印链接未取得有效 PDF，不计为远端恢复。
