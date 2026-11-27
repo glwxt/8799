@@ -1,0 +1,89 @@
+{
+  "schema": "glt-krx-foreign-research-v1",
+  "indicator": "asia_equity_flow",
+  "scope": "KRX stocks, market selector STK (KOSPI), not all Korean markets",
+  "unit": "KRW",
+  "frequency": "daily",
+  "source": "Korea Exchange, Trading by Investor",
+  "source_url": "https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT022",
+  "request_url": "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd",
+  "retrieved_verification_utc": "2026-11-27T17:28:40+00:00",
+  "first_publication_rule": "Unknown for public page. Source response clock is not the data publication time.",
+  "aggregation": "외국인 합계 matches 외국인 plus 기타외국인; both component amounts reconcile buy minus sell.",
+  "daily": [
+    {
+      "observation_date": "2026-11-23",
+      "foreign_sell_krw": 6379845909260,
+      "foreign_buy_krw": 6123385041078,
+      "foreign_net_buy_krw": -256460868182,
+      "first_published_at": null,
+      "query_sha256": "b1f5dc44e3b2795977c7b6c06ff64903cc834abc814e51a3a1eec4b47f69f37a",
+      "source_response_clock": "2026.11.28 AM 02:28:23"
+    },
+    {
+      "observation_date": "2026-11-24",
+      "foreign_sell_krw": 5445491866838,
+      "foreign_buy_krw": 6250092806249,
+      "foreign_net_buy_krw": 804600939411,
+      "first_published_at": null,
+      "query_sha256": "e1426365519bca0260cddafcf480978a6c3e602f208814d62577e3f81e7c5822",
+      "source_response_clock": "2026.11.28 AM 02:28:23"
+    },
+    {
+      "observation_date": "2026-11-25",
+      "foreign_sell_krw": 6934983684856,
+      "foreign_buy_krw": 5115722823017,
+      "foreign_net_buy_krw": -1819260861839,
+      "first_published_at": null,
+      "query_sha256": "542314f1754231e1670e742c20c3fb98fc6bdb2eebbca671d8721790caee6f63",
+      "source_response_clock": "2026.11.28 AM 02:28:23"
+    },
+    {
+      "observation_date": "2026-11-26",
+      "foreign_sell_krw": 4803744063824,
+      "foreign_buy_krw": 4715186182769,
+      "foreign_net_buy_krw": -88557881055,
+      "first_published_at": null,
+      "query_sha256": "97fbd679ad4611655b47a0273df843c2951d3500201927d99b693b42d94e0ba2",
+      "source_response_clock": "2026.11.28 AM 02:28:23"
+    },
+    {
+      "observation_date": "2026-11-27",
+      "foreign_sell_krw": 3889998977773,
+      "foreign_buy_krw": 5052454756642,
+      "foreign_net_buy_krw": 1162455778869,
+      "first_published_at": null,
+      "query_sha256": "e6cb7a1528e1b9d90fbc02a0af776e9d52423c05ec350f022851d1a75a630e98",
+      "source_response_clock": "2026.11.28 AM 02:28:00"
+    }
+  ],
+  "daily_range_query_sha256": "4582c2c14df76317a8642b7e941db49ea46dfbe529f00315d4a1cbe42f03b21a",
+  "daily_range_source_response_clock": "2026.11.28 AM 02:28:23",
+  "period_control": {
+    "start": "2026-11-23",
+    "end": "2026-11-27",
+    "foreign_sell_krw": 27454064502551,
+    "foreign_buy_krw": 27256841609755,
+    "foreign_net_buy_krw": -197222892796,
+    "first_published_at": null,
+    "source_response_clock": "2026.11.28 AM 02:28:23",
+    "query_sha256": "ef4e94012634c92b4853b601601062b9491bfc829a23b5a77ded7fefc6ac3f24"
+  },
+  "verified_controls": [
+    "daily detail buy minus sell",
+    "daily detail subtotal equals daily range foreign total",
+    "sum of five daily amounts equals independently queried period totals"
+  ],
+  "eligible_for_official_score": false,
+  "eligibility_note": "One market, no original release timestamps, no continuous runner validation, and no approved cross-market aggregation.",
+  "query_contract": {
+    "method": "POST",
+    "market": "STK",
+    "locale": "ko_KR",
+    "money": "1 (KRW)",
+    "single_day_bld": "dbms/MDC_OUT/STAT/standard/MDCSTAT02201_OUT",
+    "single_day_view": "inqTpCd=1; strtDd=endDd=YYYYMMDD",
+    "daily_range_bld": "dbms/MDC_OUT/STAT/standard/MDCSTAT02202_OUT",
+    "daily_range_view": "inqTpCd=2; trdVolVal=2; askBid=3; strtDd/endDd=YYYYMMDD"
+  }
+}
