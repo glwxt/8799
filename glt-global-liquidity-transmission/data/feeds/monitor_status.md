@@ -1,9 +1,9 @@
 # GLT 运行状态
 
-评分检查截点：2026-11-26T04:58:37+00:00
-采集证据时间：2026-11-26T12:58:06.885830+08:00（台湾时间）
+评分检查截点：2026-11-27T04:58:09+00:00
+采集证据时间：2026-11-27T12:57:50.850175+08:00（台湾时间）
 FRED：10/10 条成功，状态 OK
-评分输入覆盖：18%；可计分覆盖：5%
+评分输入覆盖：13%；可计分覆盖：0%
 正式综合分发布条件：未通过
 
 ## 各层缺口
@@ -12,41 +12,40 @@ FRED：10/10 条成功，状态 OK
 | --- | ---: | ---: | --- |
 | 流动性供给 | 13/30 | 0/30 | reserves（需情境审核）、tga（超出时效）、on_rrp（超出时效）、fed_assets（需情境审核）、global_usd（没有有效输入） |
 | 金融条件 | 0/25 | 0/25 | dxy（没有有效输入）、us_10y_real（超出时效）、us_10y_nominal（超出时效）、usd_funding（没有有效输入） |
-| 风险偏好 | 5/20 | 5/20 | vix（超出时效）、us_breadth（没有有效输入）、safe_haven（没有有效输入）、global_vol（没有有效输入） |
+| 风险偏好 | 0/20 | 0/20 | vix（超出时效）、hy_spread（超出时效）、us_breadth（没有有效输入）、safe_haven（没有有效输入）、global_vol（没有有效输入） |
 | 实际资金流向 | 0/25 | 0/25 | btc_flow（没有有效输入）、gold_flow（没有有效输入）、us_equity_flow（没有有效输入）、asia_equity_flow（没有有效输入）、bond_flow（没有有效输入） |
 
 ## 已取得的序列
 
 | 序列 | 观测日 | 数值 | 单位 |
 | --- | --- | ---: | --- |
-| [BAMLH0A0HYM2](https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-24 | 3.72 | Percent |
-| [DFII10](https://api.stlouisfed.org/fred/series/observations?series_id=DFII10&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-24 | 2.79 | Percent |
-| [DGS10](https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-24 | 4.91 | Percent |
-| [IORB](https://api.stlouisfed.org/fred/series/observations?series_id=IORB&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-26 | 3.9 | Percent |
-| [RRPONTSYD](https://api.stlouisfed.org/fred/series/observations?series_id=RRPONTSYD&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-25 | 0.3 | Billions of USD |
-| [SOFR](https://api.stlouisfed.org/fred/series/observations?series_id=SOFR&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-24 | 3.94 | Percent |
-| [SWPT](https://api.stlouisfed.org/fred/series/observations?series_id=SWPT&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-18 | 146.0 | Millions of USD |
-| [VIXCLS](https://api.stlouisfed.org/fred/series/observations?series_id=VIXCLS&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-24 | 26.36 | Percent |
-| [WALCL](https://api.stlouisfed.org/fred/series/observations?series_id=WALCL&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-18 | 6741452.0 | Millions of USD |
-| [WRESBAL](https://api.stlouisfed.org/fred/series/observations?series_id=WRESBAL&file_type=json&observation_start=2026-11-05&observation_end=2026-11-26) | 2026-11-18 | 2979656.0 | Millions of USD |
+| [BAMLH0A0HYM2](https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-24 | 3.72 | Percent |
+| [DFII10](https://api.stlouisfed.org/fred/series/observations?series_id=DFII10&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-24 | 2.79 | Percent |
+| [DGS10](https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-24 | 4.91 | Percent |
+| [IORB](https://api.stlouisfed.org/fred/series/observations?series_id=IORB&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-27 | 3.9 | Percent |
+| [RRPONTSYD](https://api.stlouisfed.org/fred/series/observations?series_id=RRPONTSYD&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-25 | 0.3 | Billions of USD |
+| [SOFR](https://api.stlouisfed.org/fred/series/observations?series_id=SOFR&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-24 | 3.94 | Percent |
+| [SWPT](https://api.stlouisfed.org/fred/series/observations?series_id=SWPT&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-18 | 146.0 | Millions of USD |
+| [VIXCLS](https://api.stlouisfed.org/fred/series/observations?series_id=VIXCLS&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-24 | 26.36 | Percent |
+| [WALCL](https://api.stlouisfed.org/fred/series/observations?series_id=WALCL&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-18 | 6741452.0 | Millions of USD |
+| [WRESBAL](https://api.stlouisfed.org/fred/series/observations?series_id=WRESBAL&file_type=json&observation_start=2026-11-06&observation_end=2026-11-27) | 2026-11-18 | 2979656.0 | Millions of USD |
 
 ## 财政部与台湾证交所
 
-采集时间：2026-11-26T12:58:09.702744+08:00（台湾时间）
+采集时间：2026-11-27T12:57:53.041320+08:00（台湾时间）
 
 | 指标 | 观测日 | 数值 | 单位 | 口径 |
 | --- | --- | ---: | --- | --- |
-| [TGA](https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance?filter=record_date%3Agte%3A2026-11-19%2Crecord_date%3Alte%3A2026-11-26&sort=-record_date&page%5Bsize%5D=100) | 2026-11-24 | 958390 | USD millions | Treasury DTS Table I closing balance |
-| [TWSE_FOREIGN_NET](https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261125&type=day&response=json) | 2026-11-25 | -123654798153 | TWD | 外資及陸資(不含外資自營商) |
+| [TGA](https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance?filter=record_date%3Agte%3A2026-11-20%2Crecord_date%3Alte%3A2026-11-27&sort=-record_date&page%5Bsize%5D=100) | 2026-11-24 | 958390 | USD millions | Treasury DTS Table I closing balance |
+| [TWSE_FOREIGN_NET](https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261126&type=day&response=json) | 2026-11-26 | -49181133625 | TWD | 外資及陸資(不含外資自營商) |
 
 ## 实际资金流采集证据
 
-采集开始：2026-11-26T04:58:31.904529+00:00（UTC）
+采集开始：2026-11-27T04:58:03.310731+00:00（UTC）
 
 | 指标与来源 | 统计日或周末 | 频率 | 净流 | 单位 | 状态 |
 | --- | --- | --- | ---: | --- | --- |
-| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-24 | daily | -231.4 | USD millions | 已报齐 12/12 |
-| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-25 | daily | 缺报 | USD millions | 基金缺报 11/12，已报小计 -123.3 USD millions |
+| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-25 | daily | -453.0 | USD millions | 已报齐 12/12 |
 | [亚洲股票](https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002wtoi-att/stock_1_w_20261109_20261113.xlsx) | 2026-11-13 | weekly | -310147409000 | JPY | 已报告 |
 | [黄金 ETF](https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf) | 2026-11-20 | weekly | -2149.0 | USD millions | 来源估计 |
 
