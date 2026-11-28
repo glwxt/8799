@@ -1,6 +1,6 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-28T11:07:38.856410+00:00",
+  "started_at": "2026-11-28T12:12:47.034925+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
@@ -15,8 +15,8 @@
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "cb1d8af28c8a9c01dc87568adbf74682c3771f1040557054c6d12d8c4b93573d",
-      "retrieved_at": "2026-11-28T11:07:40.205441+00:00"
+      "sha256": "e3064db493bbcac2aede19fd1b1280f17671e2e4e95b9c67016a6ad95bf1568f",
+      "retrieved_at": "2026-11-28T12:12:48.307305+00:00"
     },
     {
       "indicator": "asia_equity_flow",
@@ -32,7 +32,7 @@
       "index_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/",
       "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002x65f-att/stock_1_w_20261116_20261120.xlsx",
       "sha256": "c2d3eaebeb79949877255e7c8ca5146a4083cb9e66bf6118b12f8b87ddb4c8c5",
-      "retrieved_at": "2026-11-28T11:07:41.220763+00:00"
+      "retrieved_at": "2026-11-28T12:12:49.761315+00:00"
     },
     {
       "indicator": "gold_flow",
@@ -49,7 +49,7 @@
       "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-ai-reckoning",
       "source_url": "https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf",
       "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
-      "retrieved_at": "2026-11-28T11:07:44.743523+00:00",
+      "retrieved_at": "2026-11-28T12:12:52.466163+00:00",
       "article_published_at": "2026-11-23T11:00:00+00:00",
       "pdf_first_available_at": null,
       "pdf_first_verified_at": "2026-11-28T11:07:44.743523+00:00",
@@ -57,7 +57,7 @@
     }
   ],
   "errors": {
-    "ici": "HTTPError: HTTP Error 403: Forbidden"
+    "ici": "https://www.ici.org/research/stats/etf_flows: HTTPError: HTTP Error 403: Forbidden; https://www.iciglobal.org/research/stats/etf_flows: HTTPError: HTTP Error 403: Forbidden; https://www.ici.org/etf_flows_data_2026.xls: HTTPError: HTTP Error 403: Forbidden; https://www.iciglobal.org/etf_flows_data_2026.xls: HTTPError: HTTP Error 403: Forbidden"
   },
   "wgc_recent_verified_versions": [
     {
@@ -66,5 +66,11 @@
       "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
       "pdf_first_verified_at": "2026-11-28T11:07:44.743523+00:00"
     }
-  ]
+  ],
+  "ici_route_errors": {
+    "https://www.ici.org/research/stats/etf_flows": "HTTPError: HTTP Error 403: Forbidden",
+    "https://www.iciglobal.org/research/stats/etf_flows": "HTTPError: HTTP Error 403: Forbidden",
+    "https://www.ici.org/etf_flows_data_2026.xls": "HTTPError: HTTP Error 403: Forbidden",
+    "https://www.iciglobal.org/etf_flows_data_2026.xls": "HTTPError: HTTP Error 403: Forbidden"
+  }
 }
