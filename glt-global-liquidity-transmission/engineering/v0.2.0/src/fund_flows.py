@@ -16,6 +16,7 @@ from urllib.request import Request, urlopen
 
 BTC = "https://farside.co.uk/bitcoin-etf-flow-all-data/"
 ICI = "https://www.ici.org/research/stats/etf_flows"
+ICI_GLOBAL = "https://www.iciglobal.org/research/stats/etf_flows"
 JPX = "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/"
 WGC_INDEX = "https://www.gold.org/goldhub/gold-focus/author/weekly-markets-monitor"
 
@@ -331,6 +332,40 @@ def collect_wgc(started_at, raw_dir):
     return url, raw, row
 
 
+def collect_ici(today, raw_dir):
+    """Try publisher routes only; each must parse as the exact ETF-only report."""
+    failures = {}
+    candidates = []
+    for url, basename, is_workbook in (
+        (ICI, "ici.html", False),
+        (ICI_GLOBAL, "ici_global.html", False),
+        (f"https://www.ici.org/etf_flows_data_{today.year}.xls", "ici.xls", True),
+        (f"https://www.iciglobal.org/etf_flows_data_{today.year}.xls", "ici_global.xls", True),
+    ):
+        try:
+            raw = download(url)
+            parsed = workbook_issuance(raw, today) if is_workbook else issuance(Tables(raw).tables, today)
+            (raw_dir / basename).write_bytes(raw)
+            seen = datetime.now(timezone.utc).isoformat()
+            batch = (max(row["observation_date"] for row in parsed), url, raw, parsed, seen)
+            # At 10 calendar days the scheduled weekly update is already overdue;
+            # try other official formats in case this response is an older cache.
+            if (today - datetime.fromisoformat(batch[0]).date()).days < 10:
+                return batch, failures
+            candidates.append(batch)
+        except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError, ImportError) as error:
+            failures[url] = f"{type(error).__name__}: {error}"
+    if not candidates:
+        return None, failures
+    latest = max(x[0] for x in candidates)
+    same_period = [x for x in candidates if x[0] == latest]
+    signatures = {tuple((r["indicator"], r["value"]) for r in x[3]) for x in same_period}
+    if len(signatures) > 1:
+        failures["same_period_check"] = "Official routes disagree for the same week; no data staged."
+        return None, failures
+    return same_period[0], failures
+
+
 def previous_wgc_rows(output):
     """Only reuse already verified timestamps, not older generic retrieval times."""
     try:
@@ -370,33 +405,31 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--raw-dir", type=Path, required=True)
+    parser.add_argument("--ici-only", action="store_true", help="Check ICI alone; use a separate output path.")
     args = parser.parse_args()
     args.raw_dir.mkdir(parents=True, exist_ok=True)
     start = datetime.now(timezone.utc)
     today = start.astimezone(ZoneInfo("America/New_York")).date()
     observations, errors = [], {}
     previous = previous_wgc_rows(args.output)
-    for name, url, parse in (("farside", BTC, bitcoin), ("ici", ICI, issuance)):
+    attempts = {}
+    if not args.ici_only:
         try:
-            try:
-                raw = download(url)
-                (args.raw_dir / f"{name}.html").write_bytes(raw)
-                parsed = parse(Tables(raw).tables, today)
-            except (OSError, ValueError, StopIteration):
-                if name != "ici":
-                    raise
-                url = f"https://www.ici.org/etf_flows_data_{today.year}.xls"
-                raw = download(url)
-                (args.raw_dir / "ici.xls").write_bytes(raw)
-                parsed = workbook_issuance(raw, today)
-            observations.extend(
-                dict(row, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
-                     retrieved_at=datetime.now(timezone.utc).isoformat())
-                for row in parsed
-            )
-        except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError, ImportError) as error:
-            errors[name] = f"{type(error).__name__}: {error}"
-    for name, collect in (("jpx", collect_jpx), ("wgc", collect_wgc)):
+            raw = download(BTC)
+            (args.raw_dir / "farside.html").write_bytes(raw)
+            for row in bitcoin(Tables(raw).tables, today):
+                observations.append(dict(row, source_url=BTC, sha256=hashlib.sha256(raw).hexdigest(),
+                                         retrieved_at=datetime.now(timezone.utc).isoformat()))
+        except (OSError, ValueError, KeyError, IndexError, StopIteration, ArithmeticError) as error:
+            errors["farside"] = f"{type(error).__name__}: {error}"
+    ici, attempts = collect_ici(today, args.raw_dir)
+    if ici:
+        _, url, raw, rows, seen = ici
+        observations.extend(dict(row, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
+                                 retrieved_at=seen, published_at=None) for row in rows)
+    else:
+        errors["ici"] = "; ".join(f"{url}: {why}" for url, why in attempts.items())
+    for name, collect in (() if args.ici_only else (("jpx", collect_jpx), ("wgc", collect_wgc))):
         try:
             url, raw, observation = collect(start, args.raw_dir)
             verified_at = datetime.now(timezone.utc)
@@ -417,6 +450,7 @@ def main():
         "schema": "glt-l4-scheduled-evidence-v1", "started_at": start.isoformat(),
         "eligible_for_official_score": False, "observations": observations, "errors": errors,
         "wgc_recent_verified_versions": previous[:8],
+        "ici_route_errors": attempts,
     }
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Funds-flow evidence: {len(observations)} observations, {len(errors)} source errors")
