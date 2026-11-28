@@ -1,0 +1,71 @@
+{
+  "schema": "glt-btc-etf-completed-research-v1",
+  "observation_date": "2026-11-27",
+  "observed_at_utc": "2026-11-28T06:11:48.989Z",
+  "first_publication_timestamp": null,
+  "source": "Farside Investors",
+  "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+  "unit": "million USD",
+  "reported_funds": 12,
+  "expected_funds": 12,
+  "partial_subtotal": null,
+  "complete_total": -389,
+  "formal_scoring_eligible": false,
+  "flows": {
+    "IBIT": -327.2,
+    "FBTC": -20.8,
+    "BITB": -12.3,
+    "ARKB": -5.7,
+    "BTCO": 0,
+    "EZBC": 0,
+    "BRRR": 0,
+    "HODL": 0,
+    "BTCW": 0,
+    "MSBT": 0,
+    "GBTC": -23,
+    "BTC": 0
+  },
+  "previous_observed_partial": {
+    "reported_funds": 11,
+    "subtotal": -61.8
+  },
+  "latest_confirmed_complete": {
+    "date": "2026-11-27",
+    "total": -389
+  },
+  "week": {
+    "sessions": [
+      {
+        "date": "2026-11-23",
+        "total": -569.7,
+        "IBIT": -509.3
+      },
+      {
+        "date": "2026-11-24",
+        "total": -231.4,
+        "IBIT": -175.3
+      },
+      {
+        "date": "2026-11-25",
+        "total": -453,
+        "IBIT": -329.7
+      },
+      {
+        "date": "2026-11-27",
+        "total": -389,
+        "IBIT": -327.2
+      }
+    ],
+    "total": -1643.1,
+    "IBIT_total": -1341.5,
+    "IBIT_pct_of_net_outflow_magnitude": 81.64,
+    "closure_2026_11_26": "Thanksgiving, no trade date, not zero"
+  },
+  "issuer_crosscheck": {
+    "file": "etf_issuer_creation_research_2026-11-27.json",
+    "exact_nav_estimate_million_usd": -328.52586204,
+    "absolute_magnitude_difference_million_usd": 1.32586204,
+    "relative_to_Farside_magnitude_pct": 0.4052,
+    "method_note": "Separate issuer shares-times-NAV estimate and publisher flow; date and cash/in-kind treatment not equated."
+  }
+}
