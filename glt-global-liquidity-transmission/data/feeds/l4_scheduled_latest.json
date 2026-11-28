@@ -1,37 +1,22 @@
 {
   "schema": "glt-l4-scheduled-evidence-v1",
-  "started_at": "2026-11-28T04:42:44.294782+00:00",
+  "started_at": "2026-11-28T11:07:38.856410+00:00",
   "eligible_for_official_score": false,
   "observations": [
     {
       "indicator": "btc_flow",
-      "observation_date": "2026-11-25",
+      "observation_date": "2026-11-27",
       "frequency": "daily",
       "unit": "USD millions",
-      "value": -453.0,
+      "value": -389.0,
       "reported_funds": 12,
       "reported_subtotal": null,
       "expected_funds": 12,
       "status": "complete",
       "scope": "US spot bitcoin ETFs covered by Farside",
       "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "aab0ca3e532a001b81dca2cd5c31fd9b8734a02580f31ca8aa2122a8e661b9b4",
-      "retrieved_at": "2026-11-28T04:42:46.285052+00:00"
-    },
-    {
-      "indicator": "btc_flow",
-      "observation_date": "2026-11-27",
-      "frequency": "daily",
-      "unit": "USD millions",
-      "value": null,
-      "reported_funds": 11,
-      "reported_subtotal": -61.8,
-      "expected_funds": 12,
-      "status": "missing_funds",
-      "scope": "US spot bitcoin ETFs covered by Farside",
-      "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
-      "sha256": "aab0ca3e532a001b81dca2cd5c31fd9b8734a02580f31ca8aa2122a8e661b9b4",
-      "retrieved_at": "2026-11-28T04:42:46.285467+00:00"
+      "sha256": "cb1d8af28c8a9c01dc87568adbf74682c3771f1040557054c6d12d8c4b93573d",
+      "retrieved_at": "2026-11-28T11:07:40.205441+00:00"
     },
     {
       "indicator": "asia_equity_flow",
@@ -47,7 +32,7 @@
       "index_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/",
       "source_url": "https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002x65f-att/stock_1_w_20261116_20261120.xlsx",
       "sha256": "c2d3eaebeb79949877255e7c8ca5146a4083cb9e66bf6118b12f8b87ddb4c8c5",
-      "retrieved_at": "2026-11-28T04:42:47.571401+00:00"
+      "retrieved_at": "2026-11-28T11:07:41.220763+00:00"
     },
     {
       "indicator": "gold_flow",
@@ -64,10 +49,22 @@
       "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-ai-reckoning",
       "source_url": "https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf",
       "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
-      "retrieved_at": "2026-11-28T04:42:49.852173+00:00"
+      "retrieved_at": "2026-11-28T11:07:44.743523+00:00",
+      "article_published_at": "2026-11-23T11:00:00+00:00",
+      "pdf_first_available_at": null,
+      "pdf_first_verified_at": "2026-11-28T11:07:44.743523+00:00",
+      "pdf_timing_note": "First successful retrieval and validation for this exact SHA-256 observed by this collector, not source first publication."
     }
   ],
   "errors": {
     "ici": "HTTPError: HTTP Error 403: Forbidden"
-  }
+  },
+  "wgc_recent_verified_versions": [
+    {
+      "indicator": "gold_flow",
+      "observation_date": "2026-11-20",
+      "sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
+      "pdf_first_verified_at": "2026-11-28T11:07:44.743523+00:00"
+    }
+  ]
 }

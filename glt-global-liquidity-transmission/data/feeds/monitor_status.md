@@ -1,7 +1,7 @@
 # GLT 运行状态
 
-评分检查截点：2026-11-28T04:42:49+00:00
-采集证据时间：2026-11-28T12:42:21.417981+08:00（台湾时间）
+评分检查截点：2026-11-28T11:07:44+00:00
+采集证据时间：2026-11-28T19:07:08.656266+08:00（台湾时间）
 FRED：10/10 条成功，状态 OK
 评分输入覆盖：13%；可计分覆盖：0%
 正式综合分发布条件：未通过
@@ -32,7 +32,7 @@ FRED：10/10 条成功，状态 OK
 
 ## 财政部与台湾证交所
 
-采集时间：2026-11-28T12:42:25.607121+08:00（台湾时间）
+采集时间：2026-11-28T19:07:11.902618+08:00（台湾时间）
 
 | 指标 | 观测日 | 数值 | 单位 | 口径 |
 | --- | --- | ---: | --- | --- |
@@ -41,12 +41,11 @@ FRED：10/10 条成功，状态 OK
 
 ## 实际资金流采集证据
 
-采集开始：2026-11-28T04:42:44.294782+00:00（UTC）
+采集开始：2026-11-28T11:07:38.856410+00:00（UTC）
 
 | 指标与来源 | 统计日或周末 | 频率 | 净流 | 单位 | 状态 |
 | --- | --- | --- | ---: | --- | --- |
-| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-25 | daily | -453.0 | USD millions | 已报齐 12/12 |
-| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-27 | daily | 缺报 | USD millions | 基金缺报 11/12，已报小计 -61.8 USD millions |
+| [BTC ETF](https://farside.co.uk/bitcoin-etf-flow-all-data/) | 2026-11-27 | daily | -389.0 | USD millions | 已报齐 12/12 |
 | [亚洲股票](https://www.jpx.co.jp/english/markets/statistics-equities/investor-type/vk0khi000002x65f-att/stock_1_w_20261116_20261120.xlsx) | 2026-11-20 | weekly | -923058678000 | JPY | 已报告 |
 | [黄金 ETF](https://www.gold.org/download/file/21413/WMM-23-Nov-2026-AI-reckoning.pdf) | 2026-11-20 | weekly | -2149.0 | USD millions | 来源估计 |
 

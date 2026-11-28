@@ -1,8 +1,8 @@
 {
   "schema": "glt-fred-evidence-summary-v1",
-  "generated_at_utc": "2026-11-28T04:42:25.558090+00:00",
-  "data_retrieved_at_utc": "2026-11-28T04:42:21.417981+00:00",
-  "data_retrieved_at_taipei": "2026-11-28T12:42:21.417981+08:00",
+  "generated_at_utc": "2026-11-28T11:07:11.850067+00:00",
+  "data_retrieved_at_utc": "2026-11-28T11:07:08.656266+00:00",
+  "data_retrieved_at_taipei": "2026-11-28T19:07:08.656266+08:00",
   "local_calendar_date": "2026-11-28",
   "source": "FRED official API and graph CSV (current vintage)",
   "expected_series": 10,
@@ -18,10 +18,10 @@
       "unit": "Millions of USD",
       "frequency": "weekly",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=WRESBAL&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:21.954767+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:09.021614+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "5b6ee8b1d842fe37475faf03106843693bce07cfc14e9b2dc5d3f53675c662e6",
+      "sha256_raw_json": "cb7de063d7c3d4d4cdeb37f8b08ca2b196b210baf948e009598b774f2fd37347",
       "sha256_normalized_csv": "16e069aa2a74fbca46b4c281dc72964e68cba01f29322eb489964d59193f6541"
     },
     "WALCL": {
@@ -31,10 +31,10 @@
       "unit": "Millions of USD",
       "frequency": "weekly",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=WALCL&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:22.421522+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:09.332535+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "cb1c4d8dee07d6bd6bda6628dcf732ac77846fef917235785f04e51e604190fc",
+      "sha256_raw_json": "d9abd0e90925609b492a83fbc7919b525bed3ce76f73d9a45ed91bfd095bad95",
       "sha256_normalized_csv": "5b7b353015824423fa18acf92748cef26018e4a71f8b249f4a0ebf2e4895f818"
     },
     "RRPONTSYD": {
@@ -44,10 +44,10 @@
       "unit": "Billions of USD",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=RRPONTSYD&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:22.873129+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:09.618183+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "82280582fe17aa2cfa0444e8abcca533bf731bbf310f626c72829e3567330054",
+      "sha256_raw_json": "5455f0412953e37ef9befaf3b6f430ca1a148967402e4880512c0e2f33700d47",
       "sha256_normalized_csv": "cbbd1992ff2d446f859d65a9563fed32c41488015f540ef36f38326d6b47f303"
     },
     "DFII10": {
@@ -57,10 +57,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=DFII10&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:23.219185+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:10.306692+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "6ad50648161cacfaa8af181ce41858a44c2e21f06291fb191f9e28d59121356d",
+      "sha256_raw_json": "0fb3942486a212845e8b97f3da78f094468895ee6126c13c5f0b3f0d9481d59b",
       "sha256_normalized_csv": "1384d7c4255befb209f425f547001c9349e4ff84fbdeb10c2afbca33e90df807"
     },
     "DGS10": {
@@ -70,10 +70,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:23.542727+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:10.514637+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "126c4147db54d698f05e34fc460abe3a82c03c834aa5e435663e413e1a2cf13e",
+      "sha256_raw_json": "131171ddb74083e1f424430c0a4e5906fc07b4fec45f047e696d11cfc8db8ef9",
       "sha256_normalized_csv": "70159a6213ba15ef99da9e8b2fc3a0f7c2849b503eb093b7d383345ea244b6e9"
     },
     "BAMLH0A0HYM2": {
@@ -83,10 +83,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:24.058093+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:10.731018+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "c1243b4df8bacb50fd1b7e1aa161c54e07adcee743f62a0a7318b511cecc6422",
+      "sha256_raw_json": "af5b093cade206ad430c9468ac12ab38369e18cf27219232ffa1daaeab357b25",
       "sha256_normalized_csv": "8f81cf5f6db654665172de7817f03c94ab7fa5b36695f404d910a9730b8152d8"
     },
     "VIXCLS": {
@@ -96,10 +96,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=VIXCLS&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:24.310316+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:11.028283+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "37da5f65a40a8c6f0549d28cff34a88e40190c71887b90177e08af008a8cf39e",
+      "sha256_raw_json": "173f4c67cdd77e9e9d4f208edfa7116d4ceac435b1f9b5ced3fff4d5d8c6967e",
       "sha256_normalized_csv": "709a1d9e70d3533df1fd327cad83e25d63832df4c661e7d54dd30429aafa69d5"
     },
     "SWPT": {
@@ -109,10 +109,10 @@
       "unit": "Millions of USD",
       "frequency": "weekly",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=SWPT&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:24.605559+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:11.346463+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "58975af7494233a2480bc968bc9e2e7244de9122b904ed0ae137071888070ad3",
+      "sha256_raw_json": "f81340b4538b45dfd33fa4a7a4a51206ece0c86806313d3e25e0ec983e567f22",
       "sha256_normalized_csv": "1c40d2da7e67d9af99dce18ed91a6b71d4e4018f46c8638817c936380285867a"
     },
     "SOFR": {
@@ -122,10 +122,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=SOFR&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:24.884815+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:11.537067+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "0557588ceb74145fc609cedc798bd13a1b4b3ef86c050e8ab2e04a98c669ec11",
+      "sha256_raw_json": "d0b36be030fa2305b68b2ece842d1911abd73da9b7ea8a4ab46cd1604e28c3cc",
       "sha256_normalized_csv": "5dd3e17cb9f9699ae9e16c77289dc34b9a0a31afbb9cf9b38c0c8459b3c187c3"
     },
     "IORB": {
@@ -135,10 +135,10 @@
       "unit": "Percent",
       "frequency": "daily",
       "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=IORB&file_type=json&observation_start=2026-11-07&observation_end=2026-11-28",
-      "retrieved_at_utc": "2026-11-28T04:42:25.497190+00:00",
+      "retrieved_at_utc": "2026-11-28T11:07:11.782429+00:00",
       "release_timestamp_verified": false,
       "historical_vintage_verified": false,
-      "sha256_raw_json": "bab39bed9d696775df578d34574190df873210c19866b078f064b7967aab075f",
+      "sha256_raw_json": "ec0381e4b9851a608fc457b74ee2c4ea1459e5f0fed3c0da11158bfaef852928",
       "sha256_normalized_csv": "7546e5225cb32946a6c314b748969bb691bd2ca4c4ede9f5234eefc5669b7c68"
     }
   },
