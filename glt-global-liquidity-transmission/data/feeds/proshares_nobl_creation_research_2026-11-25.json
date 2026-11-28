@@ -1,0 +1,82 @@
+{
+  "schema": "glt-equity-etf-creation-research-v1",
+  "as_of": "2026-11-25",
+  "collected_at_utc": "2026-11-28T00:10:34Z",
+  "source_scope": "One ProShares dividend-growth US equity ETF; independent issuer, not a broad-market or cross-issuer aggregate.",
+  "first_publication_timestamp": null,
+  "formal_scoring_eligible": false,
+  "calculation": "(current shares outstanding - previous US trading session shares outstanding) * current NAV; shares column is in thousands and is converted to individual shares. Zero estimates are not reported cash flow; no missing rows treated as zero.",
+  "issuer_sources": [
+    {
+      "url": "https://accounts.profunds.com/etfdata/ByFund/NOBL-historical_nav.csv",
+      "sha256": "07da71a3d59fbcc15fa37f8ae54dc435c969ccc9f365bcd58daf4e68844570b1",
+      "unique_dated_rows": 3303
+    },
+    {
+      "url": "https://accounts.profunds.com/etfdata/etf_splits.csv",
+      "sha256": "0b5de5b78ccefc166a57f6c16a2da779e701bf5f8db92009b15d86383ee7d7be",
+      "rows": 378
+    }
+  ],
+  "split_screen": {
+    "fund": "NOBL",
+    "events": [
+      {
+        "date": "2026-05-28",
+        "type": "forward",
+        "ratio": "2:1"
+      }
+    ],
+    "sample_overlaps_event": false,
+    "history_note": "May 27 and 28 NAV and share counts are on a comparable scale around the listed split in this current vintage, consistent with adjusted history. Do not apply the split factor again without validating raw versus adjusted history; exclude split-crossing rows in this pilot."
+  },
+  "fund": "NOBL",
+  "rows": [
+    {
+      "date": "2026-11-19",
+      "previous_session": "2026-11-18",
+      "nav_usd": 59.0235,
+      "shares": 202050000,
+      "previous_shares": 202050000,
+      "estimated_creation_usd": 0
+    },
+    {
+      "date": "2026-11-20",
+      "previous_session": "2026-11-19",
+      "nav_usd": 58.7455,
+      "shares": 202000000,
+      "previous_shares": 202050000,
+      "estimated_creation_usd": -2937275
+    },
+    {
+      "date": "2026-11-23",
+      "previous_session": "2026-11-20",
+      "nav_usd": 59.5004,
+      "shares": 202000000,
+      "previous_shares": 202000000,
+      "estimated_creation_usd": 0
+    },
+    {
+      "date": "2026-11-24",
+      "previous_session": "2026-11-23",
+      "nav_usd": 60.1855,
+      "shares": 202100000,
+      "previous_shares": 202000000,
+      "estimated_creation_usd": 6018550
+    },
+    {
+      "date": "2026-11-25",
+      "previous_session": "2026-11-24",
+      "nav_usd": 60.7675,
+      "shares": 202100000,
+      "previous_shares": 202100000,
+      "estimated_creation_usd": 0
+    }
+  ],
+  "pilot_total_estimate_usd": 3081275,
+  "quality_notes": [
+    "All five adjacent-session pairs reconciled issuer Prior NAV to previous session NAV.",
+    "Latest issuer row at retrieval was Nov 25; Nov 27 is not zero or inferred.",
+    "Published Shares Outstanding has thousand-share granularity in this extract. NAV-based creations are not published actual monetary flows."
+  ]
+}
