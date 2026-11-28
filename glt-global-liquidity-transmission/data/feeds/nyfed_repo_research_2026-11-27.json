@@ -1,0 +1,313 @@
+{
+  "observation_date": "2026-11-27",
+  "eligible_for_official_score": false,
+  "market_units": "USD",
+  "source_url": "https://markets.newyorkfed.org/api/rp/results/search.json?startDate=2025-01-01&endDate=2026-11-27&operationTypes=Repo&term=overnight",
+  "iorb_source": "Federal Reserve Policy Rates DDP XML RESBM_N.D converted to evaluator CSV",
+  "source_sha256": {
+    "repo.json": "cc40935e873e11d3e8c772fd3699c3a84dd1b569dd0e06f013f1b25e13c6c11f",
+    "sofr.json": "dbf4f7bec307ab117190e828cceb504bb29e2773e5f69712300a9d37350ec957",
+    "effr.json": "6cb101ad1e9616a47cd15dcfad20c494c7d58ec0ae599171be17c866dd764a88",
+    "iorb.csv": "090f35be9e9329dbcca0158426ba4b9837b8443b04500dd63707e1643dc67fc2"
+  },
+  "operations_2026_11_27": [
+    {
+      "operationId": "RP 112726 25",
+      "auctionStatus": "Results",
+      "operationDate": "2026-11-27",
+      "settlementDate": "2026-11-27",
+      "maturityDate": "2026-11-30",
+      "operationType": "Repo",
+      "operationMethod": "Full Allotment",
+      "settlementType": "Same Day",
+      "termCalenderDays": 3,
+      "term": "Overnight",
+      "releaseTime": "08:15",
+      "closeTime": "08:30",
+      "note": "",
+      "lastUpdated": "2026-11-27 08:30:47",
+      "totalAmtSubmitted": 23150000000,
+      "totalAmtAccepted": 23150000000,
+      "details": [
+        {
+          "securityType": "Treasury",
+          "amtSubmitted": 22750000000,
+          "amtAccepted": 22750000000,
+          "percentOfferingRate": 4
+        },
+        {
+          "securityType": "Agency",
+          "amtSubmitted": 0,
+          "amtAccepted": 0,
+          "percentOfferingRate": 4
+        },
+        {
+          "securityType": "Mortgage-Backed",
+          "amtSubmitted": 400000000,
+          "amtAccepted": 400000000,
+          "percentOfferingRate": 4
+        }
+      ]
+    },
+    {
+      "operationId": "RP 112726 26",
+      "auctionStatus": "Results",
+      "operationDate": "2026-11-27",
+      "settlementDate": "2026-11-27",
+      "maturityDate": "2026-11-30",
+      "operationType": "Repo",
+      "operationMethod": "Full Allotment",
+      "settlementType": "Same Day",
+      "termCalenderDays": 3,
+      "term": "Overnight",
+      "releaseTime": "13:30",
+      "closeTime": "13:45",
+      "note": "",
+      "lastUpdated": "2026-11-27 13:45:28",
+      "totalAmtSubmitted": 0,
+      "totalAmtAccepted": 0,
+      "details": [
+        {
+          "securityType": "Treasury",
+          "amtSubmitted": 0,
+          "amtAccepted": 0,
+          "percentOfferingRate": 4
+        },
+        {
+          "securityType": "Agency",
+          "amtSubmitted": 0,
+          "amtAccepted": 0,
+          "percentOfferingRate": 4
+        },
+        {
+          "securityType": "Mortgage-Backed",
+          "amtSubmitted": 0,
+          "amtAccepted": 0,
+          "percentOfferingRate": 4
+        }
+      ]
+    }
+  ],
+  "prior_operations_total_usd": {
+    "2026-11-24": 2000000,
+    "2026-11-25": 0,
+    "2026-11-26": null
+  },
+  "held_out_event": {
+    "feature_date": "2026-11-24",
+    "first_next_operation_day": "2026-11-25",
+    "second_next_operation_day": "2026-11-27",
+    "secured_unsecured_spreads_bp": [
+      4,
+      -2
+    ],
+    "fixed_thresholds_bp": [
+      -5,
+      -7
+    ],
+    "past_252_thresholds_bp": [
+      7,
+      -1
+    ],
+    "accepted_usd": 23150000000,
+    "event_1bn": true,
+    "event_5bn": true,
+    "fixed_alert": true,
+    "rolling_alert": false,
+    "persistence_alert_1bn": false,
+    "persistence_alert_5bn": false
+  },
+  "baseline_metrics_reproduced": true,
+  "extended_results": {
+    "eligible_for_official_score": false,
+    "cutoff": "2026-11-27",
+    "repo_source_hash": "cc40935e873e11d3e8c772fd3699c3a84dd1b569dd0e06f013f1b25e13c6c11f",
+    "repo_operations": 844,
+    "exercises": [
+      {
+        "date": "2026-05-27",
+        "accepted_usd": 100000000,
+        "operation_id": "RP 052726 99"
+      },
+      {
+        "date": "2026-02-18",
+        "accepted_usd": 56000000,
+        "operation_id": "RP 021826 28"
+      },
+      {
+        "date": "2025-11-05",
+        "accepted_usd": 99000000,
+        "operation_id": "RP 110525 25"
+      },
+      {
+        "date": "2025-10-08",
+        "accepted_usd": 97000000,
+        "operation_id": "RP 100825 99"
+      },
+      {
+        "date": "2025-03-05",
+        "accepted_usd": 84000000,
+        "operation_id": "RP 030525 4"
+      },
+      {
+        "date": "2025-02-26",
+        "accepted_usd": 94000000,
+        "operation_id": "RP 022625 99"
+      },
+      {
+        "date": "2025-01-24",
+        "accepted_usd": 82000000,
+        "operation_id": "RP 012425 26"
+      }
+    ],
+    "regular_operation_dates": 475,
+    "largest_award_dates": [
+      {
+        "date": "2025-12-31",
+        "accepted_usd": 74600000000,
+        "month_end": true
+      },
+      {
+        "date": "2025-10-31",
+        "accepted_usd": 50350000000,
+        "month_end": true
+      },
+      {
+        "date": "2026-02-17",
+        "accepted_usd": 30500000000,
+        "month_end": false
+      },
+      {
+        "date": "2025-12-01",
+        "accepted_usd": 26000000000,
+        "month_end": false
+      },
+      {
+        "date": "2025-12-29",
+        "accepted_usd": 25950000000,
+        "month_end": false
+      }
+    ],
+    "latest_reg_repo": {
+      "date": "2026-11-27",
+      "accepted_usd": 23150000000
+    },
+    "primary_1bn": {
+      "n": 473,
+      "events": 36,
+      "event_rate_pct": 7.61,
+      "fixed": {
+        "alerts": 267,
+        "hits": 34,
+        "precision_pct": 12.73,
+        "recall_pct": 94.44
+      },
+      "rolling": {
+        "alerts": 25,
+        "hits": 14,
+        "precision_pct": 56,
+        "recall_pct": 38.89
+      },
+      "persistence": {
+        "alerts": 35,
+        "hits": 16,
+        "precision_pct": 45.71,
+        "recall_pct": 44.44
+      }
+    },
+    "ex_month_end_1bn": {
+      "n": 451,
+      "events": 30,
+      "event_rate_pct": 6.65,
+      "fixed": {
+        "alerts": 253,
+        "hits": 29,
+        "precision_pct": 11.46,
+        "recall_pct": 96.67
+      },
+      "rolling": {
+        "alerts": 23,
+        "hits": 12,
+        "precision_pct": 52.17,
+        "recall_pct": 40
+      },
+      "persistence": {
+        "alerts": 32,
+        "hits": 13,
+        "precision_pct": 40.62,
+        "recall_pct": 43.33
+      }
+    },
+    "sensitivity_5bn": {
+      "n": 473,
+      "events": 26,
+      "event_rate_pct": 5.5,
+      "fixed": {
+        "alerts": 267,
+        "hits": 25,
+        "precision_pct": 9.36,
+        "recall_pct": 96.15
+      },
+      "rolling": {
+        "alerts": 25,
+        "hits": 11,
+        "precision_pct": 44,
+        "recall_pct": 42.31
+      },
+      "persistence": {
+        "alerts": 25,
+        "hits": 8,
+        "precision_pct": 32,
+        "recall_pct": 30.77
+      }
+    },
+    "by_signal_year_1bn": {
+      "2025": {
+        "n": 249,
+        "events": 31,
+        "event_rate_pct": 12.45,
+        "fixed": {
+          "alerts": 69,
+          "hits": 29,
+          "precision_pct": 42.03,
+          "recall_pct": 93.55
+        },
+        "rolling": {
+          "alerts": 25,
+          "hits": 14,
+          "precision_pct": 56,
+          "recall_pct": 45.16
+        },
+        "persistence": {
+          "alerts": 30,
+          "hits": 16,
+          "precision_pct": 53.33,
+          "recall_pct": 51.61
+        }
+      },
+      "2026": {
+        "n": 224,
+        "events": 5,
+        "event_rate_pct": 2.23,
+        "fixed": {
+          "alerts": 198,
+          "hits": 5,
+          "precision_pct": 2.53,
+          "recall_pct": 100
+        },
+        "rolling": {
+          "alerts": 0,
+          "hits": 0,
+          "precision_pct": null,
+          "recall_pct": 0
+        },
+        "persistence": {
+          "alerts": 5,
+          "hits": 0,
+          "precision_pct": 0,
+          "recall_pct": 0
+        }
+      }
+    }
+  }
+}
