@@ -1,0 +1,106 @@
+{
+  "schema": "glt-ici-four-route-research-v1",
+  "transport": "Dot cloud direct HTTP (not GitHub Actions)",
+  "probed_at_utc": "2026-11-28T12:10:53Z",
+  "publisher_release_date": "2026-11-24",
+  "publisher_article_date_field": "2026-11-24T10:00:00Z",
+  "published_at": null,
+  "publication_note": "Scoped article time field; headers and rolling data do not prove first availability of these bytes.",
+  "frequency": "weekly",
+  "unit": "USD millions",
+  "eligible_for_official_score": false,
+  "matched_cells_per_route": 45,
+  "cell_conflicts": [],
+  "source_routes": [
+    {
+      "source_url": "https://www.ici.org/research/stats/etf_flows",
+      "status": 200,
+      "bytes": 354497,
+      "sha256": "1c5ebf3e7857c2bd96ca94ab813761a2c1d92c0b0740a25fa98e1e5c75d983b2",
+      "last_modified_header": "Fri, 27 Nov 2026 21:15:39 GMT"
+    },
+    {
+      "source_url": "https://www.ici.org/etf_flows_data_2026.xls",
+      "status": 200,
+      "bytes": 41472,
+      "sha256": "f7fd314c20b17223e7694efd0864a61a9f2ac8f0832160dbabc3c4ef575faeb0",
+      "last_modified_header": "Tue, 24 Nov 2026 15:04:26 GMT"
+    },
+    {
+      "source_url": "https://www.iciglobal.org/research/stats/etf_flows",
+      "status": 200,
+      "bytes": 354517,
+      "sha256": "13ae4405642f0e27062e3060fd98b08e1b7fbff2ac843e058830094aa0787a08",
+      "last_modified_header": "Fri, 27 Nov 2026 21:30:53 GMT"
+    },
+    {
+      "source_url": "https://www.iciglobal.org/etf_flows_data_2026.xls",
+      "status": 200,
+      "bytes": 41472,
+      "sha256": "f7fd314c20b17223e7694efd0864a61a9f2ac8f0832160dbabc3c4ef575faeb0",
+      "last_modified_header": "Tue, 24 Nov 2026 15:04:26 GMT"
+    }
+  ],
+  "observations": [
+    {
+      "week_ended": "2026-11-18",
+      "equity": 74800,
+      "us_equity_flow": 53322,
+      "world_equity": 21478,
+      "hybrid": -98,
+      "bond_flow": 1741,
+      "taxable_bond": 2223,
+      "municipal_bond": -482,
+      "commodity": 289,
+      "total": 76732
+    },
+    {
+      "week_ended": "2026-11-11",
+      "equity": 45222,
+      "us_equity_flow": 37060,
+      "world_equity": 8162,
+      "hybrid": 133,
+      "bond_flow": 11789,
+      "taxable_bond": 10126,
+      "municipal_bond": 1663,
+      "commodity": -228,
+      "total": 56915
+    },
+    {
+      "week_ended": "2026-11-04",
+      "equity": 35539,
+      "us_equity_flow": 30868,
+      "world_equity": 4671,
+      "hybrid": 271,
+      "bond_flow": 13889,
+      "taxable_bond": 12228,
+      "municipal_bond": 1660,
+      "commodity": 130,
+      "total": 49829
+    },
+    {
+      "week_ended": "2026-10-28",
+      "equity": 34221,
+      "us_equity_flow": 26586,
+      "world_equity": 7635,
+      "hybrid": -57,
+      "bond_flow": 14236,
+      "taxable_bond": 9375,
+      "municipal_bond": 4862,
+      "commodity": -1889,
+      "total": 46511
+    },
+    {
+      "week_ended": "2026-10-21",
+      "equity": 42264,
+      "us_equity_flow": 34579,
+      "world_equity": 7685,
+      "hybrid": 204,
+      "bond_flow": 10043,
+      "taxable_bond": 6294,
+      "municipal_bond": 3749,
+      "commodity": 691,
+      "total": 53202
+    }
+  ]
+}
