@@ -32,3 +32,13 @@
 11/28 08:08:17（00:08:17 UTC）两次计划时间均已过去，main 尚无当天证据写回：[当时可见的快照](https://github.com/glwxt/8799/blob/f593f28e5af1b86fe46d1139ef46e54c72789bc5/glt-global-liquidity-transmission/data/feeds/fred_latest.json)仍为 11/27 台湾时间 12:57:50、10/10、H.4.1 截至 11/18。11/28 报告及其实际截点尚未确认，暂不能判定两次是否均错过报告；若实际截点不晚于此次记录，即可确认当天截点前未写回。记录时未主动触发补采，以保留计划路径的真实验收结果。
 
 另核对到 07:37 的条件只检查 FRED；触发跳过时也会跳过 Treasury、TWSE、资金流和运维报告。不能以 FRED 成功证明其他采集齐全。独立调度验收应分别对账这些产物，不要求低频源每天发布新期，只检查采集尝试、来源的合理新鲜度和提交截点。
+
+### 第一天验收结果：08:23 截点未写回
+
+[11/28 原始早报](https://chatgpt.com/c/6b0066ec-a1ec-83ee-b623-7f8b094343a6?messageId=1116fc95-b88d-414f-9c80-a37e09a9a8c6)声明截点 08:23（00:23 UTC），本期仅在 ChatGPT 发布。报告第 7 节与[早报前仓库快照](https://github.com/glwxt/8799/blob/12b29139c549b1fabaf7bab0f2621ea0af2dbd33/glt-global-liquidity-transmission/data/feeds/fred_latest.json)均仍显示 11/27 12:57:50 批次。**07:10 和 07:37 均未在早报实际截点前写回，首日不通过。** 09:03 后复查仍为旧批次。两项定时运行的开始和写回时间尚未证实，不把“截点前未交付”表述为“工作流失败”或“从未运行”。早报可以独立核对原始 H.4.1，但并不改变本次采集验收。继续 11/29、11/30 比较。
+
+下期日报已加入分日期来源登记表与 Fed/TWSE/JPX/KRX/南向研究档案回查，仍需下一期实际报告验收。11/28 原报保留。覆盖变化更正：11/26 [评分器](https://github.com/glwxt/8799/blob/2b3c95193c1b34d3a620d76b933c7aa38832e326/glt-global-liquidity-transmission/data/feeds/monitor_status.md)及 11/27 [评分器](https://github.com/glwxt/8799/blob/a97cf0c03c0aaaed9ffa6cdf20cc26217aa10eb2/glt-global-liquidity-transmission/data/feeds/monitor_status.md)均将 VIX 判为陈旧；导致 5%→0% 的是高收益债利差：评分台账观察期为 11/19，年龄从 7 到 8 天，超过 7 天上限。原始采集表另有 11/24 值，但不是同一评分台账。正式分继续不发。另核对 [DGS10](https://fred.stlouisfed.org/data/DGS10) 和 [DFII10](https://fred.stlouisfed.org/data/DFII10)：11/25 同日分别 4.85% 和 2.73%，均较 11/24 低 6 个基点；差值仍为 2.12 个百分点。不同日期不配对。
+
+### 独立调度升级：待可用执行主机
+
+曾用于讨论 GLM 的东京 Ubuntu 主机仅是候选，目前未确认可用或接入。连接器未提供直接触发接口。建议在一个已批准、持续在线且独立于 GitHub cron 的环境中，用仅限本仓库 Actions 写权限的凭据调用 [workflow_dispatch](https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event)，固定工作流 `glt-fred-staging.yml` 和 `main`。可先做低风险手动验证：在验收窗口外触发一次，记录请求时间、返回的运行链接（若有）、runner 启动及落库；成功后再配置定时。建议先在原 07:10 主采集后验证是否已有当日 OK 10/10，且同批次的官方与 L4 产物均更新；任一缺失才触发，单日最多一次；不得将触发回执当成数据通过。外部调度绕过的是 GitHub 定时事件，依然依赖 GitHub runner。暂不更改现有两个计划或正式评分。不要把凭据交给聊天或写入仓库。
