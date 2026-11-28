@@ -1,0 +1,64 @@
+{
+  "schema": "glt-etf-issuer-creation-research-v1",
+  "observation_date": "2026-11-27",
+  "previous_us_session": "2026-11-25",
+  "verified_at_utc": "2026-11-28T04:06:48.570Z",
+  "first_publication_timestamp": null,
+  "eligible_for_official_score": false,
+  "rows": [
+    {
+      "ticker": "IBIT",
+      "scope": "bitcoin",
+      "prior_shares": 1324560000,
+      "shares": 1314840000,
+      "prior_nav_usd": 33.920643,
+      "nav_usd": 33.798957,
+      "issuer_source": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US&portfolioId=333011&component=fundDownload&userType=individual",
+      "sha256": "2535377247f14ef6f7d1ee8484f6ca7cd11bcfdd4e0dbbff0317748b16c8e9f6",
+      "estimated_creation_usd": -328525862.04
+    },
+    {
+      "ticker": "IVV",
+      "scope": "us_large_cap_equity",
+      "prior_shares": 1157650000,
+      "shares": 1158450000,
+      "prior_nav_usd": 719.874874,
+      "nav_usd": 731.388835,
+      "issuer_source": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US&portfolioId=239726&component=fundDownload&userType=individual",
+      "sha256": "b81cedcb1fb2dfcc995907e37f191b3629aed4e4bb80e367a2b7607c49059af6",
+      "estimated_creation_usd": 585111068
+    },
+    {
+      "ticker": "ITOT",
+      "scope": "us_total_equity",
+      "prior_shares": 587000000,
+      "shares": 588150000,
+      "prior_nav_usd": 156.62092,
+      "nav_usd": 159.148481,
+      "issuer_source": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US&portfolioId=239724&component=fundDownload&userType=individual",
+      "sha256": "a5d67a7dd1e362e9eee70a5a27eaba71fe906525305b48bce34c01c0510b153f",
+      "estimated_creation_usd": 183020753.15
+    },
+    {
+      "ticker": "NOBL",
+      "scope": "us_dividend_growth_equity",
+      "prior_shares": 202100000,
+      "shares": 202100000,
+      "prior_nav_usd": 60.7675,
+      "nav_usd": 61.0363,
+      "issuer_source": "https://accounts.profunds.com/etfdata/ByFund/NOBL-historical_nav.csv",
+      "sha256": "bb9be96096bed570d2bbc405cb9462d8aac6e1ebf23b5eb84c929a5bd59a8949",
+      "estimated_creation_usd": 0
+    }
+  ],
+  "calculation": "Change in shares outstanding × current issuer NAV at published precision, using adjacent rows; November 26 US Thanksgiving closure. Zero estimate from no share-count change is not source-reported cash flow.",
+  "controls": "iShares Historical worksheet read separately because document contains nonescaped ampersands outside that sheet. NOBL Prior NAV reconciles to previous row, and known May split lies outside this pilot. Fund-level creation/redemption estimates; cash vs in-kind and trade-date matching unverified. Do not impute IBIT into Farside or total together across assets.",
+  "farside_crosscheck": {
+    "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+    "ibit": null,
+    "reported_funds": 11,
+    "expected_funds": 12,
+    "partial_subtotal_usd": -61800000,
+    "full_total_usd": null
+  }
+}
