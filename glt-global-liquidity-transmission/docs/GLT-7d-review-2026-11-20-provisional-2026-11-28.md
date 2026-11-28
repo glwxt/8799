@@ -13,3 +13,9 @@
 核验：[FRED 标普 500](https://fred.stlouisfed.org/data/SP500) · [AP 11/27 报价](https://apnews.com/article/04dab6079cf7f3dfe7285a3cc1f240a2) · [NYSE 交易时间](https://www.nyse.com/trade/hours-calendars) · [CME 黄金合约日历](https://www.cmegroup.com/markets/metals/precious/gold/calendar) · [CME 金属公报](https://www.cmegroup.com/daily_bulletin/current/Section62_Metals_Futures_Products.pdf)。
 
 另据 [Farside](https://farside.co.uk/bitcoin-etf-flow-all-data/)，11/27 查得 5/12 只基金，合计 −41.0 百万美元（已披露小计，非全市场）；7 只缺报留空。最新完整日仍为 11/25，−453.0 百万美元。该行不参与上表命中判定。
+
+## 11/28 后续：黄金终点由 CME 双重核实
+
+[CME 日期结算 JSON](https://www.cmegroup.com/CmeWS/mvc/Settlements/Futures/Settlements/437/FUT?tradeDate=11%2F27%2F2026&pageSize=500&isProtected) 显示交易日 11/27/2026、报告 Final、DEC 26 (GCZ26) 结算 **3,639.60**，FEB 27 (GCG27) 单独为 3,668.50。[CME Clearing 交割通知](https://www.cmegroup.com/delivery_reports/MetalsIssuesAndStopsReport.pdf)的业务日 11/27/2026 也注明 DECEMBER 2026 COMEX 100 GOLD FUTURES 为 3,639.60；书面 (结算日期不同于所示的 12/01/2026 交割日期)。
+
+与原简报锁定的 3,685.50 比较，变动 **-1.2454%**，偏空方向一致。该结论采用同到期月终点和原文基准，未能重新下载基准日 CME 文件，不宣称双端均由交易所复验。原七天窗口无专属中性区间，记为**方向一致**，不导入 24 小时阈值，也不填正式命中率。CME 终点在原早报之后才由本项目核实，不回填历史早报。源哈希：结算 JSON `1789b1c302bafaa70220208144ebbd57d59b2898b249b15581dfd637bbdf1866`；业务日 PDF `96204fb66968cec7119e4dc092446cfa162c1e78dd0f2a3738d1757f037d2aa0`。不将尚未读取的 Metals Bulletin 当证据。
