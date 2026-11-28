@@ -44,3 +44,14 @@
 曾用于讨论 GLM 的东京 Ubuntu 主机仅是候选，目前未确认可用或接入。连接器未提供直接触发接口。建议在一个已批准、持续在线且独立于 GitHub cron 的环境中，用仅限本仓库 Actions 写权限的凭据调用 [workflow_dispatch](https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event)，固定工作流 `glt-fred-staging.yml` 和 `main`。可先做低风险手动验证：在验收窗口外触发一次，记录请求时间、返回的运行链接（若有）、runner 启动及落库；成功后再配置定时。建议先在原 07:10 主采集后验证是否已有当日 OK 10/10，且同批次的官方与 L4 产物均更新；任一缺失才触发，单日最多一次；不得将触发回执当成数据通过。外部调度绕过的是 GitHub 定时事件，依然依赖 GitHub runner。暂不更改现有两个计划或正式评分。不要把凭据交给聊天或写入仓库。
 
 11/28 例行验收于台湾时间 10:09:42 复读 main：仍是 11/27 12:57:50、OK 10/10 的旧批次，三条 H.4.1 观察日均为 11/18（准备金 2,979,656、总资产 6,741,452、互换 146，百万美元），与 11/25 新一期均不符。公开 Actions 列表仍仅到 11/27 第 21 次，现有证据无法确认当日两个 runner 或写回时点；同日若后来补收仍记晚于早报。首日未达标，保持其余两天的验收。
+
+### 第一天后到记录：两项都启动，下午才取得新一期
+
+| 计划（台湾） | Runner 实际启动（台湾） | 取数与写回（台湾） | 日报时效 |
+| --- | --- | --- | --- |
+| 07:10 主采集 | 12:42:18；[运行 #22](https://github.com/glwxt/8799/actions/runs/46108770729) | 12:42:21 取数；12:42:51 写回 [11d71f3](https://github.com/glwxt/8799/commit/11d71f3aace139391ae6e83fab7249c340036da9) | 约晚于 08:23 截点 4 小时 20 分 |
+| 07:37 补采 | 12:56:30；[运行 #23](https://github.com/glwxt/8799/actions/runs/46109817443) | 12:56:31 确认主采集已在 main，按条件跳过；未再次取数和写回 | 仍未将证据送达早报 |
+
+两次开工各晚约 5 小时 32 分、5 小时 19 分。主采集开工到写回约 33 秒，可判定主要延迟发生在运行之前，不能据此区分定时事件生成与 runner 排队。普通 Actions 列表可能有滞后，优先用[已筛选列表](https://github.com/glwxt/8799/actions/workflows/glt-fred-staging.yml?query=event%3Aschedule)定位后读 runner 日志、读回提交。
+
+后到批次 OK 10/10；准备金周均 2,963,667、Fed 周三资产 6,732,044、周三互换 145，三项均为 11/25 且与官方公报一致（百万美元）。[官方补充](https://github.com/glwxt/8799/blob/11d71f3aace139391ae6e83fab7249c340036da9/glt-global-liquidity-transmission/data/feeds/official_latest.json)的 11/25 DTS 财政部现金期末余额为 923,563 百万美元，较 11/24 减 34,827，和 Fed H.4.1 周三点一致，不是 902,038 的周均值；TWSE 11/27 净卖出 29,628,066,640 TWD 与归档一致。[资金流快照](https://github.com/glwxt/8799/blob/11d71f3aace139391ae6e83fab7249c340036da9/glt-global-liquidity-transmission/data/feeds/l4_scheduled_latest.json)已实采 JPX 11/16–20 周、与独立归档文件哈希相同，净流 −923,058,678,000 JPY；Farside 保留 11/12 已报小计 −61.8 百万美元及空的完整总额；ICI 仍为 403。新文只供后续报告，不回填 08:23 快照；首日时效失败不变。评分器有效输入 13%、可计分 0%，持续停发正式分。
