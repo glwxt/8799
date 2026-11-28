@@ -73,3 +73,5 @@
 - 台湾时间 11/30 09:05，[日本央行](https://www.boj.or.jp/en/about/calendar/)计划发布植田和男名古屋演讲；若晚于事先确定的早报截点，只列预告，不作早报事实。09:27 Muse 同步是另一个交付验收，不替代报告截点或证券数据发布时刻。
 - 台湾时间 12/01 08:30，日本、台湾及韩国制造业 PMI 同时公布，09:45 中国 RatingDog 制造业 PMI，见 [S&P Global 原始日历](https://www.pmi.spglobal.com/Public/Home/PDF/UK_Rel_Dates)。仅在各期实际公布且落在报告截点内再引用。韩国 11 月整月贸易预计 12/01 08:00，时刻来自[路透](https://www.reuters.com/world/asia-pacific/south-korea-november-exports-seen-posting-fastest-growth-over-50-years-ai-chip-2026-11-27/)，待正式整月数据确认；[韩国海关 11/1–20 初值](https://customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10184283&nttSnUrl=5b141dccc13a13335fe32982d23af29d)显示出口 774 亿美元（同比 +101.5%），其中半导体 385 亿美元。[韩国央行](https://www.bok.or.kr/eng/bbs/E0000627/view.do?menuNo=400022&nttId=11067085) 11/26 升息 25 基点至 3.25%。初值和政策仅为背景，不代表全月数据，也不归因为 KRX 外资买卖的单一原因。
 - 台湾时间 12/01 23:00，[ISM 制造业 PMI](https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar)与 JOLTS 同时发布，观察时区分两个数据相对预期的变化，不将即时市场波动完全归给其中一项；ISM 服务业为 12/03 23:00。
+
+[黄金发行人双基金对照及融资来源](GLT-gold-flow-and-funding-sources-2026-11-28.md)：11/25 两基金份额估算方向不同，11/27 GLD 尚缺；首发时点仍未验证。OFR 融资背景序列已实采并复核，不能替代欧元与日元同期限市场基差。保持第 2、3、5、7 步原验收要求。
