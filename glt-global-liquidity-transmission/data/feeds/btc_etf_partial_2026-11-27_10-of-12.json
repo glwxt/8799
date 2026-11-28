@@ -1,0 +1,36 @@
+{
+  "schema": "glt-btc-etf-partial-research-v1",
+  "observation_date": "2026-11-27",
+  "observed_at_utc": "2026-11-28T02:08:12.678Z",
+  "first_publication_timestamp": null,
+  "source": "Farside Investors",
+  "source_url": "https://farside.co.uk/bitcoin-etf-flow-all-data/",
+  "unit": "million USD",
+  "reported_funds": 10,
+  "expected_funds": 12,
+  "partial_subtotal": -61.8,
+  "complete_total": null,
+  "formal_scoring_eligible": false,
+  "flows": {
+    "IBIT": null,
+    "FBTC": -20.8,
+    "BITB": -12.3,
+    "ARKB": -5.7,
+    "BTCO": null,
+    "EZBC": 0,
+    "BRRR": 0,
+    "HODL": 0,
+    "BTCW": 0,
+    "MSBT": 0,
+    "GBTC": -23,
+    "BTC": 0
+  },
+  "previous_observed_partial": {
+    "reported_funds": 5,
+    "subtotal": -41
+  },
+  "latest_confirmed_complete": {
+    "date": "2026-11-25",
+    "total": -453
+  }
+}
