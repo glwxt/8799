@@ -1,0 +1,73 @@
+{
+  "schema": "glt-gold-issuer-creation-research-v1",
+  "verified_at_utc": "2026-11-28T10:05:08Z",
+  "first_publication_timestamp": null,
+  "eligible_for_official_score": false,
+  "period": "2026-11-23 through 2026-11-27",
+  "meaning": "Research estimates from shares outstanding change times current issuer NAV, not reported cash flows. GLD only has reconstructed shares from AUM / NAV (validated against SEC on 11/23), not original values released in the share field. No aggregate when any fund is missing. No first-publication times asserted.",
+  "issuer_sources": {
+    "IAU": {
+      "type": "BlackRock Historical worksheet, explicit shares outstanding",
+      "url": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US&portfolioId=239561&component=fundDownload&userType=individual",
+      "sha256": "81cbeaff12fb316f693d088c8d36cd8f862bd9c0de2a5468368f5a361f91ecc0",
+      "observed_at_utc": "2026-11-28T10:05:08Z"
+    },
+    "GLD": {
+      "type": "Historical Archive plus SEC 10-K one-date independent share-count control",
+      "url": "https://api.spdrgoldshares.com/api/v1/historical-archive?exchange=NYSE&lang=en&product=gld",
+      "sha256": "4e04cec2c1efbfee26a746960c2128b56d86f2b21e2a47b92b362c851bc28279",
+      "observed_at_utc": "2026-11-28T10:05:05Z",
+      "last_usable_trade_date": "2026-11-25",
+      "sec_source": "https://www.sec.gov/Archives/edgar/data/1222333/000143774926038190/gld20260930_10k.htm",
+      "normal_explicit_shares_update_windows_new_york": [
+        "10:30–10:45",
+        "16:00–16:45"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "date": "2026-11-24",
+      "previous": "2026-11-23",
+      "IAU": {
+        "share_change": 0,
+        "estimated_creation_usd": 0,
+        "reported_actual_flow_usd": null
+      },
+      "GLD": {
+        "estimated_share_change": -1400000,
+        "estimated_creation_usd": -464775918.6,
+        "reported_actual_flow_usd": null
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "previous": "2026-11-24",
+      "IAU": {
+        "share_change": -500000,
+        "estimated_creation_usd": -32563136,
+        "reported_actual_flow_usd": null
+      },
+      "GLD": {
+        "estimated_share_change": 200000,
+        "estimated_creation_usd": 63515446.2,
+        "reported_actual_flow_usd": null
+      }
+    },
+    {
+      "date": "2026-11-27",
+      "previous": "2026-11-25",
+      "IAU": {
+        "share_change": -500000,
+        "estimated_creation_usd": -34142606.5,
+        "reported_actual_flow_usd": null
+      },
+      "GLD": {
+        "estimated_share_change": null,
+        "estimated_creation_usd": null,
+        "reported_actual_flow_usd": null
+      }
+    }
+  ],
+  "control": "On Nov 23 GLD NAV-derived shares match 361.8m in SEC filing within less than one share; Nov 24 and 25 rounded to nearest 100,000 share basket only after quotient residual below one share. Nov 26 exchange holiday, not a flow observation. No copied issuer workbook or full series."
+}
