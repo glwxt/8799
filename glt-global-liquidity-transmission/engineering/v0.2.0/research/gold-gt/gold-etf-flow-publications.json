@@ -56,7 +56,8 @@
       ],
       "key_us_sample_net_flow": 2073.1,
       "revision_status": "publisher PDF as retrieved; first availability of this PDF version and later changes not verified",
-      "point_in_time_note": "PDF creation metadata is later than article timestamp; do not use article time as this vintage's availability."
+      "point_in_time_note": "PDF creation metadata is later than article timestamp; do not use article time as this vintage's availability.",
+      "pdf_embedded_modified_at": "2026-09-07T15:29:57Z"
     },
     {
       "period_end": "2026-09-11",
@@ -111,7 +112,8 @@
       ],
       "key_us_sample_net_flow": -191.4,
       "revision_status": "publisher PDF as retrieved; first availability of this PDF version and later changes not verified",
-      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version.",
+      "pdf_embedded_modified_at": "2026-09-14T09:38:49Z"
     },
     {
       "period_end": "2026-09-18",
@@ -159,7 +161,12 @@
         }
       ],
       "key_us_sample_net_flow": 2157.3,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "eea98905ff5175e95536a5bdc7ecf168e99096e76bfbc1b1ef9e8b93e7a131d5",
+      "pdf_embedded_created_at": "2026-09-21T10:40:47Z",
+      "pdf_embedded_modified_at": "2026-09-21T10:40:47Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-09-25",
@@ -207,7 +214,12 @@
         }
       ],
       "key_us_sample_net_flow": -688.9,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "2a1c5127e5c95f03cd130b06ede04614b868b600dfd2f71d7ddd10260c5c228c",
+      "pdf_embedded_created_at": "2026-09-28T11:28:30Z",
+      "pdf_embedded_modified_at": "2026-09-28T11:33:32Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "PDF creation or modification metadata is later than article timestamp; do not use article time as this vintage's availability."
     },
     {
       "period_end": "2026-10-02",
@@ -255,7 +267,12 @@
         }
       ],
       "key_us_sample_net_flow": 643.2,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "b55b65299387b5b01f9e5232fe6595503e616960bf3a4dee1ec0b34137d2386b",
+      "pdf_embedded_created_at": "2026-10-05T09:21:20Z",
+      "pdf_embedded_modified_at": "2026-10-05T09:21:20Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-10-09",
@@ -303,7 +320,12 @@
         }
       ],
       "key_us_sample_net_flow": -127.1,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "77a1270cf86312a4f3f58b006491547faf5ad87ba7239f5da91253372c2a0c36",
+      "pdf_embedded_created_at": "2026-10-13T10:20:50Z",
+      "pdf_embedded_modified_at": "2026-10-13T10:20:50Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-10-16",
@@ -351,7 +373,12 @@
         }
       ],
       "key_us_sample_net_flow": 992.1,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "eb2402469f198c4ae7e883b592e9825ce9027ce9fae47328b0076382560503ae",
+      "pdf_embedded_created_at": "2026-10-19T10:25:16Z",
+      "pdf_embedded_modified_at": "2026-10-19T10:25:16Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-10-23",
@@ -399,7 +426,12 @@
         }
       ],
       "key_us_sample_net_flow": -1712.1,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "187d0f8f7f2b0be8d73079e30f445d734d777475cd476f15112130251880f2aa",
+      "pdf_embedded_created_at": "2026-10-26T11:41:30Z",
+      "pdf_embedded_modified_at": "2026-10-26T11:41:30Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-10-30",
@@ -407,7 +439,7 @@
       "publication_time_source": "publisher page JSON-LD datePublished",
       "release_url": "https://www.gold.org/goldhub/gold-focus/2026/11/weekly-markets-monitor-leveraged-repricers",
       "source_pdf": "https://www.gold.org/download/file/21327/WMM_2_Nov_2026_Leveraged_Repricers.pdf",
-      "page": 17,
+      "page": 18,
       "frequency": "weekly",
       "unit": "USD millions",
       "reported_global_net_flow": 215.2,
@@ -445,7 +477,16 @@
         }
       ],
       "key_us_sample_net_flow": 51.5,
-      "revision_status": "publisher report as retrieved; later changes not verified"
+      "revision_status": "publisher report as retrieved; later changes not verified",
+      "source_pdf_sha256": "f49e74539e47acb1c687e69ebf51b22e38eb55097917c5585dfd495691f6e7f4",
+      "pdf_embedded_created_at": "2026-11-02T10:25:07Z",
+      "pdf_embedded_modified_at": "2026-11-02T10:25:07Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version.",
+      "wgc_complete_funds": 82,
+      "wgc_incomplete_funds": 119,
+      "reported_global_inflows": 1397.5,
+      "reported_global_outflows": -1182.3
     },
     {
       "period_end": "2026-11-06",
@@ -493,7 +534,12 @@
       "revision_status": "publisher report as retrieved; later changes not verified",
       "wgc_complete_aum_pct": 74.6,
       "wgc_complete_funds": 82,
-      "wgc_incomplete_funds": 119
+      "wgc_incomplete_funds": 119,
+      "source_pdf_sha256": "58551cba709d62178aa3669071c02272aa6fe5b275ddb3f26d0cc34ccd4e771b",
+      "pdf_embedded_created_at": "2026-11-09T09:41:51Z",
+      "pdf_embedded_modified_at": "2026-11-09T09:41:51Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-11-13",
@@ -541,7 +587,12 @@
       "revision_status": "publisher report as retrieved; later changes not verified",
       "wgc_complete_aum_pct": 88.1,
       "wgc_complete_funds": 118,
-      "wgc_incomplete_funds": 83
+      "wgc_incomplete_funds": 83,
+      "source_pdf_sha256": "434c0f039270eab80a96ee3fed910ccfb67e5b88e5ded076433581fdf05b4ec3",
+      "pdf_embedded_created_at": "2026-11-16T11:25:58Z",
+      "pdf_embedded_modified_at": "2026-11-16T11:25:58Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     },
     {
       "period_end": "2026-11-20",
@@ -589,7 +640,12 @@
       "revision_status": "publisher report as retrieved; later changes not verified",
       "wgc_complete_aum_pct": 62.2,
       "wgc_complete_funds": 80,
-      "wgc_incomplete_funds": 121
+      "wgc_incomplete_funds": 121,
+      "source_pdf_sha256": "1093a5c4c8b890387318df7fc77c98585cd7b5da44b6882973be270eae9ffb0c",
+      "pdf_embedded_created_at": "2026-11-23T10:12:25Z",
+      "pdf_embedded_modified_at": "2026-11-23T10:12:25Z",
+      "pdf_first_available_at": null,
+      "point_in_time_note": "Article timestamp is not proof of first availability of this PDF version."
     }
   ],
   "monthly": [
@@ -857,5 +913,6 @@
       "source_url": "https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/11",
       "revision_status": "publisher report as retrieved; later changes not verified"
     }
-  ]
+  ],
+  "weekly_point_in_time_policy": "published_at is article JSON-LD only. Embedded PDF metadata is a version check, not a public availability timestamp. A null pdf_first_available_at cannot qualify for exact-cutoff backtests."
 }
