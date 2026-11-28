@@ -331,6 +331,41 @@ def collect_wgc(started_at, raw_dir):
     return url, raw, row
 
 
+def previous_wgc_rows(output):
+    """Only reuse already verified timestamps, not older generic retrieval times."""
+    try:
+        rows = json.loads(output.read_text(encoding="utf-8")).get("wgc_recent_verified_versions", [])
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return []
+    required = {"indicator", "observation_date", "sha256", "pdf_first_verified_at"}
+    return ([row for row in rows if isinstance(row, dict) and required <= row.keys()][:8]
+            if isinstance(rows, list) else [])
+
+
+def wgc_vintage_metadata(observation, raw, verified_at, previous):
+    """A publisher's article timestamp is not this PDF version's first availability."""
+    digest = hashlib.sha256(raw).hexdigest()
+    first_verified = verified_at
+    for row in previous:
+        if (not isinstance(row, dict) or row.get("indicator") != "gold_flow"
+                or row.get("observation_date") != observation["observation_date"]
+                or row.get("sha256") != digest):
+            continue
+        try:
+            candidate = datetime.fromisoformat(row["pdf_first_verified_at"].replace("Z", "+00:00"))
+            article = datetime.fromisoformat(observation["published_at"].replace("Z", "+00:00"))
+            if candidate.tzinfo is not None and article <= candidate <= verified_at:
+                first_verified = min(first_verified, candidate)
+        except (AttributeError, KeyError, TypeError, ValueError):
+            pass
+    return {
+        "article_published_at": observation["published_at"],
+        "pdf_first_available_at": None,
+        "pdf_first_verified_at": first_verified.astimezone(timezone.utc).isoformat(),
+        "pdf_timing_note": "First successful retrieval and validation for this exact SHA-256 observed by this collector, not source first publication.",
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -340,6 +375,7 @@ def main():
     start = datetime.now(timezone.utc)
     today = start.astimezone(ZoneInfo("America/New_York")).date()
     observations, errors = [], {}
+    previous = previous_wgc_rows(args.output)
     for name, url, parse in (("farside", BTC, bitcoin), ("ici", ICI, issuance)):
         try:
             try:
@@ -363,14 +399,24 @@ def main():
     for name, collect in (("jpx", collect_jpx), ("wgc", collect_wgc)):
         try:
             url, raw, observation = collect(start, args.raw_dir)
-            observations.append(dict(observation, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
-                                     retrieved_at=datetime.now(timezone.utc).isoformat()))
+            verified_at = datetime.now(timezone.utc)
+            metadata = wgc_vintage_metadata(observation, raw, verified_at, previous) if name == "wgc" else {}
+            row = dict(observation, source_url=url, sha256=hashlib.sha256(raw).hexdigest(),
+                       retrieved_at=verified_at.isoformat(), **metadata)
+            observations.append(row)
+            if name == "wgc":
+                version = {field: row[field] for field in
+                           ("indicator", "observation_date", "sha256", "pdf_first_verified_at")}
+                previous = [version] + [p for p in previous
+                                        if (p["observation_date"], p["sha256"])
+                                        != (version["observation_date"], version["sha256"])]
         except (OSError, ValueError, KeyError, IndexError, StopIteration, ImportError,
                 subprocess.SubprocessError) as error:
             errors[name] = f"{type(error).__name__}: {error}"
     result = {
         "schema": "glt-l4-scheduled-evidence-v1", "started_at": start.isoformat(),
         "eligible_for_official_score": False, "observations": observations, "errors": errors,
+        "wgc_recent_verified_versions": previous[:8],
     }
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Funds-flow evidence: {len(observations)} observations, {len(errors)} source errors")
